@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MiniBlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mba-lo-wd8">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Yha-vJ-QK5">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="koY-16-kJX">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="550"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACz-js-MGU">
+                                                <rect key="frame" x="300" y="0.0" width="300" height="550"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRi-hW-dIl">
+                                        <rect key="frame" x="0.0" y="550" width="600" height="30"/>
+                                        <state key="normal" title="Play game"/>
+                                        <connections>
+                                            <action selector="playGameButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HPT-be-mrB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mba-lo-wd8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5YB-pD-OEt"/>
+                            <constraint firstItem="Mba-lo-wd8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="X49-9b-EoC"/>
+                            <constraint firstAttribute="trailing" secondItem="Mba-lo-wd8" secondAttribute="trailing" id="Zfr-tt-day"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mba-lo-wd8" secondAttribute="bottom" id="y7c-nu-PgB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="computerCardImageView" destination="ACz-js-MGU" id="hMF-LG-9w3"/>
+                        <outlet property="playerCardImageView" destination="koY-16-kJX" id="gfc-59-GtQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
