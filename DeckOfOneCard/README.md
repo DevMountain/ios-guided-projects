@@ -4,8 +4,7 @@ DeckOfOneCard lets students practice using closure syntax, network API documenta
 
 # Suggested breakdown for DeckOfOneCard
 
-Please show the finished product to students first so they know what they are building.
-
+1. Show students the final product first so they know what they are working toward.
 1. Set up the view in storyboard, explaining your constraints.
 2. Create your view controller subclasses, create your outlets and actions.
 3. Review deckofcardsapi.com with your students so they know what to include on their model object.

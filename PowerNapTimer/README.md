@@ -4,6 +4,7 @@ PowerNapTimer is designed to have students practice implementing timer logic, NS
 
 # Suggested breakdown for PowerNapTimer
 
+1. Show students the final product first so they know what they are working toward.
 1. Set up the view in storyboard. You will need to put a label and a button into a stack view. Make sure students understand how stack views work and understand the constraints you are using. Create a view controller file if necessary and create outlets for your label and button, and create an action for your button.
 2. Show proper MVC architecture by creating a Timer class and a TimerController class. Fill in the properties and initializer(s) needed for the Timer class and help students understand why each is needed.
 3. Create the properties and method signatures for your TimerController class and help students understand why each is needed.

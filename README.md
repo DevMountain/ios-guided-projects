@@ -1,6 +1,7 @@
 # General Guidelines for Guided Projects
 
 * Be aware of the lesson objectives and **_prepare ahead of time_**
+* Show students the final product first so that they know what they are working toward.
 * The project should be broken into small segments (typically something you can do in less than two minutes on your own, i.e. set up view hierarchy in storyboards, create files for models and controllers, implement model, write function headers for model controllers, etc.). In later units there may be initial setup that students can do more independently.
 * Each segment should be completed following the "I do, you do, we do" pattern:
   1. Instructor completes the small segment while students *observe only*

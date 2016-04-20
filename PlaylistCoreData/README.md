@@ -6,6 +6,7 @@ PlaylistCoreData is designed to help have students practice using Core Data and 
 
 *Start this project from PlaylistNSUserDefaults, not from scratch*
 
+1. Show students the final product first so they know what they are working toward.
 1. Talk a little bit about the pros and cons of CoreData vs NSUserDefaults.
 2. Discuss the Stack (PersistentStoreCoordinator, ManagedObjectContext, Model) - ask about what they know from the video - Maybe draw it out.
 3. Give them the stack file and walk through it with them. Maybe look at some documentation with them or have them look at documentaion. Then have them walk through it with the person sitting next to them to see if they can explain what each portion is doing. 

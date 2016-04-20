@@ -6,6 +6,7 @@ PlaylistNSUserDefaults is designed to help have students practice converting mod
 
 *Start this project from Playlist (the version without persistence), not from scratch*
 
+1. Show students the final product first so they know what they are working toward.
 1. Take a few minutes to go over the version without persistence and make sure everyone understands things like `prepareForSegue`.
 2. Have students look at NSUserDefaults documentation and discuss with each other how it works and what objects it can store. This should help them reinforce the idea that you cannot store your custom objects "as-is".
 4. Plan our the new methods you will need to store and load data.

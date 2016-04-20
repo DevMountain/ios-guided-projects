@@ -6,6 +6,7 @@ NSNotifications is designed to help students transfer information between classe
 
 This project can be relatively short, so please make sure students understand every line of code.
 
+1. Show students the final product first so they know what they are working toward.
 1. Set up the view in storyboard, explaining your constraints.
 2. Create your view controller subclasses, create your outlets and actions.
 3. Create an appearance controller with a static function that sets the universal appearance of the app. Call it somewhere and run the app to show students what it does.
