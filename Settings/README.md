@@ -6,6 +6,7 @@ Settings is a project designed to help students practice working with intermedia
 
 Before starting, make sure everyone has the images they need.
 
+1. Show students the final product first so they know what they are working toward.
 1. Set up the view in storyboard (without creating the custom cell yet) and create your view controller file. Do not use a UITableViewController because we want to show how to make an external data source later.
 2. Create your custom cell in storyboard, explaining your constraints along the way.
 3. Explain that all UIViews, including UITableViewCells, are just classes. Just like we subclass UIViewController to make more specific view controllers, we can subclass UITableViewCells to make more specific cells. Create your custom class and make sure your prototype cell is of that class. Create your outlets and actions.
