@@ -40,16 +40,16 @@
 /* Begin PBXFileReference section */
 		1A4A22D51CC6DBC8003A4350 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		1A4A22D71CC6DCB1003A4350 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		8320CD191C70190400199F19 /* CoreDataMiniProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataMiniProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8320CD191C70190400199F19 /* Playlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8320CD1C1C70190400199F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8320CD211C70190400199F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8320CD231C70190400199F19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8320CD261C70190400199F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8320CD281C70190400199F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8320CD2D1C70190400199F19 /* CoreDataMiniProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataMiniProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8320CD2D1C70190400199F19 /* Playlist.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Playlist.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8320CD311C70190400199F19 /* CoreDataMiniProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMiniProjectTests.swift; sourceTree = "<group>"; };
 		8320CD331C70190400199F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8320CD381C70190400199F19 /* CoreDataMiniProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataMiniProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8320CD381C70190400199F19 /* Playlist.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Playlist.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8320CD3C1C70190400199F19 /* CoreDataMiniProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMiniProjectUITests.swift; sourceTree = "<group>"; };
 		8320CD3E1C70190400199F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8320CD581C702B2F00199F19 /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
@@ -95,9 +95,9 @@
 		8320CD1A1C70190400199F19 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8320CD191C70190400199F19 /* CoreDataMiniProject.app */,
-				8320CD2D1C70190400199F19 /* CoreDataMiniProjectTests.xctest */,
-				8320CD381C70190400199F19 /* CoreDataMiniProjectUITests.xctest */,
+				8320CD191C70190400199F19 /* Playlist.app */,
+				8320CD2D1C70190400199F19 /* Playlist.xctest */,
+				8320CD381C70190400199F19 /* Playlist.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8320CD181C70190400199F19 /* CoreDataMiniProject */ = {
+		8320CD181C70190400199F19 /* Playlist */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8320CD411C70190400199F19 /* Build configuration list for PBXNativeTarget "CoreDataMiniProject" */;
+			buildConfigurationList = 8320CD411C70190400199F19 /* Build configuration list for PBXNativeTarget "Playlist" */;
 			buildPhases = (
 				8320CD151C70190400199F19 /* Sources */,
 				8320CD161C70190400199F19 /* Frameworks */,
@@ -161,14 +161,14 @@
 			);
 			dependencies = (
 			);
-			name = CoreDataMiniProject;
+			name = Playlist;
 			productName = CoreDataMiniProject;
-			productReference = 8320CD191C70190400199F19 /* CoreDataMiniProject.app */;
+			productReference = 8320CD191C70190400199F19 /* Playlist.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8320CD2C1C70190400199F19 /* CoreDataMiniProjectTests */ = {
+		8320CD2C1C70190400199F19 /* PlaylistTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8320CD441C70190400199F19 /* Build configuration list for PBXNativeTarget "CoreDataMiniProjectTests" */;
+			buildConfigurationList = 8320CD441C70190400199F19 /* Build configuration list for PBXNativeTarget "PlaylistTests" */;
 			buildPhases = (
 				8320CD291C70190400199F19 /* Sources */,
 				8320CD2A1C70190400199F19 /* Frameworks */,
@@ -179,14 +179,14 @@
 			dependencies = (
 				8320CD2F1C70190400199F19 /* PBXTargetDependency */,
 			);
-			name = CoreDataMiniProjectTests;
+			name = PlaylistTests;
 			productName = CoreDataMiniProjectTests;
-			productReference = 8320CD2D1C70190400199F19 /* CoreDataMiniProjectTests.xctest */;
+			productReference = 8320CD2D1C70190400199F19 /* Playlist.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8320CD371C70190400199F19 /* CoreDataMiniProjectUITests */ = {
+		8320CD371C70190400199F19 /* PlaylistUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8320CD471C70190400199F19 /* Build configuration list for PBXNativeTarget "CoreDataMiniProjectUITests" */;
+			buildConfigurationList = 8320CD471C70190400199F19 /* Build configuration list for PBXNativeTarget "PlaylistUITests" */;
 			buildPhases = (
 				8320CD341C70190400199F19 /* Sources */,
 				8320CD351C70190400199F19 /* Frameworks */,
@@ -197,9 +197,9 @@
 			dependencies = (
 				8320CD3A1C70190400199F19 /* PBXTargetDependency */,
 			);
-			name = CoreDataMiniProjectUITests;
+			name = PlaylistUITests;
 			productName = CoreDataMiniProjectUITests;
-			productReference = 8320CD381C70190400199F19 /* CoreDataMiniProjectUITests.xctest */;
+			productReference = 8320CD381C70190400199F19 /* Playlist.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -225,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8320CD141C70190400199F19 /* Build configuration list for PBXProject "CoreDataMiniProject" */;
+			buildConfigurationList = 8320CD141C70190400199F19 /* Build configuration list for PBXProject "Playlist" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -238,9 +238,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8320CD181C70190400199F19 /* CoreDataMiniProject */,
-				8320CD2C1C70190400199F19 /* CoreDataMiniProjectTests */,
-				8320CD371C70190400199F19 /* CoreDataMiniProjectUITests */,
+				8320CD181C70190400199F19 /* Playlist */,
+				8320CD2C1C70190400199F19 /* PlaylistTests */,
+				8320CD371C70190400199F19 /* PlaylistUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -307,12 +307,12 @@
 /* Begin PBXTargetDependency section */
 		8320CD2F1C70190400199F19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8320CD181C70190400199F19 /* CoreDataMiniProject */;
+			target = 8320CD181C70190400199F19 /* Playlist */;
 			targetProxy = 8320CD2E1C70190400199F19 /* PBXContainerItemProxy */;
 		};
 		8320CD3A1C70190400199F19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8320CD181C70190400199F19 /* CoreDataMiniProject */;
+			target = 8320CD181C70190400199F19 /* Playlist */;
 			targetProxy = 8320CD391C70190400199F19 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -427,7 +427,7 @@
 				INFOPLIST_FILE = CoreDataMiniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevMtn.CoreDataMiniProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Playlist;
 			};
 			name = Debug;
 		};
@@ -438,7 +438,7 @@
 				INFOPLIST_FILE = CoreDataMiniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevMtn.CoreDataMiniProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Playlist;
 			};
 			name = Release;
 		};
@@ -449,8 +449,8 @@
 				INFOPLIST_FILE = CoreDataMiniProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevMtn.CoreDataMiniProjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreDataMiniProject.app/CoreDataMiniProject";
+				PRODUCT_NAME = Playlist;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Playlist.app/Playlist";
 			};
 			name = Debug;
 		};
@@ -461,8 +461,8 @@
 				INFOPLIST_FILE = CoreDataMiniProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevMtn.CoreDataMiniProjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreDataMiniProject.app/CoreDataMiniProject";
+				PRODUCT_NAME = Playlist;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Playlist.app/Playlist";
 			};
 			name = Release;
 		};
@@ -472,7 +472,7 @@
 				INFOPLIST_FILE = CoreDataMiniProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevMtn.CoreDataMiniProjectUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Playlist;
 				TEST_TARGET_NAME = CoreDataMiniProject;
 				USES_XCTRUNNER = YES;
 			};
@@ -484,7 +484,7 @@
 				INFOPLIST_FILE = CoreDataMiniProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevMtn.CoreDataMiniProjectUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Playlist;
 				TEST_TARGET_NAME = CoreDataMiniProject;
 				USES_XCTRUNNER = YES;
 			};
@@ -493,7 +493,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8320CD141C70190400199F19 /* Build configuration list for PBXProject "CoreDataMiniProject" */ = {
+		8320CD141C70190400199F19 /* Build configuration list for PBXProject "Playlist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8320CD3F1C70190400199F19 /* Debug */,
@@ -502,7 +502,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8320CD411C70190400199F19 /* Build configuration list for PBXNativeTarget "CoreDataMiniProject" */ = {
+		8320CD411C70190400199F19 /* Build configuration list for PBXNativeTarget "Playlist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8320CD421C70190400199F19 /* Debug */,
@@ -511,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8320CD441C70190400199F19 /* Build configuration list for PBXNativeTarget "CoreDataMiniProjectTests" */ = {
+		8320CD441C70190400199F19 /* Build configuration list for PBXNativeTarget "PlaylistTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8320CD451C70190400199F19 /* Debug */,
@@ -520,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8320CD471C70190400199F19 /* Build configuration list for PBXNativeTarget "CoreDataMiniProjectUITests" */ = {
+		8320CD471C70190400199F19 /* Build configuration list for PBXNativeTarget "PlaylistUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8320CD481C70190400199F19 /* Debug */,

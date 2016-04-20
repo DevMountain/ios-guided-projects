@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8320CD181C70190400199F19"
-               BuildableName = "CoreDataMiniProject.app"
-               BlueprintName = "CoreDataMiniProject"
-               ReferencedContainer = "container:CoreDataMiniProject.xcodeproj">
+               BuildableName = "PlaylistNSUserDefaults.app"
+               BlueprintName = "PlaylistNSUserDefaults"
+               ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8320CD2C1C70190400199F19"
-               BuildableName = "CoreDataMiniProjectTests.xctest"
-               BlueprintName = "CoreDataMiniProjectTests"
-               ReferencedContainer = "container:CoreDataMiniProject.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8320CD371C70190400199F19"
-               BuildableName = "CoreDataMiniProjectUITests.xctest"
-               BlueprintName = "CoreDataMiniProjectUITests"
-               ReferencedContainer = "container:CoreDataMiniProject.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8320CD181C70190400199F19"
-            BuildableName = "CoreDataMiniProject.app"
-            BlueprintName = "CoreDataMiniProject"
-            ReferencedContainer = "container:CoreDataMiniProject.xcodeproj">
+            BuildableName = "PlaylistNSUserDefaults.app"
+            BlueprintName = "PlaylistNSUserDefaults"
+            ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8320CD181C70190400199F19"
-            BuildableName = "CoreDataMiniProject.app"
-            BlueprintName = "CoreDataMiniProject"
-            ReferencedContainer = "container:CoreDataMiniProject.xcodeproj">
+            BuildableName = "PlaylistNSUserDefaults.app"
+            BlueprintName = "PlaylistNSUserDefaults"
+            ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8320CD181C70190400199F19"
-            BuildableName = "CoreDataMiniProject.app"
-            BlueprintName = "CoreDataMiniProject"
-            ReferencedContainer = "container:CoreDataMiniProject.xcodeproj">
+            BuildableName = "PlaylistNSUserDefaults.app"
+            BlueprintName = "PlaylistNSUserDefaults"
+            ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

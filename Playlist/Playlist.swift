@@ -15,23 +15,12 @@ class Playlist: Equatable {
     
     let name: String
     var songs: [Song]
-    
-    var dictionaryCopy: [String: AnyObject] {
-        return [kName: name, kSongs: songs.map{$0.dictionaryCopy}]
-    }
-    
+
     init(name: String, songs: [Song] = []) {
         self.name = name
         self.songs = songs
     }
-    
-    init?(dictionary: [String: AnyObject]) {
-        guard let name = dictionary[kName] as? String else {return nil}
-        self.name = name
-        let songsDictionary = (dictionary[kSongs] as? [[String: AnyObject]]) ?? []
-        self.songs = songsDictionary.flatMap{Song(dictionary: $0)}
-    }
-    
+
 }
 
 func ==(lhs: Playlist, rhs: Playlist) -> Bool {

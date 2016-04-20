@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--PlaylistsNSUserDefaults-->
+        <!--Playlists-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="CoreDataMiniProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             <constraint firstItem="CSb-Hf-cxR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rCw-Sp-5V6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PlaylistsNSUserDefaults" id="Ddh-aV-m55">
+                    <navigationItem key="navigationItem" title="Playlists" id="Ddh-aV-m55">
                         <barButtonItem key="backBarButtonItem" title="Home" id="tbI-za-aou"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yJa-Uj-6hc">
                             <connections>
