@@ -1,18 +1,18 @@
-PlaylistCoreData is designed to help have students practice using Core Data and creating simple relationships between objects.
+PlaylistNSUserDefaults is designed to help have students practice converting model objects to dictionaries and persisting data using NSUserDefaults.
 
 **Look over the README in the root folder of this repository**
 
-# Suggested breakdown for PlaylistCoreData
+# Suggested breakdown for PlaylistNSUserDefaults
 
-*Start this project from PlaylistNSUserDefaults, not from scratch*
+*Start this project from Playlist (the version without persistence), not from scratch*
 
-1. Talk a little bit about the pros and cons of CoreData vs NSUserDefaults.
-2. Discuss the Stack (PersistentStoreCoordinator, ManagedObjectContext, Model) - ask about what they know from the video - Maybe draw it out.
-3. Give them the stack file and walk through it with them. Maybe look at some documentation with them or have them look at documentaion. Then have them walk through it with the person sitting next to them to see if they can explain what each portion is doing. 
-4. Create a new CoreData model file and show them basic navigation through the file
-5. Set up one of the model objects.
-6. Set up the other model object and make sure their inverses are working properly. Make sure Playlists have a to many relationship with Song and that Song has a to one relationship with Playlist.
-7. If you haven't already, discuss how CoreData works with NSManagedObjects, and explain that for our models to work with CoreData, they need to be subclasses of NSManagedObject. Then generate your NSManagedObject subclasses. (Make sure to check your properties for optionals that shouldn't be there - CoreData automatically makes everything optional).
-8. Set up a convenience initializer for Playlist.
-9. Set up a convenience initializer for Song.
-10. One by one, work with the students to fix all of your functions that worked with NSUserDefaults to now work with CoreData. Be sure to do it in small enough segments that they can follow, and have them do each step independently after you show them how, and then do it again as a group.
+1. Take a few minutes to go over the version without persistence and make sure everyone understands things like `prepareForSegue`.
+2. Have students look at NSUserDefaults documentation and discuss with each other how it works and what objects it can store. This should help them reinforce the idea that you cannot store your custom objects "as-is".
+4. Plan our the new methods you will need to store and load data.
+3. Go to your `Song` object and create a computed property that will convert it into a dictionary.
+4. Create a failable initializer for your `Song` object that will take a dictionary and convert it into a `Song` instance.
+5. Repeat the last two steps for your `Playlist` object.
+6. Fill in your `saveToPersistentStore` function, referencing documentation for the NSUserDefaults functions.
+7. Determine where in the project you need to call `saveToPersistentStore` and add the call(s).
+8. Fill in your `loadFromPersistentStore` function, referencing documentation for the NSUserDefaults functions.
+9. Determine where in the project to load your data, and call `loadFromPersistentStore`. Everyone's app should work now.
