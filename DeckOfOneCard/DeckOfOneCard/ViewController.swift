@@ -27,9 +27,7 @@ class ViewController: UIViewController {
             guard let card = card else {return}
             ImageController.imageForURL(card.imageEndpoint, completion: { (image) in
                 guard let image = image  else { return}
-                dispatch_async(dispatch_get_main_queue(), { 
-                    self.cardImageView.image = image
-                })
+                self.cardImageView.image = image
             })
         }
     }
