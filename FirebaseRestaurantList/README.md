@@ -2,9 +2,9 @@ FirebaseRestaurantList is designed to teach students how to store data in Fireba
 
 **Look over the README in the root folder of this repository**
 
-*Start this project from the branch titled projectStarts*
-
 # Suggested breakdown for FirebaseRestaurantList
+
+*Start this project from the branch titled projectStarts*
 
 1. Send out the starting project to everyone, and briefly go through it together (both the app and the code) to make sure everyone understands the project. In the starting state, there is no persistence. You will be adding persistence using Firebase.
 2. Show everyone the Firebase site and where the docs are. They should already have an account after watching the preclass, but make sure everyone has an account and knows how to make a new app in the dashboard.
