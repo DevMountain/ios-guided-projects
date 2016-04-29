@@ -12,7 +12,6 @@ class RestaurantListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RestaurantListTableViewController.updateUI), name: "restaurantsUpdated", object: nil)
     }
 
     // MARK: - Table view data source
@@ -48,6 +47,7 @@ class RestaurantListTableViewController: UITableViewController {
             guard let name = nameTextField?.text,
                 category = categoryTextField?.text where name.characters.count > 0 else { return}
             RestaurantController.sharedInstance.addRestaurant(name, category: category)
+            self.tableView.reloadData()
         }
         alert.addAction(cancelAction)
         alert.addAction(addRestaurantAction)

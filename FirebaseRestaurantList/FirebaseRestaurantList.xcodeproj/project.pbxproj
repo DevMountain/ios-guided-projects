@@ -14,13 +14,6 @@
 		1A8C65981CD27085004160D7 /* RestaurantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C65971CD27085004160D7 /* RestaurantListTableViewController.swift */; };
 		1A8C659A1CD270FB004160D7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C65991CD270FB004160D7 /* Restaurant.swift */; };
 		1A8C659C1CD2719E004160D7 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C659B1CD2719E004160D7 /* RestaurantController.swift */; };
-		1A8C65A01CD27D5C004160D7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8C659F1CD27D5C004160D7 /* Firebase.framework */; };
-		1A8C65A41CD27D9A004160D7 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8C65A31CD27D9A004160D7 /* libicucore.tbd */; };
-		1A8C65A61CD27DA4004160D7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8C65A51CD27DA4004160D7 /* libc++.tbd */; };
-		1A8C65A81CD27DAE004160D7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8C65A71CD27DAE004160D7 /* CFNetwork.framework */; };
-		1A8C65AA1CD27DC2004160D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8C65A91CD27DC2004160D7 /* SystemConfiguration.framework */; };
-		1A8C65AC1CD27DC8004160D7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8C65AB1CD27DC8004160D7 /* Security.framework */; };
-		1A8C65AE1CD27E87004160D7 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C65AD1CD27E87004160D7 /* FirebaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,13 +39,6 @@
 		1A8C65971CD27085004160D7 /* RestaurantListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewController.swift; sourceTree = "<group>"; };
 		1A8C65991CD270FB004160D7 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		1A8C659B1CD2719E004160D7 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
-		1A8C659F1CD27D5C004160D7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
-		1A8C65A31CD27D9A004160D7 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		1A8C65A51CD27DA4004160D7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		1A8C65A71CD27DAE004160D7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		1A8C65A91CD27DC2004160D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		1A8C65AB1CD27DC8004160D7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		1A8C65AD1CD27E87004160D7 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A8C65AC1CD27DC8004160D7 /* Security.framework in Frameworks */,
-				1A8C65AA1CD27DC2004160D7 /* SystemConfiguration.framework in Frameworks */,
-				1A8C65A81CD27DAE004160D7 /* CFNetwork.framework in Frameworks */,
-				1A8C65A61CD27DA4004160D7 /* libc++.tbd in Frameworks */,
-				1A8C65A41CD27D9A004160D7 /* libicucore.tbd in Frameworks */,
-				1A8C65A01CD27D5C004160D7 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +55,6 @@
 		1A8C65791CD2702C004160D7 = {
 			isa = PBXGroup;
 			children = (
-				1A8C65AF1CD2FB4F004160D7 /* Frameworks */,
 				1A8C65841CD2702C004160D7 /* FirebaseRestaurantList */,
 				1A8C65831CD2702C004160D7 /* Products */,
 			);
@@ -104,23 +83,9 @@
 			path = FirebaseRestaurantList;
 			sourceTree = "<group>";
 		};
-		1A8C65AF1CD2FB4F004160D7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1A8C65AB1CD27DC8004160D7 /* Security.framework */,
-				1A8C65A91CD27DC2004160D7 /* SystemConfiguration.framework */,
-				1A8C65A71CD27DAE004160D7 /* CFNetwork.framework */,
-				1A8C65A51CD27DA4004160D7 /* libc++.tbd */,
-				1A8C65A31CD27D9A004160D7 /* libicucore.tbd */,
-				1A8C659F1CD27D5C004160D7 /* Firebase.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		1A8C65B01CD2FB5D004160D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A8C65AD1CD27E87004160D7 /* FirebaseController.swift */,
 				1A8C659B1CD2719E004160D7 /* RestaurantController.swift */,
 			);
 			name = Controllers;
@@ -214,7 +179,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A8C65AE1CD27E87004160D7 /* FirebaseController.swift in Sources */,
 				1A8C65981CD27085004160D7 /* RestaurantListTableViewController.swift in Sources */,
 				1A8C65861CD2702C004160D7 /* AppDelegate.swift in Sources */,
 				1A8C659C1CD2719E004160D7 /* RestaurantController.swift in Sources */,
