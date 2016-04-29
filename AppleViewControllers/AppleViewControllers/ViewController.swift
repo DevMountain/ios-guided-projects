@@ -24,6 +24,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - UIImagePickerController
+    
     @IBAction func imageTapped(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -60,6 +62,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    // MARK: - MFMailComposeViewController
+    
     @IBAction func emailButtonTapped(sender: AnyObject) {
         guard MFMailComposeViewController.canSendMail() else {return}
         let mailController = MFMailComposeViewController()
@@ -78,9 +82,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - UIActivityViewController
+    
     @IBAction func shareButtonTapped(sender: AnyObject) {
-        
-        
+        guard let image = imageView.image else {return}
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     @IBAction func browserButtonTapped(sender: AnyObject) {
