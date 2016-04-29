@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QuP-JT-JrM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie Search-->
+        <scene sceneID="d4V-ZH-z5e">
+            <objects>
+                <tableViewController id="f8L-8z-kf6" customClass="MovieListTableViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="333" sectionHeaderHeight="28" sectionFooterHeight="28" id="k9i-ZT-tdH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for your favorite movie" id="l2N-45-5Lg">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="f8L-8z-kf6" id="Jyx-a1-Wbr"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="333" id="AaN-cL-VIK" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="333"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AaN-cL-VIK" id="lom-LD-W6N">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="332.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9TH-9d-3wk">
+                                            <rect key="frame" x="8" y="8" width="584" height="317"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="d2R-KT-JgY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="584" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lpX-za-LEJ">
+                                                    <rect key="frame" x="0.0" y="20.5" width="584" height="296.5"/>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="9TH-9d-3wk" secondAttribute="bottom" id="Bid-Wo-fLd"/>
+                                        <constraint firstItem="9TH-9d-3wk" firstAttribute="leading" secondItem="lom-LD-W6N" secondAttribute="leadingMargin" id="eEl-jQ-Pp4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9TH-9d-3wk" secondAttribute="trailing" id="tps-Yn-Eyp"/>
+                                        <constraint firstItem="9TH-9d-3wk" firstAttribute="top" secondItem="lom-LD-W6N" secondAttribute="topMargin" id="wAA-XA-qCO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieImageView" destination="lpX-za-LEJ" id="TWy-Ug-bWf"/>
+                                    <outlet property="titleLabel" destination="d2R-KT-JgY" id="azd-o2-y8o"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f8L-8z-kf6" id="jmh-oo-Kyc"/>
+                            <outlet property="delegate" destination="f8L-8z-kf6" id="bXk-GP-3I4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Movie Search" id="ilc-Pu-Ei7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQB-RJ-5eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2346" y="352"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sF9-rR-EwJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QuP-JT-JrM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ckf-Sc-WkU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f8L-8z-kf6" kind="relationship" relationship="rootViewController" id="mNk-LQ-r0e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vps-nS-gsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534" y="352"/>
+        </scene>
+    </scenes>
+</document>
