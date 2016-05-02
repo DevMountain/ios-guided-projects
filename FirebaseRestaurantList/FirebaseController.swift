@@ -21,7 +21,7 @@ protocol FirebaseType {
     init?(dictionary: [String: AnyObject], identifier: String)
     
     mutating func save()
-    func delete()
+    func delete(completion: (success: Bool)->Void)
 }
 
 extension FirebaseType {
@@ -36,9 +36,16 @@ extension FirebaseType {
         newBase.updateChildValues(self.jsonValue)
     }
     
-    func delete() {
+    func delete(completion: (success: Bool)->Void) {
         guard let identifier = self.identifier else {return}
         let newBase = FirebaseController.base.childByAppendingPath(self.endpoint).childByAppendingPath(identifier)
-        newBase.removeValue()
+        newBase.removeValueWithCompletionBlock { (error, _) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(success: false)
+            } else {
+                completion(success: true)
+            }
+        }
     }
 }

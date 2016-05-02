@@ -31,8 +31,12 @@ class RestaurantController {
     func deleteRestaurant(restaurant: Restaurant) {
         if let index = restaurants.indexOf(restaurant) {
             restaurants.removeAtIndex(index)
-            restaurant.delete()
         }
+        restaurant.delete({ (success) in
+            if !success {
+                self.deleteRestaurant(restaurant)
+            }
+        })
     }
     
     private func addRestaurantToFirebase(restaurant: Restaurant) {
