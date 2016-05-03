@@ -39,7 +39,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playlistCell" textLabel="uro-qd-Ng0" detailTextLabel="FHu-SV-y2z" style="IBUITableViewCellStyleValue1" id="F61-Dl-psX">
-                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F61-Dl-psX" id="3sv-a6-BkC">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -139,7 +139,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" textLabel="cFj-3D-fPE" detailTextLabel="EMQ-9D-PlB" style="IBUITableViewCellStyleSubtitle" id="FXg-DT-CCu">
-                                        <rect key="frame" x="0.0" y="185" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="184.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FXg-DT-CCu" id="cRS-uA-kpw">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
