@@ -1,19 +1,18 @@
-PlaylistNSUserDefaults is designed to help have students practice converting model objects to dictionaries and persisting data using NSUserDefaults.
+PlaylistFirebase gives students the opportunity to practice using Firebase, a third party framework, to both post data to a server and observe changes to that data, and helps them develop an understanding of database structure.
 
 **Look over the README in the root folder of this repository**
 
-# Suggested breakdown for PlaylistNSUserDefaults
+# Suggested breakdown for PlaylistFirebase
 
-*Start this project from Playlist (the version without persistence), not from scratch*
+*Start this project from the version on the branch projectStarts*
 
-1. Show students the final product first so they know what they are working toward.
-1. Take a few minutes to go over the version without persistence and make sure everyone understands things like `prepareForSegue`.
-2. Have students look at NSUserDefaults documentation and discuss with each other how it works and what objects it can store. This should help them reinforce the idea that you cannot store your custom objects "as-is".
-4. Plan our the new methods you will need to store and load data.
-3. Go to your `Song` object and create a computed property that will convert it into a dictionary.
-4. Create a failable initializer for your `Song` object that will take a dictionary and convert it into a `Song` instance.
-5. Repeat the last two steps for your `Playlist` object.
-6. Fill in your `saveToPersistentStore` function, referencing documentation for the NSUserDefaults functions.
-7. Determine where in the project you need to call `saveToPersistentStore` and add the call(s).
-8. Fill in your `loadFromPersistentStore` function, referencing documentation for the NSUserDefaults functions.
-9. Determine where in the project to load your data, and call `loadFromPersistentStore`. Everyone's app should work now.
+1. Take a few minutes to show the current version of the app and to navigate through the existing code. Note that the starting version has added a login/signup screen in storyboards and has a commented out `FirebaseController`, but still uses NSUserDefaults for persistence.
+2. Take no more than 25 minutes to have the students work in pairs to explain every line of code in the `FirebaseController`. Do this in chunks, i.e. give them a couple of minutes to explain to eachother what the line `static let base = Firebase(url: )` line does, then regroup and be sure everyone is on the same page. Then give them 5 minutes to explain the `protocol FirebaseType`, etc.
+3. Take a few minutes to discuss as a group how the data will be structured in Firebase. In this specific project, we have chosen to nest playlists and songs underneath each user since each playlist corresponds to a user.
+4. Make your `Song` object conform to `FirebaseType`. Then have the students try to do this for the `Playlist` and `Song` model objects. Then come back and do it again as a group.
+5. Create your `User` object. Be sure that it conforms to `FirebaseType`. Have the students make it, then come back and do it again as a group.
+6. Create your `UserController` and write the method signatures you will need. Have the students do it and then regroup and do it together.
+7. Fill in the methods on your `UserController` one by one, having the students do it each time and then regrouping to do it together.
+8. Modify your `LoginSignupViewController` to call the necessary `UserController` methods so that you can login and signup. Have everyone do this, and be sure that users are being created in Firebase. Show students the dashboard so they can see this happening.
+9. Go through and one function at a time modify your `PlaylistController` so that it no longer uses NSUserDefaults, but instead adds playlists and songs to Firebase, and observes the data in Firebase. Continue to follow the "I do, you do, we do" method.
+10. Have students add playlists and songs and show how they show up in the Firebase dashboard even though they do not show up on the tableview. Explain that we need to tell the view controller either with a notification or a delegate that the data has updated so that it can update its tableview. Do this, have them do it, then regroup and do it all together. Everyone should now have a finished product.
