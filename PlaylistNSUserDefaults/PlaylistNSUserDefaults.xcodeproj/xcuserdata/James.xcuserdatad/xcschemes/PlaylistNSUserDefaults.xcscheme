@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8320CD181C70190400199F19"
+               BlueprintIdentifier = "1AFCF6021CDAAC93006D2F3D"
                BuildableName = "PlaylistNSUserDefaults.app"
                BlueprintName = "PlaylistNSUserDefaults"
                ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8320CD181C70190400199F19"
+            BlueprintIdentifier = "1AFCF6021CDAAC93006D2F3D"
             BuildableName = "PlaylistNSUserDefaults.app"
             BlueprintName = "PlaylistNSUserDefaults"
             ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8320CD181C70190400199F19"
+            BlueprintIdentifier = "1AFCF6021CDAAC93006D2F3D"
             BuildableName = "PlaylistNSUserDefaults.app"
             BlueprintName = "PlaylistNSUserDefaults"
             ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8320CD181C70190400199F19"
+            BlueprintIdentifier = "1AFCF6021CDAAC93006D2F3D"
             BuildableName = "PlaylistNSUserDefaults.app"
             BlueprintName = "PlaylistNSUserDefaults"
             ReferencedContainer = "container:PlaylistNSUserDefaults.xcodeproj">

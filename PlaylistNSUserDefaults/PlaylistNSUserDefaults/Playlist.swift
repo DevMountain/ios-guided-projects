@@ -1,15 +1,14 @@
 //
 //  Playlist.swift
-//  CoreDataMiniProject
+//  Playlist
 //
-//  Created by James Pacheco on 4/19/16.
-//  Copyright © 2016 Jordan Nelson. All rights reserved.
+//  Created by James Pacheco on 5/4/16.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 import Foundation
 
 class Playlist: Equatable {
-    
     private let kName = "name"
     private let kSongs = "songs"
     
@@ -26,12 +25,11 @@ class Playlist: Equatable {
     }
     
     init?(dictionary: [String: AnyObject]) {
-        guard let name = dictionary[kName] as? String else {return nil}
+        guard let name = dictionary[kName] as? String,
+            songsDictionaryArray = dictionary[kSongs] as? [[String: AnyObject]] else {return nil}
         self.name = name
-        let songsDictionary = (dictionary[kSongs] as? [[String: AnyObject]]) ?? []
-        self.songs = songsDictionary.flatMap{Song(dictionary: $0)}
+        self.songs = songsDictionaryArray.flatMap{Song(dictionary: $0)}
     }
-    
 }
 
 func ==(lhs: Playlist, rhs: Playlist) -> Bool {

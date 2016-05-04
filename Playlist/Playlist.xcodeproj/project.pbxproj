@@ -67,7 +67,7 @@
 				1AFCF5D91CDA6730006D2F3D /* AppDelegate.swift */,
 				1AFCF5DD1CDA6730006D2F3D /* Main.storyboard */,
 				1AFCF5F71CDA72EF006D2F3D /* ModelControllers */,
-				1AFCF5F91CDA72FF006D2F3D /* Storyboards */,
+				1AFCF5F91CDA72FF006D2F3D /* Models */,
 				1AFCF5F81CDA72F7006D2F3D /* ViewControllers */,
 				1AFCF5E01CDA6730006D2F3D /* Assets.xcassets */,
 				1AFCF5E21CDA6730006D2F3D /* LaunchScreen.storyboard */,
@@ -94,13 +94,13 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		1AFCF5F91CDA72FF006D2F3D /* Storyboards */ = {
+		1AFCF5F91CDA72FF006D2F3D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1AFCF5EF1CDA6969006D2F3D /* Song.swift */,
 				1AFCF5F11CDA69B5006D2F3D /* Playlist.swift */,
 			);
-			name = Storyboards;
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +330,7 @@
 				1AFCF5EA1CDA6730006D2F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
