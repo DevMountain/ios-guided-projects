@@ -6,6 +6,7 @@ TableView teaches students how to set up a basic tableview using both dataSource
 
 *Start this project from scratch*
 
+1. Show students the final product so they know what they are working toward.
 1. Make sure students are comfortable adding a view controller to storyboard. Show them how to bring out a TableViewController. Give your prototype cell an identifier and set its style to basic.
 2. Embed your TableViewController in a NavigationController.
 3. Bring out a ViewController and add a segue from the table view cell to the ViewController and give the segue an identifier.
