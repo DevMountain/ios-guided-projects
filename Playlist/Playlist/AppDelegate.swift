@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  CoreDataMiniProject
+//  Playlist
 //
-//  Created by Jordan Nelson on 2/13/16.
-//  Copyright © 2016 Jordan Nelson. All rights reserved.
+//  Created by James Pacheco on 5/4/16.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 import UIKit
