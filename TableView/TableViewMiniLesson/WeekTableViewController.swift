@@ -9,7 +9,7 @@
 import UIKit
 
 class WeekTableViewController: UITableViewController {
-
+    
     var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
     override func viewDidLoad() {
@@ -32,11 +32,12 @@ class WeekTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "detailSegue"{
-            let detailViewController  = segue.destinationViewController as! DetailViewController
-            let indexPath : NSIndexPath! = tableView.indexPathForSelectedRow
-            detailViewController.titleString = daysOfWeek[indexPath.row]
+        if segue.identifier == "detailSegue",
+            let indexPath : NSIndexPath = tableView.indexPathForSelectedRow {
+            let detailViewController  = segue.destinationViewController as? DetailViewController
+            
+            detailViewController?.titleString = daysOfWeek[indexPath.row]
         }
     }
-
+    
 }
