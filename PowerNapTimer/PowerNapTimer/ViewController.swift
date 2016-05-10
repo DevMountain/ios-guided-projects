@@ -8,54 +8,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController{
+    
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var startButton: UIButton!
     
+    let timer = Timer()
+    private let localNotificationTag = "timerNotification"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNSNotificationObserver()
         setView()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.timerSecondTick), name: "secondTick", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.timerCompleted), name: "timerCompleted", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.setView), name: "timerStopped", object: nil)
     }
     
     func setView() {
         updateTimerLabel()
         // If timer is running, start button title should say "Cancel". If timer is not running, title should say "Start nap"
-        if TimerController.sharedInstance.timer.isOn {
+        if timer.isOn {
             startButton.setTitle("Cancel", forState: .Normal)
         } else {
             startButton.setTitle("Start nap", forState: .Normal)
         }
     }
     
-    func addNSNotificationObserver() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateTimerLabel), name: "secondTick", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.presentTimerCompletedAlert), name: "timerCompleted", object: nil)
+    func updateTimerLabel() {
+        timerLabel.text = timer.timeAsString()
     }
-
+    
     @IBAction func startButtonTapped(sender: AnyObject) {
-        if TimerController.sharedInstance.timer.isOn {
-            TimerController.sharedInstance.stopTimer()
+        if timer.isOn {
+            timer.stopTimer()
         } else {
-            TimerController.sharedInstance.startTimer()
+            timer.startTimer(20*60.0)
         }
         setView()
     }
     
-    func updateTimerLabel() {
-        timerLabel.text = TimerController.sharedInstance.timeAsString()
+    func timerSecondTick() {
+        updateTimerLabel()
     }
     
-    func presentTimerCompletedAlert() {
-        let alert = UIAlertController(title: "Wake up!", message: "Get up ya lazy bum!", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Dismiss", style: .Cancel) { (_) in
-            self.setView()
-        }
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+    func timerCompleted() {
+        setView()
     }
-
 }
 
