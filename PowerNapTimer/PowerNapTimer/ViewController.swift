@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -20,9 +20,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.timerSecondTick), name: "secondTick", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.timerCompleted), name: "timerCompleted", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.setView), name: "timerStopped", object: nil)
     }
     
     func setView() {
@@ -45,14 +42,6 @@ class ViewController: UIViewController{
         } else {
             timer.startTimer(20*60.0)
         }
-        setView()
-    }
-    
-    func timerSecondTick() {
-        updateTimerLabel()
-    }
-    
-    func timerCompleted() {
         setView()
     }
 }
