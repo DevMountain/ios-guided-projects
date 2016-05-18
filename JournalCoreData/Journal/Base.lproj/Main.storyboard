@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="INT-Qe-Wpl">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Entry List Table View Controller-->
+        <scene sceneID="78e-bj-AOz">
+            <objects>
+                <tableViewController id="5LL-S8-WW3" customClass="EntryListTableViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UPh-TG-FLl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" id="c75-q3-3Da">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c75-q3-3Da" id="ZHG-qZ-SAd">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XMQ-vl-Wjr" kind="show" identifier="toShowEntry" id="RQ4-BU-QE9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5LL-S8-WW3" id="eYC-mj-kbS"/>
+                            <outlet property="delegate" destination="5LL-S8-WW3" id="uaE-rC-3bb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Gqz-d3-Pp9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mco-Y9-ldf">
+                            <connections>
+                                <segue destination="XMQ-vl-Wjr" kind="show" identifier="toAddEntry" id="roY-Zl-1cy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jUI-gT-J4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303" y="392"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="X1N-ug-Kq6">
+            <objects>
+                <viewController id="XMQ-vl-Wjr" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ot4-9h-Hnc"/>
+                        <viewControllerLayoutGuide type="bottom" id="DAH-yG-wkS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d6t-Ce-WYg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-OJ-AOk">
+                                <rect key="frame" x="0.0" y="557" width="600" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="yhv-fe-h6O"/>
+                                </constraints>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="XMQ-vl-Wjr" eventType="touchUpInside" id="c7H-Vb-fiL"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-5z-CB0">
+                                <rect key="frame" x="20" y="146" width="560" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eIx-Dh-JFQ">
+                                <rect key="frame" x="245.5" y="72" width="109" height="29"/>
+                                <segments>
+                                    <segment title="Happy"/>
+                                    <segment title="Sad"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7k-PI-fr4">
+                                <rect key="frame" x="20" y="108" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R7k-PI-fr4" firstAttribute="trailing" secondItem="rg4-5z-CB0" secondAttribute="trailing" id="0OW-oM-VKC"/>
+                            <constraint firstItem="rg4-5z-CB0" firstAttribute="leading" secondItem="R7k-PI-fr4" secondAttribute="leading" id="69H-Az-8Yc"/>
+                            <constraint firstItem="rg4-5z-CB0" firstAttribute="top" secondItem="R7k-PI-fr4" secondAttribute="bottom" constant="8" symbolic="YES" id="AZe-Rs-VVn"/>
+                            <constraint firstAttribute="trailing" secondItem="VXv-OJ-AOk" secondAttribute="trailing" id="Cof-9p-2AD"/>
+                            <constraint firstItem="eIx-Dh-JFQ" firstAttribute="top" secondItem="Ot4-9h-Hnc" secondAttribute="bottom" constant="8" id="GZY-gT-pcn"/>
+                            <constraint firstItem="VXv-OJ-AOk" firstAttribute="top" secondItem="rg4-5z-CB0" secondAttribute="bottom" constant="8" symbolic="YES" id="LT1-aW-iwn"/>
+                            <constraint firstItem="DAH-yG-wkS" firstAttribute="top" secondItem="VXv-OJ-AOk" secondAttribute="bottom" constant="11" id="SVy-3h-kFf"/>
+                            <constraint firstItem="rg4-5z-CB0" firstAttribute="leading" secondItem="d6t-Ce-WYg" secondAttribute="leadingMargin" id="Seu-RV-Ikg"/>
+                            <constraint firstItem="R7k-PI-fr4" firstAttribute="top" secondItem="eIx-Dh-JFQ" secondAttribute="bottom" constant="8" id="ejp-47-IF2"/>
+                            <constraint firstItem="eIx-Dh-JFQ" firstAttribute="centerX" secondItem="d6t-Ce-WYg" secondAttribute="centerX" id="gIc-qM-HYB"/>
+                            <constraint firstItem="rg4-5z-CB0" firstAttribute="centerX" secondItem="VXv-OJ-AOk" secondAttribute="centerX" id="kQU-kZ-RRV"/>
+                            <constraint firstItem="VXv-OJ-AOk" firstAttribute="leading" secondItem="d6t-Ce-WYg" secondAttribute="leading" id="v2N-Mq-56h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="yYB-Xx-1s2">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="4Jy-1w-e9H">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="XMQ-vl-Wjr" id="x44-0z-cnP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="rg4-5z-CB0" id="iAG-4D-by9"/>
+                        <outlet property="moodSegmentedControl" destination="eIx-Dh-JFQ" id="E0D-eo-HH3"/>
+                        <outlet property="titleTextField" destination="R7k-PI-fr4" id="gLE-hQ-KXy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Myh-7O-JP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077" y="392"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mB8-tY-oxf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="INT-Qe-Wpl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mku-UU-V1s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5LL-S8-WW3" kind="relationship" relationship="rootViewController" id="CxC-ek-n8f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFn-u1-0im" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="392"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="RQ4-BU-QE9"/>
+    </inferredMetricsTieBreakers>
+</document>
