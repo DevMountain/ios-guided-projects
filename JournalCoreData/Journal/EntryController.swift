@@ -15,6 +15,10 @@ class EntryController {
     
     var entries: [Entry] = []
     
+    init() {
+        self.entries = fetchEntries()
+    }
+    
     func addEntry(title: String, text: String, isHappy: Bool) {
         let _ = Entry(title: title, text: text, isHappy: isHappy)
         saveToPersistentStorage()
