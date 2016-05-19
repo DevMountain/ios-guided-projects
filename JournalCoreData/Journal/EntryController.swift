@@ -19,7 +19,7 @@ class EntryController {
         let request = NSFetchRequest(entityName: "Entry")
         let sortDescriptor1 = NSSortDescriptor(key: "happy", ascending: false)
         let sortDescriptor2 = NSSortDescriptor(key: "timestamp", ascending: false)
-        request.sortDescriptors = [sortDescriptor2]
+        request.sortDescriptors = [sortDescriptor1, sortDescriptor2]
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.sharedStack.managedObjectContext, sectionNameKeyPath: "happy", cacheName: nil)
         _ = try? fetchedResultsController.performFetch()
     }
