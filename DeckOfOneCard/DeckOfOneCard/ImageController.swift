@@ -12,8 +12,9 @@ import UIKit
 class ImageController {
     
     static func imageForURL(url: String, completion: ((image: UIImage?) -> Void)) {
-        NetworkController.dataAtURL(url) { (success, data) in
-            guard let data = data where success else {
+        guard let url = NSURL(string: url) else {fatalError("Image URL optional is nil")}
+        NetworkController.performRequestForURL(url, httpMethod: .Get) { (data, error) in
+            guard let data = data else {
                 completion(image: nil)
                 return
             }

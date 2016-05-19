@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func drawButtonTapped(sender: AnyObject) {
-        CardController.drawCard { (card) in
-            guard let card = card else {return}
+        CardController.drawCards(1) { (cards) in
+            guard let card = cards.first else {return}
             ImageController.imageForURL(card.imageEndpoint, completion: { (image) in
                 guard let image = image  else { return}
                 self.cardImageView.image = image
