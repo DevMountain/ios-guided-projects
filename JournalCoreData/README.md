@@ -14,4 +14,4 @@ JournalCoreData has students practice using an NSFetchedResultsController to dis
 6. Turn your attention to the view controller. Help students implement the Table View Data Source functions one at a time using the ```fetchedResultsController```.
 7. Talk about the delegate pattern and the NSFetchedResultsControllerDelegate. Import CoreData and adopt the delegate protocol.
 8. Implement the delegate functions one at a time, explaining the nuances of updating the table view one cell at a time instead of just reloading the table view.
-9. Run the project and be sure everyone's works.
+9. Run the project and be sure everyone's works. As a parting challenge, have them delete the implementation of their ```func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)``` function and do it over again as independently as possible.
