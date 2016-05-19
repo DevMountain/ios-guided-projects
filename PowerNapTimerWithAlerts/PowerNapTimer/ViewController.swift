@@ -74,11 +74,25 @@ class ViewController: UIViewController, TimerDelegate {
     
     func timerCompleted() {
         setView()
+        var snoozeTextField: UITextField?
         let alert = UIAlertController(title: "Wake up!", message: "Get up ya lazy bum!", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Dismiss", style: .Cancel) { (_) in
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Sleep a few more minutes..."
+            textField.keyboardType = .NumberPad
+            snoozeTextField = textField
+        }
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .Cancel) { (_) in
             self.setView()
         }
-        alert.addAction(action)
+        let snoozeAction = UIAlertAction(title: "Snooze", style: .Default) { (_) in
+            guard let timeText = snoozeTextField?.text,
+                time = NSTimeInterval(timeText) else {return}
+            self.timer.startTimer(time*60)
+            self.scheduleLocalNotification()
+            self.setView()
+        }
+        alert.addAction(dismissAction)
+        alert.addAction(snoozeAction)
         presentViewController(alert, animated: true, completion: nil)
     }
     
