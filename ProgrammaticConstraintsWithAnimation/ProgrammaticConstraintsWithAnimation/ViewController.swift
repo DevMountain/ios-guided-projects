@@ -31,11 +31,17 @@ class ViewController: UIViewController {
         bottomLeftButton.backgroundColor = .blueColor()
         bottomRightButton.backgroundColor = .redColor()
         
-        // Add targets to buttons
+        // Add targets to buttons for color animation
         topLeftButton.addTarget(self, action: #selector(buttonTapped), forControlEvents: .TouchUpInside)
         topRightButton.addTarget(self, action: #selector(buttonTapped), forControlEvents: .TouchUpInside)
         bottomLeftButton.addTarget(self, action: #selector(buttonTapped), forControlEvents: .TouchUpInside)
         bottomRightButton.addTarget(self, action: #selector(buttonTapped), forControlEvents: .TouchUpInside)
+        
+        // Add targets to buttons for shake animation
+        topLeftButton.addTarget(self, action: #selector(ViewController.buttonExited(_:)), forControlEvents: .TouchDragExit)
+        topRightButton.addTarget(self, action: #selector(ViewController.buttonExited(_:)), forControlEvents: .TouchDragExit)
+        bottomLeftButton.addTarget(self, action: #selector(ViewController.buttonExited(_:)), forControlEvents: .TouchDragExit)
+        bottomRightButton.addTarget(self, action: #selector(ViewController.buttonExited(_:)), forControlEvents: .TouchDragExit)
         
         // Add buttons as a subview of the view
         view.addSubview(topLeftButton)
@@ -59,6 +65,17 @@ class ViewController: UIViewController {
             self.bottomRightButton.backgroundColor = topRightColor
             self.bottomLeftButton.backgroundColor = bottomRightColor
         }
+    }
+    
+    func buttonExited(sender: UIButton) {
+        view.bringSubviewToFront(sender)
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [sender.frame.origin.x + sender.frame.width/2, sender.frame.origin.x + sender.frame.width/2 - 15, sender.frame.origin.x + sender.frame.width/2, sender.frame.origin.x + sender.frame.width/2 + 15, sender.frame.origin.x + sender.frame.width/2]
+        animation.keyTimes = [0, 0.25, 0.5, 0.75, 1]
+        animation.duration = 0.5
+        animation.repeatCount = 5.0
+        sender.layer.addAnimation(animation, forKey: "shake")
     }
     
     // Constratints for all of the buttons
