@@ -32,10 +32,9 @@ class Timer: NSObject {
         if timeRemaining > 0 {
             self.timeRemaining = timeRemaining - 1
             performSelector(#selector(Timer.secondTick), withObject: nil, afterDelay: 1)
-            NSNotificationCenter.defaultCenter().postNotificationName("secondTick", object: nil)
+            print(timeRemaining)
         } else {
             self.timeRemaining = nil
-            NSNotificationCenter.defaultCenter().postNotificationName("timerCompleted", object: nil)
         }
     }
     
@@ -49,7 +48,6 @@ class Timer: NSObject {
     func stopTimer() {
         if isOn {
             timeRemaining = nil
-            NSNotificationCenter.defaultCenter().postNotificationName("timerStopped", object: nil)
         }
     }
 }

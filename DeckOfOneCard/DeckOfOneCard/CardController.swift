@@ -10,21 +10,30 @@ import Foundation
 
 class CardController {
     
-    static func drawCard(completion: ((card: Card?) -> Void)) {
-        let url = "http://deckofcardsapi.com/api/deck/new/draw/?count=1"
-        NetworkController.dataAtURL(url) { (success, data) in
-            guard let data = data,
-                json = NetworkController.serializeDataAsJson(data),
-                cardArray = json["cards"] as? [[String: AnyObject]],
-                cardDictionary = cardArray.first
-                where success else {
-                    completion(card: nil)
-                    return
-            }
-            
-            let card = Card(dictionary: cardDictionary)
-            completion(card: card)
-        }
-    }
+    static let baseURL = NSURL(string: "http://deckofcardsapi.com/api/deck/new/draw/")
     
+    static func drawCards(numberOfCards: Int, completion: ((card: [Card]) -> Void)) {
+        guard let url = self.baseURL else {fatalError("URL optional is nil")}
+        
+        let urlParameters = ["count": "\(numberOfCards)"]
+        
+        NetworkController.performRequestForURL(url, httpMethod: .Get, urlParameters: urlParameters) { (data, error) in
+            
+            if let data = data,
+                responseDataString = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                guard let responseDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)) as? [String: AnyObject],
+                cardDictionaries = responseDictionary["cards"] as? [[String: AnyObject]] else {
+                    print("Unable to serialize JSON. \nResponse: \(responseDataString)")
+                    completion(card: [])
+                    return
+                }
+                let cards = cardDictionaries.flatMap {Card(dictionary: $0)}
+                completion(card: cards)
+            } else {
+                print("No data returned from network request")
+                completion(card: [])
+            }
+        }
+        
+    }
 }

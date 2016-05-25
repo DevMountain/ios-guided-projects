@@ -19,4 +19,4 @@ Playlist teaches students proper MVC design and how to use the singleton pattern
 10. Implement your `prepareForSegue` function on your `PlaylistTableViewController` so that you can segue from a playlist to a list of its songs. You may need to spend a good amount of time continuing to work with the students on what is happening in this function.
 10. One at a time, implement your controller functions.
 11. Make sure actions in view controllers are calling the proper controller functions(s).
-12. Everyone's app should be working, and they should understand the MVC and Singleton patters.
+12. Everyone's app should be working, and they should understand the MVC and Singleton patterns.

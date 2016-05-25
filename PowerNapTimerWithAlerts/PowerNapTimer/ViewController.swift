@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, TimerDelegate {
 
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -21,9 +21,7 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         setView()
         resetTimer()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.timerSecondTick), name: "secondTick", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.timerCompleted), name: "timerCompleted", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.setView), name: "timerStopped", object: nil)
+        timer.delegate = self
     }
     
     func setView() {
@@ -69,12 +67,32 @@ class ViewController: UIViewController{
         updateTimerLabel()
     }
     
+    func timerStopped() {
+        setView()
+        cancelLocalNotification()
+    }
+    
     func timerCompleted() {
+        setView()
+        var snoozeTextField: UITextField?
         let alert = UIAlertController(title: "Wake up!", message: "Get up ya lazy bum!", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Dismiss", style: .Cancel) { (_) in
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Sleep a few more minutes..."
+            textField.keyboardType = .NumberPad
+            snoozeTextField = textField
+        }
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .Cancel) { (_) in
             self.setView()
         }
-        alert.addAction(action)
+        let snoozeAction = UIAlertAction(title: "Snooze", style: .Default) { (_) in
+            guard let timeText = snoozeTextField?.text,
+                time = NSTimeInterval(timeText) else {return}
+            self.timer.startTimer(time*60)
+            self.scheduleLocalNotification()
+            self.setView()
+        }
+        alert.addAction(dismissAction)
+        alert.addAction(snoozeAction)
         presentViewController(alert, animated: true, completion: nil)
     }
     
