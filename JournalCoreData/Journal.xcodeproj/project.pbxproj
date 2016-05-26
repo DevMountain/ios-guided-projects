@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0270F5911CF7A5C60028F8F1 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8289D91CED0986001C9887 /* Entry+CoreDataProperties.swift */; };
+		0270F5921CF7A5C70028F8F1 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8289D91CED0986001C9887 /* Entry+CoreDataProperties.swift */; };
+		0270F5931CF7A5CA0028F8F1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8289DA1CED0986001C9887 /* Entry.swift */; };
+		0270F5941CF7A5CA0028F8F1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8289DA1CED0986001C9887 /* Entry.swift */; };
 		1A8289DB1CED0986001C9887 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8289D91CED0986001C9887 /* Entry+CoreDataProperties.swift */; };
 		1A8289DC1CED0986001C9887 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8289DA1CED0986001C9887 /* Entry.swift */; };
 		682940A11BBE42A000359935 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682940A01BBE42A000359935 /* EntryController.swift */; };
@@ -316,8 +320,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0270F5931CF7A5CA0028F8F1 /* Entry.swift in Sources */,
 				687C99511BDD7C8C008FB291 /* Stack.swift in Sources */,
 				689B81811BDD7912002724B1 /* EntryController.swift in Sources */,
+				0270F5911CF7A5C60028F8F1 /* Entry+CoreDataProperties.swift in Sources */,
 				68816ADD1BBB5406000569CE /* JournalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,8 +332,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0270F5941CF7A5CA0028F8F1 /* Entry.swift in Sources */,
 				687C99521BDD7C8C008FB291 /* Stack.swift in Sources */,
 				689B81821BDD7912002724B1 /* EntryController.swift in Sources */,
+				0270F5921CF7A5C70028F8F1 /* Entry+CoreDataProperties.swift in Sources */,
 				68816AE81BBB5406000569CE /* JournalUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
