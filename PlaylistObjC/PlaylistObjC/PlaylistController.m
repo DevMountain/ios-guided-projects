@@ -31,7 +31,7 @@
 
 -(void)createPlaylistWithTitle:(NSString *)title
 {
-    Playlist *playlist = [[Playlist alloc] initWithName:title songs:[[NSMutableArray alloc] init]];
+    Playlist *playlist = [[Playlist alloc] initWithName:title songs:@[]];
     [self.playlists addObject:playlist];
 }
 

@@ -13,6 +13,6 @@
 @property (copy, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *songs;
 
--(instancetype)initWithName:(NSString *)name songs:(NSMutableArray *)songs;
+-(instancetype)initWithName:(NSString *)name songs:(NSArray *)songs;
 
 @end
