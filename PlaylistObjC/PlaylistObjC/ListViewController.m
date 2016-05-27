@@ -18,16 +18,6 @@
 
 @implementation ListViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[PlaylistController sharedInstance].playlists count];
@@ -51,7 +41,8 @@
     }
 }
 
-- (IBAction)addButtonTapped:(id)sender {
+- (IBAction)addButtonTapped:(id)sender
+{
     [[PlaylistController sharedInstance] createPlaylistWithTitle:self.nameTextField.text];
     [self.tableView reloadData];
 }
@@ -60,7 +51,8 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"toDetailView"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Playlist* playlist = [PlaylistController sharedInstance].playlists[indexPath.row];

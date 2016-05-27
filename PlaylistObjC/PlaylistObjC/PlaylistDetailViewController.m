@@ -18,16 +18,6 @@
 
 @implementation PlaylistDetailViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.playlist.songs count];
@@ -51,7 +41,8 @@
     }
 }
 
-- (IBAction)addButtonTapped:(id)sender {
+- (IBAction)addButtonTapped:(id)sender
+{
     [[PlaylistController sharedInstance] addSongWithTitle:self.titleTextField.text andArtist:self.artistTextField.text toPlaylist:self.playlist];
     [self.tableView reloadData];
 }

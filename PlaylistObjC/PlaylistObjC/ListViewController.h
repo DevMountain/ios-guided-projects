@@ -10,6 +10,4 @@
 
 @interface ListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-
-
 @end
