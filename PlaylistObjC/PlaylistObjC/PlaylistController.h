@@ -13,7 +13,6 @@
 @interface PlaylistController : NSObject
 
 +(PlaylistController *)sharedInstance;
--(instancetype)init;
 
 @property (strong, nonatomic) NSMutableArray *playlists;
 

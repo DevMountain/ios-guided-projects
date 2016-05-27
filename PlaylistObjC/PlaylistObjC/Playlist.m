@@ -14,8 +14,8 @@
 {
     self = [super init];
     if (self) {
-        self.name = name;
-        self.songs = songs;
+        _name = name;
+        _songs = songs;
     }
     return self;
 }

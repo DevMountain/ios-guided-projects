@@ -10,11 +10,11 @@
 
 @implementation PlaylistController
 
--(instancetype)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.playlists = [[NSMutableArray alloc] init];
+        _playlists = [[NSMutableArray alloc] init];
     }
     return self;
 }
