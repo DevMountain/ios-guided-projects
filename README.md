@@ -1,3 +1,3 @@
 # BulletinBoard
 
-Simple BulletinBoard app for OS X and iOS using CloudKit.
+This is a guided project to introduce basic syncing and subscriptions using CloudKit.
