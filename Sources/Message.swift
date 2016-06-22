@@ -8,13 +8,7 @@
 
 import Foundation
 
-public class Message: NSObject {
-	
-	public init(messageText: String, date: NSDate = NSDate()) {
-		self.date = date
-		self.messageText = messageText
-	}
-	
-	public let date: NSDate
-	public let messageText: String
+struct Message {
+	let messageText: String
+	let date: NSDate
 }

@@ -27,7 +27,7 @@ public class MessagesController: NSObject {
 	
 	// MARK: Public Methods
 	
-	public func postNewMessage(message: Message, completion: ((NSError?) -> Void)? = nil) {
+	func postNewMessage(message: Message, completion: ((NSError?) -> Void)? = nil) {
 		let record = message.cloudKitRecord
 		
 		cloudKitManager.saveRecord(message.cloudKitRecord) { (record, error) in
@@ -40,7 +40,7 @@ public class MessagesController: NSObject {
 		}
 	}
 	
-	public func refresh(completion: ((NSError?) -> Void)? = nil) {
+	func refresh(completion: ((NSError?) -> Void)? = nil) {
 
 		cloudKitManager.fetchRecordsWithType(Message.recordType, recordFetchedBlock: nil) { (records, error) in
 			defer { completion?(error) }
@@ -53,7 +53,7 @@ public class MessagesController: NSObject {
 		}
 	}
 	
-	public func subscribeForPushNotifications(completion: ((NSError?) -> Void)? = nil) {
+	func subscribeForPushNotifications(completion: ((NSError?) -> Void)? = nil) {
 		cloudKitManager.subscribe(Message.recordType,
 		                          predicate: NSPredicate(value: true),
 		                          subscriptionID: "MessagesSubscription",
@@ -73,7 +73,7 @@ public class MessagesController: NSObject {
 	
 	// MARK: Public Properties
 	
-	dynamic public private(set) var messages = [Message]() {
+	private(set) var messages = [Message]() {
 		didSet {
 			dispatch_async(dispatch_get_main_queue()) { 
 				let nc = NSNotificationCenter.defaultCenter()
