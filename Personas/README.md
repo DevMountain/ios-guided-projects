@@ -1,10 +1,12 @@
+# User Personas and Interview Practice
+
 Practice going through the User Persona and Interview process with students. These interviews are done _before_ creating high quality mockups, and serve to make sure that the developer identifies key features to build.
 
 ### Develop User Personas
 
 Great apps are built for very specific types of users. Discuss what [User Personas](https://en.wikipedia.org/wiki/Persona_(user_experience)) are, how to develop them, and how to use them to make decisions for an application.
 
-Discuss a few applications and discuss their prototypical customers:
+Discuss one or two applications and discuss their prototypical customers:
 
 * Omnifocus
 * Day One
