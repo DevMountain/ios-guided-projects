@@ -12,14 +12,13 @@
 
 @interface PlaylistController : NSObject
 
++(PlaylistController *)sharedInstance;
+
 @property (strong, nonatomic) NSMutableArray *playlists;
 
 -(void)createPlaylistWithTitle:(NSString *)title;
 -(void)addSongWithTitle:(NSString *) title andArtist:(NSString*) artist toPlaylist:(Playlist *)playlist;
 -(void)deleteSong:(Song *)song fromPlaylist:(Playlist *)playlist;
 -(void)deletePlaylist:(Playlist *)playlist;
-
-+(PlaylistController *)sharedInstance;
--(instancetype)init;
 
 @end

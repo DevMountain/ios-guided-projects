@@ -14,8 +14,8 @@
 {
     self = [super init];
     if (self) {
-        self.title = title;
-        self.artist = artist;
+        _title = title;
+        _artist = artist;
     }
     return self;
 }

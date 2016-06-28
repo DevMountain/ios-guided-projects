@@ -10,12 +10,12 @@
 
 @implementation Playlist
 
--(instancetype)initWithName:(NSString *)name songs:(NSMutableArray *)songs
+-(instancetype)initWithName:(NSString *)name songs:(NSArray *)songs
 {
     self = [super init];
     if (self) {
-        self.name = name;
-        self.songs = songs;
+        _name = name;
+        _songs = [songs mutableCopy];
     }
     return self;
 }
