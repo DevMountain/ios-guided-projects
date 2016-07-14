@@ -23,7 +23,7 @@ class SurveyController {
             } else if responseDataString.containsString("error") {
                 print("Error: \(responseDataString)")
             } else {
-                print("Successfully daved data to endpoint. \nResponse: \(responseDataString)")
+                print("Successfully saved data to endpoint. \nResponse: \(responseDataString)")
             }
         }
     }
@@ -35,6 +35,15 @@ class SurveyController {
         }
         NetworkController.performRequestForURL(url, httpMethod: .Get) { (data, error) in
             let responseDataString = NSString(data: data!, encoding: NSUTF8StringEncoding) ?? ""
+            if error != nil {
+                print("Error: \(error?.localizedDescription)")
+                completion(responses: [])
+                return
+            } else if responseDataString.containsString("error") {
+                print("Error: \(responseDataString)")
+                completion(responses: [])
+                return
+            }
             guard let data = data,
             jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)) as? [String:[String:AnyObject]] else {
                  completion(responses: [])

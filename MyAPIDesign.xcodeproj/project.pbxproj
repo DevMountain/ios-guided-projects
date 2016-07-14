@@ -17,6 +17,7 @@
 		B4E4E5C21D37F80A004E77DE /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5C11D37F80A004E77DE /* Survey.swift */; };
 		B4E4E5C41D37FA02004E77DE /* SurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5C31D37FA02004E77DE /* SurveyController.swift */; };
 		B4E4E5C61D3804AE004E77DE /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5C51D3804AE004E77DE /* SurveyViewController.swift */; };
+		B4E4E5C81D380D68004E77DE /* ResponsesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5C71D380D68004E77DE /* ResponsesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B4E4E5C11D37F80A004E77DE /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		B4E4E5C31D37FA02004E77DE /* SurveyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyController.swift; sourceTree = "<group>"; };
 		B4E4E5C51D3804AE004E77DE /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		B4E4E5C71D380D68004E77DE /* ResponsesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				B4E4E5C31D37FA02004E77DE /* SurveyController.swift */,
 				B4E4E5BF1D37F609004E77DE /* NetworkController.swift */,
 				B4E4E5C51D3804AE004E77DE /* SurveyViewController.swift */,
+				B4E4E5C71D380D68004E77DE /* ResponsesTableViewController.swift */,
 				B4E4E5951D37F400004E77DE /* Main.storyboard */,
 				B4E4E5981D37F400004E77DE /* Assets.xcassets */,
 				B4E4E59A1D37F400004E77DE /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 			files = (
 				B4E4E5C21D37F80A004E77DE /* Survey.swift in Sources */,
 				B4E4E5C01D37F609004E77DE /* NetworkController.swift in Sources */,
+				B4E4E5C81D380D68004E77DE /* ResponsesTableViewController.swift in Sources */,
 				B4E4E5921D37F400004E77DE /* AppDelegate.swift in Sources */,
 				B4E4E5C41D37FA02004E77DE /* SurveyController.swift in Sources */,
 				B4E4E5C61D3804AE004E77DE /* SurveyViewController.swift in Sources */,
