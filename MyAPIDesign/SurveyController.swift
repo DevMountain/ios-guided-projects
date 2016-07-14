@@ -28,4 +28,39 @@ class SurveyController {
         }
     }
     
+    static func getResponses(completion: (responses: [Survey]) -> Void) {
+        guard let url = getterEndpoint else {
+            completion(responses: [])
+            return
+        }
+        NetworkController.performRequestForURL(url, httpMethod: .Get) { (data, error) in
+            let responseDataString = NSString(data: data!, encoding: NSUTF8StringEncoding) ?? ""
+            guard let data = data,
+            jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)) as? [String:[String:AnyObject]] else {
+                 completion(responses: [])
+                return
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                let surveys = jsonDictionary.flatMap { Survey(dictionary: $0.1 ,identifier: $0.0) }
+                completion(responses: surveys)
+                _ = surveys.map { print($0.response)}
+            })
+            
+            
+        }
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
