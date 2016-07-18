@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jz4-fU-z8q">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Pokemon Search View Controller-->
+        <scene sceneID="qjb-ZF-P0Y">
+            <objects>
+                <viewController id="jz4-fU-z8q" customClass="PokemonSearchViewController" customModule="JSONPokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Si3-on-K3i"/>
+                        <viewControllerLayoutGuide type="bottom" id="wIu-jY-yEs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lcj-xL-Zvx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTe-lf-Nvs">
+                                <rect key="frame" x="278" y="290" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzx-6Z-Vlc">
+                                <rect key="frame" x="292" y="319" width="17" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-cY-hoz">
+                                <rect key="frame" x="270" y="348" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="edi-6C-Dxi">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jz4-fU-z8q" id="NZT-ad-D0G"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="edi-6C-Dxi" secondAttribute="trailing" id="2hd-pw-abj"/>
+                            <constraint firstItem="edi-6C-Dxi" firstAttribute="leading" secondItem="lcj-xL-Zvx" secondAttribute="leading" id="4d3-Ob-6uR"/>
+                            <constraint firstItem="dzx-6Z-Vlc" firstAttribute="centerX" secondItem="lcj-xL-Zvx" secondAttribute="centerX" id="87F-lN-3LS"/>
+                            <constraint firstItem="dNR-cY-hoz" firstAttribute="top" secondItem="dzx-6Z-Vlc" secondAttribute="bottom" constant="8" id="BSb-ET-jI9"/>
+                            <constraint firstItem="edi-6C-Dxi" firstAttribute="top" secondItem="Si3-on-K3i" secondAttribute="bottom" id="LBf-6n-MgZ"/>
+                            <constraint firstItem="LTe-lf-Nvs" firstAttribute="centerX" secondItem="lcj-xL-Zvx" secondAttribute="centerX" id="ZGr-gy-tEO"/>
+                            <constraint firstItem="dNR-cY-hoz" firstAttribute="centerX" secondItem="lcj-xL-Zvx" secondAttribute="centerX" id="ahf-U5-wox"/>
+                            <constraint firstItem="dzx-6Z-Vlc" firstAttribute="top" secondItem="LTe-lf-Nvs" secondAttribute="bottom" constant="8" id="ddy-gg-ynr"/>
+                            <constraint firstItem="LTe-lf-Nvs" firstAttribute="centerY" secondItem="lcj-xL-Zvx" secondAttribute="centerY" id="eza-sO-Om9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="abilitiesLabel" destination="dNR-cY-hoz" id="p53-K0-mmB"/>
+                        <outlet property="idLabel" destination="dzx-6Z-Vlc" id="iZh-Os-Pl0"/>
+                        <outlet property="nameLabel" destination="LTe-lf-Nvs" id="a5m-L5-Hnh"/>
+                        <outlet property="searchBar" destination="edi-6C-Dxi" id="DHV-Lg-2GZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="quZ-Ze-n6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="517"/>
+        </scene>
+    </scenes>
+</document>
