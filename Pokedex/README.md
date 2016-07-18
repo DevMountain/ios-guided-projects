@@ -1,4 +1,4 @@
-Pokedex teaches students how to use GET to get information from a REST API by building a simple Pokedex app that acess the [[pokedex.co]] API.
+Pokedex teaches students how to use GET to get information from a REST API by building a simple Pokedex app that acess the [pokéapi.co](https://pokeapi.co) API.
 
 # Suggested breakdown for Pokedex
 
