@@ -4,7 +4,7 @@ Survey lets students practice designing an API and network calls through NSURLSe
 
 # Suggested breakdown for Survey
 
-1. show students the final product so that they will know what they are working toward.
+1. Show students the final product so that they will know what they are working toward.
 2. Make sure that the students have signed up for Firebase. Have the students go over the documentation for how to use Firebase as a RESTful API (https://firebase.google.com/docs/reference/rest/database/). Point out that we will be using Get and Put to make our API. Also show the query parameters that can be used (limit, offset)
 3. Go to the new Firebase console and create a new project. On the left, select database to see your data and make an endpoint called 'api', add a 'fakeData' key with the value 'true' to save the endpoint in the database. Click on the 'api' endpoint, and it will then display the link you will use for your project. 
 4. In order to put or get (read/write), you need to change the rules in the Rules tab to 'auth == null'
