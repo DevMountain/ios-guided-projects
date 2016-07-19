@@ -9,21 +9,17 @@
 import UIKit
 
 class ResponsesTableViewController: UITableViewController {
-
-    var responses: [Survey] = []
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        SurveyController.getResponses { (responses) in
+        SurveyController.fetchResponses { (responses) in
             self.responses = responses
-            self.tableView.reloadData()
         }
     }
 
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return responses.count
     }
 
@@ -34,5 +30,13 @@ class ResponsesTableViewController: UITableViewController {
         cell.detailTextLabel?.text = response.name
         return cell
     }
+	
+	var responses = [Survey]() {
+		didSet {
+			dispatch_async(dispatch_get_main_queue()) {
+				self.tableView.reloadData()
+			}
+		}
+	}
     
 }

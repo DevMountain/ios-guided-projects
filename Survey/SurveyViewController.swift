@@ -15,7 +15,7 @@ class SurveyViewController: UIViewController {
     
     @IBAction func submitButtonTapped(sender: AnyObject) {
         guard let name = nameTextField.text,
-        response = responseTextField.text where name.characters.count > 0 && response.characters.count > 0 else {
+        response = responseTextField.text where !name.isEmpty && !response.isEmpty else {
             return
         }
         SurveyController.putSurveyIntoAPI(name, response: response)
