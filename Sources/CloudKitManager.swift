@@ -75,20 +75,6 @@ class CloudKitManager {
         }
     }
     
-    func deleteRecordsWithID(recordIDs: [CKRecordID], completion: ((records: [CKRecord]?, recordIDs: [CKRecordID]?, error: NSError?) -> Void)?) {
-        
-        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordIDs)
-        operation.savePolicy = .IfServerRecordUnchanged
-        
-        operation.modifyRecordsCompletionBlock = { (records, recordIDs, error) -> Void in
-            
-            if let completion = completion {
-                completion(records: records, recordIDs: recordIDs, error: error)
-            }
-        }
-    }
-    
-    
     // MARK: - Save and Modify
 	
     func saveRecord(record: CKRecord, completion: ((record: CKRecord?, error: NSError?) -> Void)?) {
@@ -191,22 +177,6 @@ class CloudKitManager {
     
     
     // MARK: - CloudKit Discoverability
-    
-    func requestDiscoverabilityPermission() {
-        
-        CKContainer.defaultContainer().statusForApplicationPermission(.UserDiscoverability) { (permissionStatus, error) in
-            
-            if permissionStatus == .InitialState {
-                CKContainer.defaultContainer().requestApplicationPermission(.UserDiscoverability, completionHandler: { (permissionStatus, error) in
-                    
-                    self.handleCloudKitPermissionStatus(permissionStatus, error: error)
-                })
-            } else {
-                
-                self.handleCloudKitPermissionStatus(permissionStatus, error: error)
-            }
-        }
-    }
     
     func handleCloudKitPermissionStatus(permissionStatus: CKApplicationPermissionStatus, error:NSError?) {
         
