@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
 		let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
@@ -30,7 +29,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
 		MessagesController.sharedController.refresh()
 	}
-
-
 }
 

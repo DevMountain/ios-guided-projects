@@ -63,18 +63,6 @@ class CloudKitManager {
         self.publicDatabase.addOperation(queryOperation)
     }
     
-    // MARK: - Delete
-    
-    func deleteRecordWithID(recordID: CKRecordID, completion: ((recordID: CKRecordID?, error: NSError?) -> Void)?) {
-        
-        publicDatabase.deleteRecordWithID(recordID) { (recordID, error) in
-            
-            if let completion = completion {
-                completion(recordID: recordID, error: error)
-            }
-        }
-    }
-    
     // MARK: - Save and Modify
 	
     func saveRecord(record: CKRecord, completion: ((record: CKRecord?, error: NSError?) -> Void)?) {
@@ -105,16 +93,6 @@ class CloudKitManager {
             
             if let completion = completion {
                 completion(subscription: subscription, error: error)
-            }
-        }
-    }
-    
-    func unsubscribe(subscriptionID: String, completion: ((subscriptionID: String?, error: NSError?) -> Void)?) {
-        
-        publicDatabase.deleteSubscriptionWithID(subscriptionID) { (subscriptionID, error) in
-            
-            if let completion = completion {
-                completion(subscriptionID: subscriptionID, error: error)
             }
         }
     }
@@ -174,50 +152,5 @@ class CloudKitManager {
             }
         })
     }
-    
-    
-    // MARK: - CloudKit Discoverability
-    
-    func handleCloudKitPermissionStatus(permissionStatus: CKApplicationPermissionStatus, error:NSError?) {
-        
-        if permissionStatus == .Granted {
-            print("User Discoverability permission granted. User may proceed with full access.")
-        } else {
-            var errorText = "Synchronization is disabled\n"
-            if let error = error {
-                print("handleCloudKitUnavailable ERROR: \(error)")
-                print("An error occured: \(error.localizedDescription)")
-                errorText += error.localizedDescription
-            }
-            
-            switch permissionStatus {
-            case .Denied:
-                errorText += "You have denied User Discoverability permissions. You may be unable to use certain features that require User Discoverability."
-            case .CouldNotComplete:
-                errorText += "Unable to verify User Discoverability permissions. You may have a connectivity issue. Please try again."
-            default:
-                break
-            }
-            
-            displayCloudKitPermissionsNotGrantedError(errorText)
-        }
-    }
-    
-    func displayCloudKitPermissionsNotGrantedError(errorText: String) {
-        
-        dispatch_async(dispatch_get_main_queue(),{
-            
-            let alertController = UIAlertController(title: "CloudKit Permissions Error", message: errorText, preferredStyle: .Alert)
-            
-            let dismissAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil);
-            
-            alertController.addAction(dismissAction)
-            
-            if let appDelegate = UIApplication.sharedApplication().delegate,
-                let appWindow = appDelegate.window!,
-                let rootViewController = appWindow.rootViewController {
-                rootViewController.presentViewController(alertController, animated: true, completion: nil)
-            }
-        })
-    }
+	
 }
