@@ -1,8 +1,8 @@
-BulletinBoard is a very simple multi-user bulletin board app. It uses CloudKit for both persistence and sync. It will help the students practice and understand CloudKit concepts including querying, saving, and subscriptions in a very simple app, without any local persistence.
+StudentPUTAPI is a very simple multi-user student directory app. It uses a simple REST API, and demonstrates the use of PUT to create records.
 
 **Look over the README in the root folder of this repository**
 
-# Suggested breakdown for BulletinBoard
+# Suggested breakdown for StudentPUTAPI
 
 Instructor preparation (students need not do this):
 
