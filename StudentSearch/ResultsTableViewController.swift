@@ -12,7 +12,8 @@ class ResultsTableViewController: UITableViewController {
 
     var filteredStudents: [String] = []
     
-    // MARK: - TableView Data Source Methods
+    // MARK: UITableViewDataSource
+	
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredStudents.count
     }
@@ -23,6 +24,4 @@ class ResultsTableViewController: UITableViewController {
         cell.textLabel?.text = student
         return cell
     }
-    
-
 }

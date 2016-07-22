@@ -16,8 +16,6 @@ class StudentTableViewController: UITableViewController, UISearchResultsUpdating
         super.viewDidLoad()
         setupSearchController()
     }
-
-    // MARK: - SearchController Methods
     
     func setupSearchController() {
         let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("resultsTVC")
@@ -29,22 +27,23 @@ class StudentTableViewController: UITableViewController, UISearchResultsUpdating
         searchController.definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
+	
+	// MARK: UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard let text = searchController.searchBar.text,
                resultsController = searchController.searchResultsController as? ResultsTableViewController else { return }
-        resultsController.filteredStudents = StudentController.searchForStudentWith(text.lowercaseString)
+        resultsController.filteredStudents = StudentController.searchForStudentWithName(text.lowercaseString)
         resultsController.tableView.reloadData()
     }
-    
-    
-    // MARK: - Table view data source
+	
+    // MARK: UITableViewDataSource
+	
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return StudentController.students.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("studentCell", forIndexPath: indexPath)
         let student = StudentController.students[indexPath.row]

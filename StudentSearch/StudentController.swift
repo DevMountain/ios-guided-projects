@@ -12,7 +12,7 @@ class StudentController {
     
     static var students = ["Patrick", "Jeff", "Tim", "Brad", "Joseph", "Chad", "Chris", "Ryan", "Mitch", "Travis", "Michael", "Diego", "Spencer"]
     
-    static func searchForStudentWith(name: String) -> [String] {
+    static func searchForStudentWithName(name: String) -> [String] {
         return students.filter {$0.lowercaseString.containsString(name)}
     }
 
