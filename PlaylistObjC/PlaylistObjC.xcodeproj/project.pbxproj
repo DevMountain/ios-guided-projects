@@ -55,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				1A4A22E41CC9324D003A4350 /* PlaylistObjC */,
+				9DDAD7DA1D6CB99900C2AEE8 /* Resources */,
 				1A4A22E31CC9324D003A4350 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,13 +73,9 @@
 			children = (
 				1A4A22E81CC9324D003A4350 /* AppDelegate.h */,
 				1A4A22E91CC9324D003A4350 /* AppDelegate.m */,
-				1A4A22EE1CC9324D003A4350 /* Main.storyboard */,
-				1A4A230E1CC9411C003A4350 /* Models */,
-				1A4A230F1CC9412A003A4350 /* ModelControllers */,
-				1A4A230D1CC9410D003A4350 /* ViewControllers */,
-				1A4A22F11CC9324D003A4350 /* Assets.xcassets */,
-				1A4A22F31CC9324D003A4350 /* LaunchScreen.storyboard */,
-				1A4A22F61CC9324D003A4350 /* Info.plist */,
+				1A4A230E1CC9411C003A4350 /* Model */,
+				1A4A230F1CC9412A003A4350 /* Model Controllers */,
+				1A4A230D1CC9410D003A4350 /* View Controllers */,
 				1A4A22E51CC9324D003A4350 /* Supporting Files */,
 			);
 			path = PlaylistObjC;
@@ -92,7 +89,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1A4A230D1CC9410D003A4350 /* ViewControllers */ = {
+		1A4A230D1CC9410D003A4350 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1A4A22FC1CC9330C003A4350 /* PlaylistDetailViewController.h */,
@@ -100,10 +97,10 @@
 				1A4A22FF1CC93317003A4350 /* ListViewController.h */,
 				1A4A23001CC93318003A4350 /* ListViewController.m */,
 			);
-			name = ViewControllers;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		1A4A230E1CC9411C003A4350 /* Models */ = {
+		1A4A230E1CC9411C003A4350 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1A4A23041CC935A3003A4350 /* Playlist.h */,
@@ -111,18 +108,30 @@
 				1A4A23071CC935CC003A4350 /* Song.h */,
 				1A4A23081CC935CC003A4350 /* Song.m */,
 			);
-			name = Models;
+			name = Model;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		1A4A230F1CC9412A003A4350 /* ModelControllers */ = {
+		1A4A230F1CC9412A003A4350 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1A4A230A1CC940F7003A4350 /* PlaylistController.h */,
 				1A4A230B1CC940F7003A4350 /* PlaylistController.m */,
 			);
-			name = ModelControllers;
+			name = "Model Controllers";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		9DDAD7DA1D6CB99900C2AEE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A22EE1CC9324D003A4350 /* Main.storyboard */,
+				1A4A22F11CC9324D003A4350 /* Assets.xcassets */,
+				1A4A22F31CC9324D003A4350 /* LaunchScreen.storyboard */,
+				1A4A22F61CC9324D003A4350 /* Info.plist */,
+			);
+			name = Resources;
+			path = PlaylistObjC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +160,9 @@
 		1A4A22DA1CC9324D003A4350 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DMN;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "James Pacheco";
+				ORGANIZATIONNAME = DevMountain;
 				TargetAttributes = {
 					1A4A22E11CC9324D003A4350 = {
 						CreatedOnToolsVersion = 7.3;
@@ -350,6 +360,7 @@
 				1A4A22FB1CC9324D003A4350 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

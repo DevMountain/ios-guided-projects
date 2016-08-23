@@ -3,7 +3,7 @@
 //  PlaylistObjC
 //
 //  Created by James Pacheco on 4/21/16.
-//  Copyright © 2016 James Pacheco. All rights reserved.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,14 +12,14 @@
 
 @interface PlaylistController : NSObject
 
-@property (strong, nonatomic) NSMutableArray *playlists;
++ (PlaylistController *)sharedInstance;
+- (instancetype)init;
 
--(void)createPlaylistWithTitle:(NSString *)title;
--(void)addSongWithTitle:(NSString *) title andArtist:(NSString*) artist toPlaylist:(Playlist *)playlist;
--(void)deleteSong:(Song *)song fromPlaylist:(Playlist *)playlist;
--(void)deletePlaylist:(Playlist *)playlist;
+- (void)createPlaylistWithTitle:(NSString *)title;
+- (void)addSongWithTitle:(NSString *) title andArtist:(NSString*) artist toPlaylist:(Playlist *)playlist;
+- (void)deleteSong:(Song *)song fromPlaylist:(Playlist *)playlist;
+- (void)deletePlaylist:(Playlist *)playlist;
 
-+(PlaylistController *)sharedInstance;
--(instancetype)init;
+@property (nonatomic, strong) NSMutableArray *playlists;
 
 @end

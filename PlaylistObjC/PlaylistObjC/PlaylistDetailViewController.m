@@ -3,37 +3,38 @@
 //  PlaylistObjC
 //
 //  Created by James Pacheco on 4/21/16.
-//  Copyright © 2016 James Pacheco. All rights reserved.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 #import "PlaylistDetailViewController.h"
 #import "PlaylistController.h"
 
 @interface PlaylistDetailViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *artistTextField;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, weak) IBOutlet UITextField *titleTextField;
+@property (nonatomic, weak) IBOutlet UITextField *artistTextField;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation PlaylistDetailViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+#pragma mark - Actions
+
+- (IBAction)addButtonTapped:(id)sender
+{
+	[[PlaylistController sharedInstance] addSongWithTitle:self.titleTextField.text andArtist:self.artistTextField.text toPlaylist:self.playlist];
+	[self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - UITableViewDataSource/Delegate
 
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.playlist.songs count];
 }
 
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"songCell" forIndexPath:indexPath];
     Song *song = self.playlist.songs[indexPath.row];
@@ -42,7 +43,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Song *song = self.playlist.songs[indexPath.row];
@@ -51,9 +52,14 @@
     }
 }
 
-- (IBAction)addButtonTapped:(id)sender {
-    [[PlaylistController sharedInstance] addSongWithTitle:self.titleTextField.text andArtist:self.artistTextField.text toPlaylist:self.playlist];
-    [self.tableView reloadData];
+#pragma mark - Properties
+
+- (void)setPlaylist:(Playlist *)playlist
+{
+	if (playlist != _playlist) {
+		_playlist = playlist;
+		[self.tableView reloadData];
+	}
 }
 
 @end

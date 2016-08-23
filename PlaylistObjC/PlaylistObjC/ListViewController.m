@@ -3,7 +3,7 @@
 //  PlaylistObjC
 //
 //  Created by James Pacheco on 4/21/16.
-//  Copyright © 2016 James Pacheco. All rights reserved.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 #import "ListViewController.h"
@@ -11,29 +11,30 @@
 #import "PlaylistDetailViewController.h"
 
 @interface ListViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, weak) IBOutlet UITextField *nameTextField;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation ListViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+#pragma mark - Actions
+
+- (IBAction)addButtonTapped:(id)sender
+{
+	[[PlaylistController sharedInstance] createPlaylistWithTitle:self.nameTextField.text];
+	[self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - UITableViewDataSource/Delegate
 
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[PlaylistController sharedInstance].playlists count];
 }
 
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playlistCell" forIndexPath:indexPath];
     Playlist *playlist = [PlaylistController sharedInstance].playlists[indexPath.row];
@@ -42,7 +43,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Playlist *playlist = [PlaylistController sharedInstance].playlists[indexPath.row];
@@ -51,16 +52,10 @@
     }
 }
 
-- (IBAction)addButtonTapped:(id)sender {
-    [[PlaylistController sharedInstance] createPlaylistWithTitle:self.nameTextField.text];
-    [self.tableView reloadData];
-}
-
-
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"toDetailView"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Playlist* playlist = [PlaylistController sharedInstance].playlists[indexPath.row];
@@ -68,6 +63,5 @@
         vc.playlist = playlist;
     }
 }
-
 
 @end

@@ -3,7 +3,7 @@
 //  PlaylistObjC
 //
 //  Created by James Pacheco on 4/21/16.
-//  Copyright © 2016 James Pacheco. All rights reserved.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,6 +11,6 @@
 
 @interface PlaylistDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) Playlist *playlist;
+@property (nonatomic, strong) Playlist *playlist;
 
 @end

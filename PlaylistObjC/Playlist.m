@@ -3,19 +3,19 @@
 //  PlaylistObjC
 //
 //  Created by James Pacheco on 4/21/16.
-//  Copyright © 2016 James Pacheco. All rights reserved.
+//  Copyright © 2016 DevMountain. All rights reserved.
 //
 
 #import "Playlist.h"
 
 @implementation Playlist
 
--(instancetype)initWithName:(NSString *)name songs:(NSMutableArray *)songs
+- (instancetype)initWithName:(NSString *)name songs:(NSArray *)songs
 {
     self = [super init];
     if (self) {
-        self.name = name;
-        self.songs = songs;
+        _name = name;
+        _songs = [songs mutableCopy];
     }
     return self;
 }
