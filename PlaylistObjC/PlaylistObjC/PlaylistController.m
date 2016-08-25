@@ -8,6 +8,12 @@
 
 #import "PlaylistController.h"
 
+@interface PlaylistController ()
+
+@property (nonatomic, strong) NSMutableArray *internalPlaylists;
+
+@end
+
 @implementation PlaylistController
 
 + (PlaylistController *)sharedInstance
@@ -24,7 +30,7 @@
 {
     self = [super init];
     if (self) {
-        _playlists = [[NSMutableArray alloc] init];
+        _internalPlaylists = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -32,24 +38,27 @@
 - (void)createPlaylistWithTitle:(NSString *)title
 {
     Playlist *playlist = [[Playlist alloc] initWithName:title songs:[[NSMutableArray alloc] init]];
-    [self.playlists addObject:playlist];
+    [self.internalPlaylists addObject:playlist];
 }
 
 - (void)deletePlaylist:(Playlist *)playlist
 {
-    [self.playlists removeObject:playlist];
+    [self.internalPlaylists removeObject:playlist];
 }
 
 - (void)addSongWithTitle:(NSString *)title andArtist:(NSString *)artist toPlaylist:(Playlist *)playlist
 {
     Song *song = [[Song alloc] initWithTitle:title artist:artist];
-    [playlist.songs addObject:song];
+	[playlist addSongsObject:song];
 }
 
 - (void)deleteSong:(Song *)song fromPlaylist:(Playlist *)playlist
 {
-    [playlist.songs removeObject:song];
+	[playlist removeSongsObject:song];
 }
 
+#pragma mark - Properties
+
+- (NSArray *)playlists { return self.internalPlaylists; }
 
 @end

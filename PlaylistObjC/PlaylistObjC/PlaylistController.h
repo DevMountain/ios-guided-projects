@@ -20,6 +20,6 @@
 - (void)deleteSong:(Song *)song fromPlaylist:(Playlist *)playlist;
 - (void)deletePlaylist:(Playlist *)playlist;
 
-@property (nonatomic, strong) NSMutableArray *playlists;
+@property (nonatomic, strong, readonly) NSArray *playlists;
 
 @end
