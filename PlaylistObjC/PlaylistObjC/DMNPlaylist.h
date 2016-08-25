@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class Song;
+@class DMNSong;
 
-@interface Playlist : NSObject
+@interface DMNPlaylist : NSObject
 
 - (instancetype)initWithName:(NSString *)name songs:(NSArray *)songs;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong, readonly) NSArray *songs;
-- (void)addSongsObject:(Song *)song;
-- (void)removeSongsObject:(Song *)song;
+- (void)addSongsObject:(DMNSong *)song;
+- (void)removeSongsObject:(DMNSong *)song;
 
 @end

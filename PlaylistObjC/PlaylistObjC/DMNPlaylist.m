@@ -6,15 +6,15 @@
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
-#import "Playlist.h"
+#import "DMNPlaylist.h"
 
-@interface Playlist ()
+@interface DMNPlaylist ()
 
 @property (nonatomic, strong) NSMutableArray *internalSongs;
 
 @end
 
-@implementation Playlist
+@implementation DMNPlaylist
 
 - (instancetype)initWithName:(NSString *)name songs:(NSArray *)songs
 {
@@ -30,12 +30,12 @@
 
 - (NSArray *)songs { return self.internalSongs; }
 
-- (void)addSongsObject:(Song *)song;
+- (void)addSongsObject:(DMNSong *)song;
 {
 	[self.internalSongs addObject:song];
 }
 
-- (void)removeSongsObject:(Song *)song;
+- (void)removeSongsObject:(DMNSong *)song;
 {
 	[self.internalSongs removeObject:song];
 }

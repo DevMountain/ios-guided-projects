@@ -6,9 +6,9 @@
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
-#import "Song.h"
+#import "DMNSong.h"
 
-@implementation Song
+@implementation DMNSong
 
 - (instancetype)initWithTitle:(NSString *)title artist:(NSString *)artist
 {
@@ -22,8 +22,8 @@
 
 - (BOOL)isEqual:(id)object
 {
-	if (![object isKindOfClass:[Song class]]) { return NO; }
-	Song *song = object;
+	if (![object isKindOfClass:[DMNSong class]]) { return NO; }
+	DMNSong *song = object;
 	if (![song.title isEqualToString:self.title] && song.title != self.title) { return NO; }
 	if (![song.artist isEqualToString:self.artist] && song.artist != self.artist) { return NO; }
 	return YES;

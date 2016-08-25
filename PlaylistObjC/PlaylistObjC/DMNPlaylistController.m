@@ -6,22 +6,22 @@
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
-#import "PlaylistController.h"
+#import "DMNPlaylistController.h"
 
-@interface PlaylistController ()
+@interface DMNPlaylistController ()
 
 @property (nonatomic, strong) NSMutableArray *internalPlaylists;
 
 @end
 
-@implementation PlaylistController
+@implementation DMNPlaylistController
 
-+ (PlaylistController *)sharedInstance
++ (DMNPlaylistController *)sharedInstance
 {
-	static PlaylistController *sharedInstance = nil;
+	static DMNPlaylistController *sharedInstance = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedInstance = [PlaylistController new];
+		sharedInstance = [DMNPlaylistController new];
 	});
 	return sharedInstance;
 }
@@ -37,22 +37,22 @@
 
 - (void)createPlaylistWithTitle:(NSString *)title
 {
-    Playlist *playlist = [[Playlist alloc] initWithName:title songs:[[NSMutableArray alloc] init]];
+    DMNPlaylist *playlist = [[DMNPlaylist alloc] initWithName:title songs:[[NSMutableArray alloc] init]];
     [self.internalPlaylists addObject:playlist];
 }
 
-- (void)deletePlaylist:(Playlist *)playlist
+- (void)deletePlaylist:(DMNPlaylist *)playlist
 {
     [self.internalPlaylists removeObject:playlist];
 }
 
-- (void)addSongWithTitle:(NSString *)title andArtist:(NSString *)artist toPlaylist:(Playlist *)playlist
+- (void)addSongWithTitle:(NSString *)title andArtist:(NSString *)artist toPlaylist:(DMNPlaylist *)playlist
 {
-    Song *song = [[Song alloc] initWithTitle:title artist:artist];
+    DMNSong *song = [[DMNSong alloc] initWithTitle:title artist:artist];
 	[playlist addSongsObject:song];
 }
 
-- (void)deleteSong:(Song *)song fromPlaylist:(Playlist *)playlist
+- (void)deleteSong:(DMNSong *)song fromPlaylist:(DMNPlaylist *)playlist
 {
 	[playlist removeSongsObject:song];
 }

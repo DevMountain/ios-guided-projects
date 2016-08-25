@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Playlist.h"
+#import "DMNPlaylist.h"
 
-@interface PlaylistDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DMNPlaylistDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) Playlist *playlist;
+@property (nonatomic, strong) DMNPlaylist *playlist;
 
 @end

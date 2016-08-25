@@ -6,24 +6,24 @@
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
-#import "ListViewController.h"
-#import "PlaylistController.h"
-#import "PlaylistDetailViewController.h"
+#import "DMNListViewController.h"
+#import "DMNPlaylistController.h"
+#import "DMNPlaylistDetailViewController.h"
 
-@interface ListViewController ()
+@interface DMNListViewController ()
 
 @property (nonatomic, weak) IBOutlet UITextField *nameTextField;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation ListViewController
+@implementation DMNListViewController
 
 #pragma mark - Actions
 
 - (IBAction)addButtonTapped:(id)sender
 {
-	[[PlaylistController sharedInstance] createPlaylistWithTitle:self.nameTextField.text];
+	[[DMNPlaylistController sharedInstance] createPlaylistWithTitle:self.nameTextField.text];
 	[self.tableView reloadData];
 }
 
@@ -31,13 +31,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[PlaylistController sharedInstance].playlists count];
+    return [[DMNPlaylistController sharedInstance].playlists count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playlistCell" forIndexPath:indexPath];
-    Playlist *playlist = [PlaylistController sharedInstance].playlists[indexPath.row];
+    DMNPlaylist *playlist = [DMNPlaylistController sharedInstance].playlists[indexPath.row];
     cell.textLabel.text = playlist.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu songs", [playlist.songs count]];
     return cell;
@@ -46,8 +46,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Playlist *playlist = [PlaylistController sharedInstance].playlists[indexPath.row];
-        [[PlaylistController sharedInstance] deletePlaylist:playlist];
+        DMNPlaylist *playlist = [DMNPlaylistController sharedInstance].playlists[indexPath.row];
+        [[DMNPlaylistController sharedInstance] deletePlaylist:playlist];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
@@ -58,8 +58,8 @@
 {
     if ([segue.identifier isEqualToString:@"toDetailView"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Playlist* playlist = [PlaylistController sharedInstance].playlists[indexPath.row];
-        PlaylistDetailViewController *vc = (PlaylistDetailViewController *)segue.destinationViewController;
+        DMNPlaylist* playlist = [DMNPlaylistController sharedInstance].playlists[indexPath.row];
+        DMNPlaylistDetailViewController *vc = (DMNPlaylistDetailViewController *)segue.destinationViewController;
         vc.playlist = playlist;
     }
 }
