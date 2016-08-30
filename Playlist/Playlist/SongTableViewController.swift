@@ -10,51 +10,52 @@ import UIKit
 
 class SongTableViewController: UITableViewController {
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		title = playlist?.name
-    }
-
-    @IBAction func addButtonTapped(sender: AnyObject) {
-        guard let playlist = playlist,
-            song = songTextField.text,
-            artist = artistTextField.text where song.characters.count > 0 && artist.characters.count > 0 else { return }
-        SongController.createSong(song, artist: artist, playlist: playlist)
-        songTextField.text = ""
-        artistTextField.text = ""
-        tableView.reloadData()
-    }
-    
-    // MARK: - Table view data source
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playlist?.songs.count ?? 0
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath)
-        
-        if let song = playlist?.songs[indexPath.row] {
-            cell.textLabel?.text = song.name
-            cell.detailTextLabel?.text = song.artist
-        }
-        
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Songs"
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            guard let playlist = playlist else {return}
-            let song = playlist.songs[indexPath.row]
-            PlaylistController.sharedController.removeSongFromPlaylist(song, playlist: playlist)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-    }
+	}
+	
+	@IBAction func addButtonTapped(_ sender: AnyObject) {
+		guard let playlist = playlist,
+			let songTitle = songTextField.text,
+			let artist = artistTextField.text,
+			!songTitle.isEmpty && !artist.isEmpty else { return }
+		SongController.create(songWithName: songTitle, artist: artist, playlist: playlist)
+		songTextField.text = ""
+		artistTextField.text = ""
+		tableView.reloadData()
+	}
+	
+	// MARK: - Table view data source
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return playlist?.songs.count ?? 0
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
+		
+		if let song = playlist?.songs[indexPath.row] {
+			cell.textLabel?.text = song.name
+			cell.detailTextLabel?.text = song.artist
+		}
+		
+		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Songs"
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			guard let playlist = playlist else {return}
+			let song = playlist.songs[indexPath.row]
+			PlaylistController.sharedController.remove(song: song, fromPlaylist: playlist)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
+	}
 	
 	// MARK: Properties
 	
