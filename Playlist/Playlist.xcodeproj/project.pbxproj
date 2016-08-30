@@ -65,33 +65,30 @@
 			isa = PBXGroup;
 			children = (
 				1AFCF5D91CDA6730006D2F3D /* AppDelegate.swift */,
-				1AFCF5DD1CDA6730006D2F3D /* Main.storyboard */,
-				1AFCF5F71CDA72EF006D2F3D /* ModelControllers */,
+				1AFCF5F81CDA72F7006D2F3D /* View Controllers */,
 				1AFCF5F91CDA72FF006D2F3D /* Models */,
-				1AFCF5F81CDA72F7006D2F3D /* ViewControllers */,
-				1AFCF5E01CDA6730006D2F3D /* Assets.xcassets */,
-				1AFCF5E21CDA6730006D2F3D /* LaunchScreen.storyboard */,
-				1AFCF5E51CDA6730006D2F3D /* Info.plist */,
+				1AFCF5F71CDA72EF006D2F3D /* Model Controllers */,
+				9D27B51F1D75F5EC00D8F988 /* Resources */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
 		};
-		1AFCF5F71CDA72EF006D2F3D /* ModelControllers */ = {
+		1AFCF5F71CDA72EF006D2F3D /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1AFCF5F51CDA6BAD006D2F3D /* SongController.swift */,
 				1AFCF5F31CDA6A1C006D2F3D /* PlaylistController.swift */,
 			);
-			name = ModelControllers;
+			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
-		1AFCF5F81CDA72F7006D2F3D /* ViewControllers */ = {
+		1AFCF5F81CDA72F7006D2F3D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1AFCF5EB1CDA68C1006D2F3D /* PlaylistTableViewController.swift */,
 				1AFCF5ED1CDA68C7006D2F3D /* SongTableViewController.swift */,
 			);
-			name = ViewControllers;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		1AFCF5F91CDA72FF006D2F3D /* Models */ = {
@@ -101,6 +98,17 @@
 				1AFCF5F11CDA69B5006D2F3D /* Playlist.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		9D27B51F1D75F5EC00D8F988 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AFCF5DD1CDA6730006D2F3D /* Main.storyboard */,
+				1AFCF5E01CDA6730006D2F3D /* Assets.xcassets */,
+				1AFCF5E21CDA6730006D2F3D /* LaunchScreen.storyboard */,
+				1AFCF5E51CDA6730006D2F3D /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

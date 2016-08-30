@@ -10,9 +10,7 @@ import Foundation
 
 class PlaylistController {
     
-    static let sharedInstance = PlaylistController()
-    
-    var playlists: [Playlist] = []
+    static let sharedController = PlaylistController()
     
     func addPlaylist(name: String) {
         let playlist = Playlist(name: name)
@@ -32,6 +30,8 @@ class PlaylistController {
         guard let index = playlist.songs.indexOf(song) else {return}
         playlist.songs.removeAtIndex(index)
     }
-    
-    
+ 
+	// MARK: Properties
+	
+	var playlists = [Playlist]()
 }
