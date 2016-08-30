@@ -9,11 +9,9 @@
 import Foundation
 
 class PlaylistController {
-    private let kPlaylists = "storedPlaylists"
+    private static let PlaylistsKey = "playlists"
     
-    static let sharedInstance = PlaylistController()
-    
-    var playlists: [Playlist] = []
+    static let sharedController = PlaylistController()
     
     init() {
         loadFromPersistentStore()
@@ -43,12 +41,18 @@ class PlaylistController {
     }
     
     func saveToPersistentStore() {
-        NSUserDefaults.standardUserDefaults().setObject(playlists.map{$0.dictionaryCopy}, forKey: kPlaylists)
+		let userDefaults = NSUserDefaults.standardUserDefaults()
+		let playlistDictionaries = playlists.map { $0.dictionaryRepresentation }
+        userDefaults.setObject(playlistDictionaries, forKey: PlaylistController.PlaylistsKey)
     }
     
     func loadFromPersistentStore() {
-        guard let playlistsDictionaryArray = NSUserDefaults.standardUserDefaults().objectForKey(kPlaylists) as? [[String: AnyObject]] else {return}
-        playlists = playlistsDictionaryArray.flatMap{Playlist(dictionary: $0)}
+		let userDefaults = NSUserDefaults.standardUserDefaults()
+        guard let playlistDictionaries = userDefaults.objectForKey(PlaylistController.PlaylistsKey) as? [[String: AnyObject]] else { return }
+        playlists = playlistDictionaries.flatMap { Playlist(dictionary: $0) }
     }
-    
+	
+	// MARK: Properties 
+	
+	var playlists = [Playlist]()
 }

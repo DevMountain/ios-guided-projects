@@ -26,7 +26,7 @@ class SongTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+    // MARK: UITableViewDataSource/Delegate
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playlist?.songs.count ?? 0
@@ -34,7 +34,7 @@ class SongTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath)
-        
+		
         if let song = playlist?.songs[indexPath.row] {
             cell.textLabel?.text = song.name
             cell.detailTextLabel?.text = song.artist

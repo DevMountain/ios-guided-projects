@@ -9,27 +9,30 @@
 import Foundation
 
 class Song: Equatable {
-    private let kName = "name"
-    private let kArtist = "kArtist"
-    
-    let name: String
-    let artist: String
-    
-    var dictionaryCopy: [String: AnyObject] {
-        return [kName: name, kArtist: artist]
-    }
-    
+    private static let NameKey = "name"
+    private static let ArtistKey = "artist"
+	
     init(name: String, artist: String) {
         self.name = name
         self.artist = artist
     }
+	
+	// MARK: Dictionary Conversion
     
-    init?(dictionary: [String: AnyObject]) {
-        guard let name = dictionary[kName] as? String,
-            artist = dictionary[kArtist] as? String else {return nil}
-        self.name = name
-        self.artist = artist
+    convenience init?(dictionary: [String: AnyObject]) {
+        guard let name = dictionary[Song.NameKey] as? String,
+            artist = dictionary[Song.ArtistKey] as? String else { return nil }
+		self.init(name: name, artist: artist)
     }
+	
+	var dictionaryRepresentation: [String: AnyObject] {
+		return [Song.NameKey: name, Song.ArtistKey: artist]
+	}
+
+	// MARK: Properties
+	
+	let name: String
+	let artist: String
 }
 
 func ==(lhs: Song, rhs: Song) -> Bool {

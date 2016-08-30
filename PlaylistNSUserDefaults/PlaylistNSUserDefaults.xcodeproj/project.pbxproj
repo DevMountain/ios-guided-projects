@@ -65,24 +65,21 @@
 			isa = PBXGroup;
 			children = (
 				1AFCF6061CDAAC93006D2F3D /* AppDelegate.swift */,
+				1AFCF6261CDAAD0D006D2F3D /* View Controllers */,
 				1AFCF6211CDAACF4006D2F3D /* Models */,
-				1AFCF6261CDAAD0D006D2F3D /* ViewControllers */,
-				1AFCF61C1CDAACDF006D2F3D /* Controllers */,
-				1AFCF60A1CDAAC93006D2F3D /* Main.storyboard */,
-				1AFCF60D1CDAAC93006D2F3D /* Assets.xcassets */,
-				1AFCF60F1CDAAC93006D2F3D /* LaunchScreen.storyboard */,
-				1AFCF6121CDAAC93006D2F3D /* Info.plist */,
+				1AFCF61C1CDAACDF006D2F3D /* Model Controllers */,
+				9D27B5201D75F8B500D8F988 /* Resources */,
 			);
 			path = PlaylistNSUserDefaults;
 			sourceTree = "<group>";
 		};
-		1AFCF61C1CDAACDF006D2F3D /* Controllers */ = {
+		1AFCF61C1CDAACDF006D2F3D /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1AFCF6181CDAACCD006D2F3D /* SongController.swift */,
 				1AFCF6191CDAACCD006D2F3D /* PlaylistController.swift */,
 			);
-			name = Controllers;
+			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		1AFCF6211CDAACF4006D2F3D /* Models */ = {
@@ -94,13 +91,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		1AFCF6261CDAAD0D006D2F3D /* ViewControllers */ = {
+		1AFCF6261CDAAD0D006D2F3D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1AFCF6221CDAAD00006D2F3D /* PlaylistTableViewController.swift */,
 				1AFCF6231CDAAD00006D2F3D /* SongTableViewController.swift */,
 			);
-			name = ViewControllers;
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9D27B5201D75F8B500D8F988 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AFCF60A1CDAAC93006D2F3D /* Main.storyboard */,
+				1AFCF60D1CDAAC93006D2F3D /* Assets.xcassets */,
+				1AFCF60F1CDAAC93006D2F3D /* LaunchScreen.storyboard */,
+				1AFCF6121CDAAC93006D2F3D /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +338,7 @@
 				1AFCF6171CDAAC93006D2F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
