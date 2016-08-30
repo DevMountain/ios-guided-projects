@@ -24,7 +24,7 @@
 		1AFCF5981CDA4E57006D2F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AFCF59B1CDA4E57006D2F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AFCF59D1CDA4E57006D2F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AFCF5A31CDA4EB9006D2F3D /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = ../TestViewController.swift; sourceTree = "<group>"; };
+		1AFCF5A31CDA4EB9006D2F3D /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		1AFCF5A51CDA50A5006D2F3D /* DiscoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoViewController.swift; sourceTree = "<group>"; };
 		1AFCF5A71CDA565D006D2F3D /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		1AFCF5A91CDA56B0006D2F3D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -62,15 +62,23 @@
 			children = (
 				1AFCF5911CDA4E57006D2F3D /* AppDelegate.swift */,
 				1AFCF5A31CDA4EB9006D2F3D /* TestViewController.swift */,
-				1AFCF5951CDA4E57006D2F3D /* Main.storyboard */,
 				1AFCF5A51CDA50A5006D2F3D /* DiscoViewController.swift */,
 				1AFCF5A71CDA565D006D2F3D /* SignupViewController.swift */,
 				1AFCF5A91CDA56B0006D2F3D /* WelcomeViewController.swift */,
+				9DEBC9EC1D70B2CE00C80222 /* Resources */,
+			);
+			path = ViewsAndStoryboards;
+			sourceTree = "<group>";
+		};
+		9DEBC9EC1D70B2CE00C80222 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AFCF5951CDA4E57006D2F3D /* Main.storyboard */,
 				1AFCF5981CDA4E57006D2F3D /* Assets.xcassets */,
 				1AFCF59A1CDA4E57006D2F3D /* LaunchScreen.storyboard */,
 				1AFCF59D1CDA4E57006D2F3D /* Info.plist */,
 			);
-			path = ViewsAndStoryboards;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +306,7 @@
 				1AFCF5A21CDA4E57006D2F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

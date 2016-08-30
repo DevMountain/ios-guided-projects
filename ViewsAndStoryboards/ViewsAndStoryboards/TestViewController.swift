@@ -10,7 +10,6 @@ import UIKit
 
 class TestViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.backgroundColor = .blueColor()
@@ -37,15 +36,7 @@ class TestViewController: UIViewController {
         print("The view did disappear")
     }
 
+	// MARK: - Properties
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	@IBOutlet weak var nameLabel: UILabel!
 }
