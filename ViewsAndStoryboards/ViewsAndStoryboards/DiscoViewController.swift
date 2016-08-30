@@ -10,15 +10,15 @@ import UIKit
 
 class DiscoViewController: UIViewController {
 	
-    @IBAction func discoButonTapped(sender: AnyObject) {
-        self.view.backgroundColor = .redColor()
+    @IBAction func discoButonTapped(_ sender: AnyObject) {
+        self.view.backgroundColor = .red
     }
     
-    @IBAction func discoButtonTappedOutside(sender: AnyObject) {
-        self.view.backgroundColor = .blueColor()
+    @IBAction func discoButtonTappedOutside(_ sender: AnyObject) {
+        self.view.backgroundColor = .blue
     }
     
-    @IBAction func discoButtonTappedEnter(sender: AnyObject) {
-        self.view.backgroundColor = .purpleColor()
+    @IBAction func discoButtonTappedEnter(_ sender: AnyObject) {
+        self.view.backgroundColor = .purple
     }
 }
