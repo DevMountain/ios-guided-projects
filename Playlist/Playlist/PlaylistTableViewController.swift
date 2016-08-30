@@ -50,7 +50,7 @@ class PlaylistTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Navigation
+    // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPlaylistDetail",

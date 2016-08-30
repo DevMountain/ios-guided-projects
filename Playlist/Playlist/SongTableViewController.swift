@@ -27,7 +27,7 @@ class SongTableViewController: UITableViewController {
 		tableView.reloadData()
 	}
 	
-	// MARK: - Table view data source
+	// MARK: UITableViewDataSource/Delegate
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return playlist?.songs.count ?? 0
