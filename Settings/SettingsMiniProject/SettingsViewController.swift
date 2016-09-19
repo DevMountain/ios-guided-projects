@@ -12,25 +12,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
 	
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsController.sharedController.mySettings.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("settingCell") as? SettingTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell") as? SettingTableViewCell
 
-        let setting = SettingsController.sharedController.mySettings[indexPath.row]
+        let setting = SettingsController.sharedController.mySettings[(indexPath as NSIndexPath).row]
 		cell?.setting = setting
         cell?.delegate = self
         return cell ?? UITableViewCell()
     }
     
-    func settingValueChanged(cell: SettingTableViewCell, selected: Bool) {
+    func settingValueChanged(_ cell: SettingTableViewCell, selected: Bool) {
         guard let setting = cell.setting,
-            cellIndexPath = tableView.indexPathForCell(cell) else {return}
+            let cellIndexPath = tableView.indexPath(for: cell) else {return}
         tableView.beginUpdates()
 		setting.isSet = selected
-        tableView.reloadRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
+        tableView.reloadRows(at: [cellIndexPath], with: .automatic)
         tableView.endUpdates()
     }
 

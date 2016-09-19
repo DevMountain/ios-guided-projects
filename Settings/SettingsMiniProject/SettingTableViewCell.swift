@@ -9,13 +9,13 @@
 import UIKit
 
 protocol SettingTableViewCellDelegate: class {
-	func settingValueChanged(cell: SettingTableViewCell, selected: Bool)
+	func settingValueChanged(_ cell: SettingTableViewCell, selected: Bool)
 }
 
 class SettingTableViewCell: UITableViewCell {
 	
-    @IBAction func settingSwitchValueChanged(sender: AnyObject) {
-        delegate?.settingValueChanged(self, selected: settingSwitch.on)
+    @IBAction func settingSwitchValueChanged(_ sender: AnyObject) {
+        delegate?.settingValueChanged(self, selected: settingSwitch.isOn)
     }
 	
 	var setting: Setting? {
@@ -23,8 +23,8 @@ class SettingTableViewCell: UITableViewCell {
 			guard let setting = setting else { return }
 			iconImageView.image = setting.image
 			settingLabel.text = setting.name
-			settingSwitch.on = setting.isSet
-			backgroundColor = setting.isSet ? .yellowColor() : .whiteColor()
+			settingSwitch.isOn = setting.isSet
+			backgroundColor = setting.isSet ? .yellow : .white
 		}
 	}
 	
