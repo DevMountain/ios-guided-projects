@@ -10,12 +10,13 @@ import UIKit
 
 class Setting {
     
-    var image: UIImage?
-    let name: String
-    var isSet: Bool
     init(name: String, isSet: Bool, image: UIImage?) {
         self.name = name
         self.isSet = isSet
         self.image = image
     }
+	
+	var image: UIImage?
+	let name: String
+	var isSet: Bool
 }

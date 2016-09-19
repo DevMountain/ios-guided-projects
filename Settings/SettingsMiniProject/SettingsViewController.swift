@@ -11,12 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingTableViewCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
+	
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsController.sharedController.mySettings.count
     }
@@ -25,7 +20,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("settingCell") as? SettingTableViewCell
 
         let setting = SettingsController.sharedController.mySettings[indexPath.row]
-        cell?.updateWithSetting(setting)
+		cell?.setting = setting
         cell?.delegate = self
         return cell ?? UITableViewCell()
     }
@@ -34,7 +29,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let setting = cell.setting,
             cellIndexPath = tableView.indexPathForCell(cell) else {return}
         tableView.beginUpdates()
-        SettingsController.sharedController.updateSettingSelection(setting, selected: selected)
+		setting.isSet = selected
         tableView.reloadRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
         tableView.endUpdates()
     }
