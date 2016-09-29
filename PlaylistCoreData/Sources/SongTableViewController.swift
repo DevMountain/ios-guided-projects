@@ -35,7 +35,7 @@ class SongTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playlist?.songs.count ?? 0
+        return playlist?.songs?.count ?? 0
     }
 
     
@@ -43,7 +43,7 @@ class SongTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
         
         if let playlist = playlist,
-            let song = playlist.songs.object(at: (indexPath as NSIndexPath).row) as? Song {
+            let song = playlist.songs?.object(at: (indexPath as NSIndexPath).row) as? Song {
             cell.textLabel?.text = song.name
             cell.detailTextLabel?.text = song.artist
         }
@@ -59,7 +59,7 @@ class SongTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let playlist = playlist,
-                let song = playlist.songs.object(at: (indexPath as NSIndexPath).row) as? Song else {return}
+                let song = playlist.songs?.object(at: (indexPath as NSIndexPath).row) as? Song else {return}
             SongController.deleteSong(song)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

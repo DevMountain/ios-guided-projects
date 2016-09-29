@@ -23,8 +23,8 @@ class PlaylistTableViewController: UITableViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: AnyObject) {
-        guard let playlist = playlistTextField.text , playlist.characters.count > 0 else {return}
-        PlaylistController.sharedInstance.addPlaylist(playlist)
+        guard let playlistName = playlistTextField.text, !playlistName.isEmpty else {return}
+        PlaylistController.sharedInstance.create(playlistWithName: playlistName)
         playlistTextField.text = ""
         tableView.reloadData()
     }
@@ -40,7 +40,7 @@ class PlaylistTableViewController: UITableViewController {
 
         let playlist = PlaylistController.sharedInstance.playlists[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = playlist.name
-        cell.detailTextLabel?.text = "\(playlist.songs.count) songs"
+        cell.detailTextLabel?.text = "\(playlist.songs!.count) songs"
 
         return cell
     }
@@ -53,7 +53,7 @@ class PlaylistTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let playlist = PlaylistController.sharedInstance.playlists[(indexPath as NSIndexPath).row]
-            PlaylistController.sharedInstance.deletePlaylist(playlist)
+            PlaylistController.sharedInstance.delete(playlist)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

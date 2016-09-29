@@ -2,11 +2,8 @@
 //  Song+CoreDataProperties.swift
 //  PlaylistCoreData
 //
-//  Created by James Pacheco on 5/4/16.
+//  Created by Andrew Madsen on 9/29/16.
 //  Copyright © 2016 DevMountain. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
 //
 
 import Foundation
@@ -14,8 +11,12 @@ import CoreData
 
 extension Song {
 
-    @NSManaged var name: String
-    @NSManaged var artist: String
-    @NSManaged var playlist: Playlist
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Song> {
+        return NSFetchRequest<Song>(entityName: "Song");
+    }
+
+    @NSManaged public var artist: String?
+    @NSManaged public var name: String?
+    @NSManaged public var playlist: Playlist?
 
 }
