@@ -19,23 +19,23 @@ class Stack {
     
     static func setUpMainContext() -> NSManagedObjectContext {
         // TEACHING NOTE: - merging all models from bundle (if there are more than one)
-        let bundle = NSBundle.mainBundle()
-        guard let model = NSManagedObjectModel.mergedModelFromBundles([bundle])
+        let bundle = Bundle.main
+        guard let model = NSManagedObjectModel.mergedModel(from: [bundle])
             else { fatalError("model not found") }
         // TEACHING NOTE: - initializing persistent store coordinator using merged model
         let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        try! persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil,
-            URL: storeURL(), options: nil)
+        try! persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil,
+            at: storeURL(), options: nil)
         // TEACHING NOTE: - initializing managed object context and assigning its persistent store coordinator
-        let context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         context.persistentStoreCoordinator = persistentStoreCoordinator
         return context
     }
     
-    static func storeURL () -> NSURL? {
+    static func storeURL () -> URL? {
         // TEACHING NOTE: - creating url for persistent store
-        let documentsDirectory: NSURL? = try? NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true)
+        let documentsDirectory: URL? = try? FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true)
         
-        return documentsDirectory?.URLByAppendingPathComponent("db.sqlite")
+        return documentsDirectory?.appendingPathComponent("db.sqlite")
     }
 }

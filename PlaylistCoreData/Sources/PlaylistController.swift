@@ -19,16 +19,16 @@ class PlaylistController {
         
         let moc = Stack.sharedStack.managedObjectContext
         
-        return (try? moc.executeFetchRequest(request)) as? [Playlist] ?? []
+        return (try? moc.fetch(request)) as? [Playlist] ?? []
     }
     
-    func addPlaylist(name: String) {
+    func addPlaylist(_ name: String) {
         let _ = Playlist(name: name)
     }
     
-    func deletePlaylist(playlist: Playlist) {
+    func deletePlaylist(_ playlist: Playlist) {
         if let moc = playlist.managedObjectContext {
-            moc.deleteObject(playlist)
+            moc.delete(playlist)
             saveToPersistentStore()
         }
     }
