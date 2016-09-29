@@ -18,11 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A8827B31CBEAA1A00B82C10 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		1A8827B31CBEAA1A00B82C10 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1A8827B71CBEAF9400B82C10 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		1A8827B91CBEB09B00B82C10 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		1A8827BB1CBEB18100B82C10 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		1AD5779A1CBEA8730074DBE6 /* SettingsMiniProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SettingsMiniProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AD5779A1CBEA8730074DBE6 /* Settings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Settings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD5779D1CBEA8730074DBE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD577A21CBEA8730074DBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AD577A41CBEA8730074DBE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		1AD5779B1CBEA8730074DBE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5779A1CBEA8730074DBE6 /* SettingsMiniProject.app */,
+				1AD5779A1CBEA8730074DBE6 /* Settings.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,24 +61,56 @@
 			isa = PBXGroup;
 			children = (
 				1AD5779D1CBEA8730074DBE6 /* AppDelegate.swift */,
+				9D5EF6431D90558000D4952C /* Model */,
+				9D5EF6441D90558500D4952C /* View Controllers */,
+				9D5EF6451D90558A00D4952C /* Views */,
+				9D5EF6421D90557000D4952C /* Resources */,
+			);
+			path = SettingsMiniProject;
+			sourceTree = "<group>";
+		};
+		9D5EF6421D90557000D4952C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				1AD577A11CBEA8730074DBE6 /* Main.storyboard */,
-				1A8827B91CBEB09B00B82C10 /* Setting.swift */,
-				1A8827BB1CBEB18100B82C10 /* SettingsController.swift */,
-				1A8827B31CBEAA1A00B82C10 /* SettingsViewController.swift */,
-				1A8827B71CBEAF9400B82C10 /* SettingTableViewCell.swift */,
 				1AD577A41CBEA8730074DBE6 /* Assets.xcassets */,
 				1AD577A61CBEA8730074DBE6 /* LaunchScreen.storyboard */,
 				1AD577A91CBEA8730074DBE6 /* Info.plist */,
 			);
-			path = SettingsMiniProject;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9D5EF6431D90558000D4952C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A8827B91CBEB09B00B82C10 /* Setting.swift */,
+				1A8827BB1CBEB18100B82C10 /* SettingsController.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9D5EF6441D90558500D4952C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A8827B31CBEAA1A00B82C10 /* SettingsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9D5EF6451D90558A00D4952C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A8827B71CBEAF9400B82C10 /* SettingTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1AD577991CBEA8730074DBE6 /* SettingsMiniProject */ = {
+		1AD577991CBEA8730074DBE6 /* Settings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1AD577AC1CBEA8730074DBE6 /* Build configuration list for PBXNativeTarget "SettingsMiniProject" */;
+			buildConfigurationList = 1AD577AC1CBEA8730074DBE6 /* Build configuration list for PBXNativeTarget "Settings" */;
 			buildPhases = (
 				1AD577961CBEA8730074DBE6 /* Sources */,
 				1AD577971CBEA8730074DBE6 /* Frameworks */,
@@ -88,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = SettingsMiniProject;
+			name = Settings;
 			productName = SettingsMiniProject;
-			productReference = 1AD5779A1CBEA8730074DBE6 /* SettingsMiniProject.app */;
+			productReference = 1AD5779A1CBEA8730074DBE6 /* Settings.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,15 +132,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "James Pacheco";
 				TargetAttributes = {
 					1AD577991CBEA8730074DBE6 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 357NQPN89X;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
-			buildConfigurationList = 1AD577951CBEA8730074DBE6 /* Build configuration list for PBXProject "SettingsMiniProject" */;
+			buildConfigurationList = 1AD577951CBEA8730074DBE6 /* Build configuration list for PBXProject "Settings" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -121,7 +155,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1AD577991CBEA8730074DBE6 /* SettingsMiniProject */,
+				1AD577991CBEA8730074DBE6 /* Settings */,
 			);
 		};
 /* End PBXProject section */
@@ -188,8 +222,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -233,8 +269,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -253,6 +291,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -261,10 +300,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 357NQPN89X;
 				INFOPLIST_FILE = SettingsMiniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.SettingsMiniProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Settings;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -272,17 +313,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 357NQPN89X;
 				INFOPLIST_FILE = SettingsMiniProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.SettingsMiniProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Settings;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AD577951CBEA8730074DBE6 /* Build configuration list for PBXProject "SettingsMiniProject" */ = {
+		1AD577951CBEA8730074DBE6 /* Build configuration list for PBXProject "Settings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1AD577AA1CBEA8730074DBE6 /* Debug */,
@@ -291,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1AD577AC1CBEA8730074DBE6 /* Build configuration list for PBXNativeTarget "SettingsMiniProject" */ = {
+		1AD577AC1CBEA8730074DBE6 /* Build configuration list for PBXNativeTarget "Settings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1AD577AD1CBEA8730074DBE6 /* Debug */,

@@ -9,27 +9,34 @@
 import Foundation
 
 class Playlist: Equatable {
-    private let kName = "name"
-    private let kSongs = "songs"
-    
-    let name: String
-    var songs: [Song]
-    
-    var dictionaryCopy: [String: AnyObject] {
-        return [kName: name, kSongs: songs.map{$0.dictionaryCopy}]
-    }
-    
+    fileprivate static let NameKey = "name"
+    fileprivate static let SongsKey = "songs"
+	
     init(name: String, songs: [Song] = []) {
         self.name = name
         self.songs = songs
     }
+	
+	// MARK: Dictionary Conversion
     
-    init?(dictionary: [String: AnyObject]) {
-        guard let name = dictionary[kName] as? String,
-            songsDictionaryArray = dictionary[kSongs] as? [[String: AnyObject]] else {return nil}
-        self.name = name
-        self.songs = songsDictionaryArray.flatMap{Song(dictionary: $0)}
+    convenience init?(dictionary: [String: AnyObject]) {
+        guard let name = dictionary[Playlist.NameKey] as? String,
+            let songDictionaries = dictionary[Playlist.SongsKey] as? [[String: AnyObject]] else { return nil }
+		
+		let songs = songDictionaries.flatMap { Song(dictionary: $0) }
+		
+		self.init(name: name, songs: songs)
     }
+	
+	var dictionaryRepresentation: [String: AnyObject] {
+		let songDictionaries = songs.map { $0.dictionaryRepresentation }
+		return [Playlist.NameKey: name as AnyObject, Playlist.SongsKey: songDictionaries as AnyObject]
+	}
+	
+	// MARK: Properties
+	
+	let name: String
+	var songs: [Song]
 }
 
 func ==(lhs: Playlist, rhs: Playlist) -> Bool {

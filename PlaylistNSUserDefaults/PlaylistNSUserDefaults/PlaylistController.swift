@@ -9,46 +9,52 @@
 import Foundation
 
 class PlaylistController {
-    private let kPlaylists = "storedPlaylists"
+    fileprivate static let PlaylistsKey = "playlists"
     
-    static let sharedInstance = PlaylistController()
-    
-    var playlists: [Playlist] = []
+    static let sharedController = PlaylistController()
     
     init() {
         loadFromPersistentStore()
     }
     
-    func addPlaylist(name: String) {
-        let playlist = Playlist(name: name)
-        playlists.append(playlist)
-        saveToPersistentStore()
-    }
-    
-    func deletePlaylist(playlist: Playlist) {
-        guard let index = playlists.indexOf(playlist) else {return}
-        playlists.removeAtIndex(index)
-        saveToPersistentStore()
-    }
-    
-    func addSongToPlaylist(song: Song, playlist: Playlist) {
-        playlist.songs.append(song)
-        saveToPersistentStore()
-    }
-    
-    func removeSongFromPlaylist(song: Song, playlist: Playlist) {
-        guard let index = playlist.songs.indexOf(song) else {return}
-        playlist.songs.removeAtIndex(index)
-        saveToPersistentStore()
-    }
-    
+	func add(playlistWithName name: String) {
+		let playlist = Playlist(name: name)
+		playlists.append(playlist)
+		saveToPersistentStore()
+	}
+	
+	func delete(playlist: Playlist) {
+		guard let index = playlists.index(of: playlist) else {return}
+		playlists.remove(at: index)
+		saveToPersistentStore()
+	}
+	
+	func add(song: Song, toPlaylist playlist: Playlist) {
+		playlist.songs.append(song)
+		saveToPersistentStore()
+	}
+	
+	func remove(song: Song, fromPlaylist playlist: Playlist) {
+		guard let index = playlist.songs.index(of: song) else {return}
+		playlist.songs.remove(at: index)
+		saveToPersistentStore()
+	}
+	
+	// MARK: Persistence
+	
     func saveToPersistentStore() {
-        NSUserDefaults.standardUserDefaults().setObject(playlists.map{$0.dictionaryCopy}, forKey: kPlaylists)
+		let userDefaults = UserDefaults.standard
+		let playlistDictionaries = playlists.map { $0.dictionaryRepresentation }
+        userDefaults.set(playlistDictionaries, forKey: PlaylistController.PlaylistsKey)
     }
     
     func loadFromPersistentStore() {
-        guard let playlistsDictionaryArray = NSUserDefaults.standardUserDefaults().objectForKey(kPlaylists) as? [[String: AnyObject]] else {return}
-        playlists = playlistsDictionaryArray.flatMap{Playlist(dictionary: $0)}
+		let userDefaults = UserDefaults.standard
+        guard let playlistDictionaries = userDefaults.object(forKey: PlaylistController.PlaylistsKey) as? [[String: AnyObject]] else { return }
+        playlists = playlistDictionaries.flatMap { Playlist(dictionary: $0) }
     }
-    
+	
+	// MARK: Properties 
+	
+	var playlists = [Playlist]()
 }

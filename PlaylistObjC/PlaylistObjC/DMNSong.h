@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Song : NSObject
+@interface DMNSong : NSObject
 
 - (instancetype)initWithTitle:(NSString *)title artist:(NSString *)artist;
 

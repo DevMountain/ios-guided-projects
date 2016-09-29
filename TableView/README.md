@@ -10,9 +10,9 @@ TableView teaches students how to set up a basic tableview using both dataSource
 1. Make sure students are comfortable adding a view controller to storyboard. Show them how to bring out a TableViewController. Give your prototype cell an identifier and set its style to basic.
 2. Embed your TableViewController in a NavigationController.
 3. Bring out a ViewController and add a segue from the table view cell to the ViewController and give the segue an identifier.
-4. Create subclasses for both of your view controllers and make sure that your storyboard view controllers are of the right class.
+4. Create a subclass for the table view controller, and set the class of the view controller in the storyboard.
 5. Go to your `WeekTableViewController` and add a `daysOfWeek` property that is an array of Strings representing the days of the week.
 6. Talk about the TableViewDataSource methods, show them how they can learn about the methods with documentation, and show them one by one how to implement them. Have them do it independently. Then regroup and do it all together.
 7. Talk about how you also can use different delegate methods. Show them how to use `heightForRowAtIndexPath` and then have them do it independently and then regroup and do it all together.
-8. Discuss `prepareForSegue`, have them look at documentation, show them the implementation for it in this case, then have them do it independently and then do it together. You will need to go to your `DetailViewController` and add a property for the title that is an optional String, then set this in your `prepareForSegue`.
-9. In the `viewDidLoad` on your `DetailViewController` set the title of the view controller. Everyone's project should be done and working.
+8. Discuss `prepareForSegue`, have them look at documentation, show them the implementation for it in this case, then have them do it independently and then do it together. 
+9. Everyone's project should be done and working.

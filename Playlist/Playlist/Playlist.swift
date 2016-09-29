@@ -9,13 +9,13 @@
 import Foundation
 
 class Playlist: Equatable {
-    let name: String
-    var songs: [Song]
-    
     init(name: String, songs: [Song] = []) {
         self.name = name
         self.songs = songs
     }
+	
+	let name: String
+	var songs: [Song]
 }
 
 func ==(lhs: Playlist, rhs: Playlist) -> Bool {

@@ -12,11 +12,11 @@
 		1A4A22F01CC9324D003A4350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A22EE1CC9324D003A4350 /* Main.storyboard */; };
 		1A4A22F21CC9324D003A4350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A22F11CC9324D003A4350 /* Assets.xcassets */; };
 		1A4A22F51CC9324D003A4350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A22F31CC9324D003A4350 /* LaunchScreen.storyboard */; };
-		1A4A22FE1CC9330C003A4350 /* PlaylistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A22FD1CC9330C003A4350 /* PlaylistDetailViewController.m */; };
-		1A4A23011CC93318003A4350 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A23001CC93318003A4350 /* ListViewController.m */; };
-		1A4A23061CC935A3003A4350 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A23051CC935A3003A4350 /* Playlist.m */; };
-		1A4A23091CC935CC003A4350 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A23081CC935CC003A4350 /* Song.m */; };
-		1A4A230C1CC940F7003A4350 /* PlaylistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A230B1CC940F7003A4350 /* PlaylistController.m */; };
+		1A4A22FE1CC9330C003A4350 /* DMNPlaylistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A22FD1CC9330C003A4350 /* DMNPlaylistDetailViewController.m */; };
+		1A4A23011CC93318003A4350 /* DMNListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A23001CC93318003A4350 /* DMNListViewController.m */; };
+		9D3B37BF1D6FA05000187CA9 /* DMNPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3B37BA1D6FA05000187CA9 /* DMNPlaylist.m */; };
+		9D3B37C01D6FA05000187CA9 /* DMNPlaylistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3B37BC1D6FA05000187CA9 /* DMNPlaylistController.m */; };
+		9D3B37C11D6FA05000187CA9 /* DMNSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3B37BE1D6FA05000187CA9 /* DMNSong.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,16 +28,16 @@
 		1A4A22F11CC9324D003A4350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A4A22F41CC9324D003A4350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A4A22F61CC9324D003A4350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A4A22FC1CC9330C003A4350 /* PlaylistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistDetailViewController.h; sourceTree = "<group>"; };
-		1A4A22FD1CC9330C003A4350 /* PlaylistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistDetailViewController.m; sourceTree = "<group>"; };
-		1A4A22FF1CC93317003A4350 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		1A4A23001CC93318003A4350 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		1A4A23041CC935A3003A4350 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
-		1A4A23051CC935A3003A4350 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
-		1A4A23071CC935CC003A4350 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		1A4A23081CC935CC003A4350 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
-		1A4A230A1CC940F7003A4350 /* PlaylistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistController.h; sourceTree = "<group>"; };
-		1A4A230B1CC940F7003A4350 /* PlaylistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistController.m; sourceTree = "<group>"; };
+		1A4A22FC1CC9330C003A4350 /* DMNPlaylistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMNPlaylistDetailViewController.h; sourceTree = "<group>"; };
+		1A4A22FD1CC9330C003A4350 /* DMNPlaylistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMNPlaylistDetailViewController.m; sourceTree = "<group>"; };
+		1A4A22FF1CC93317003A4350 /* DMNListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMNListViewController.h; sourceTree = "<group>"; };
+		1A4A23001CC93318003A4350 /* DMNListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMNListViewController.m; sourceTree = "<group>"; };
+		9D3B37B91D6FA05000187CA9 /* DMNPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMNPlaylist.h; sourceTree = "<group>"; };
+		9D3B37BA1D6FA05000187CA9 /* DMNPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMNPlaylist.m; sourceTree = "<group>"; };
+		9D3B37BB1D6FA05000187CA9 /* DMNPlaylistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMNPlaylistController.h; sourceTree = "<group>"; };
+		9D3B37BC1D6FA05000187CA9 /* DMNPlaylistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMNPlaylistController.m; sourceTree = "<group>"; };
+		9D3B37BD1D6FA05000187CA9 /* DMNSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMNSong.h; sourceTree = "<group>"; };
+		9D3B37BE1D6FA05000187CA9 /* DMNSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMNSong.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +73,8 @@
 			children = (
 				1A4A22E81CC9324D003A4350 /* AppDelegate.h */,
 				1A4A22E91CC9324D003A4350 /* AppDelegate.m */,
-				1A4A230E1CC9411C003A4350 /* Model */,
-				1A4A230F1CC9412A003A4350 /* Model Controllers */,
+				9D3B37C21D6FA05400187CA9 /* Model */,
+				9D3B37C31D6FA05C00187CA9 /* Model Controllers */,
 				1A4A230D1CC9410D003A4350 /* View Controllers */,
 				1A4A22E51CC9324D003A4350 /* Supporting Files */,
 			);
@@ -92,34 +92,32 @@
 		1A4A230D1CC9410D003A4350 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A4A22FC1CC9330C003A4350 /* PlaylistDetailViewController.h */,
-				1A4A22FD1CC9330C003A4350 /* PlaylistDetailViewController.m */,
-				1A4A22FF1CC93317003A4350 /* ListViewController.h */,
-				1A4A23001CC93318003A4350 /* ListViewController.m */,
+				1A4A22FF1CC93317003A4350 /* DMNListViewController.h */,
+				1A4A23001CC93318003A4350 /* DMNListViewController.m */,
+				1A4A22FC1CC9330C003A4350 /* DMNPlaylistDetailViewController.h */,
+				1A4A22FD1CC9330C003A4350 /* DMNPlaylistDetailViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		1A4A230E1CC9411C003A4350 /* Model */ = {
+		9D3B37C21D6FA05400187CA9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1A4A23041CC935A3003A4350 /* Playlist.h */,
-				1A4A23051CC935A3003A4350 /* Playlist.m */,
-				1A4A23071CC935CC003A4350 /* Song.h */,
-				1A4A23081CC935CC003A4350 /* Song.m */,
+				9D3B37B91D6FA05000187CA9 /* DMNPlaylist.h */,
+				9D3B37BA1D6FA05000187CA9 /* DMNPlaylist.m */,
+				9D3B37BD1D6FA05000187CA9 /* DMNSong.h */,
+				9D3B37BE1D6FA05000187CA9 /* DMNSong.m */,
 			);
 			name = Model;
-			path = ..;
 			sourceTree = "<group>";
 		};
-		1A4A230F1CC9412A003A4350 /* Model Controllers */ = {
+		9D3B37C31D6FA05C00187CA9 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1A4A230A1CC940F7003A4350 /* PlaylistController.h */,
-				1A4A230B1CC940F7003A4350 /* PlaylistController.m */,
+				9D3B37BB1D6FA05000187CA9 /* DMNPlaylistController.h */,
+				9D3B37BC1D6FA05000187CA9 /* DMNPlaylistController.m */,
 			);
 			name = "Model Controllers";
-			path = ..;
 			sourceTree = "<group>";
 		};
 		9DDAD7DA1D6CB99900C2AEE8 /* Resources */ = {
@@ -205,13 +203,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4A23091CC935CC003A4350 /* Song.m in Sources */,
-				1A4A23011CC93318003A4350 /* ListViewController.m in Sources */,
-				1A4A22FE1CC9330C003A4350 /* PlaylistDetailViewController.m in Sources */,
+				9D3B37C11D6FA05000187CA9 /* DMNSong.m in Sources */,
+				1A4A23011CC93318003A4350 /* DMNListViewController.m in Sources */,
+				9D3B37C01D6FA05000187CA9 /* DMNPlaylistController.m in Sources */,
+				1A4A22FE1CC9330C003A4350 /* DMNPlaylistDetailViewController.m in Sources */,
 				1A4A22EA1CC9324D003A4350 /* AppDelegate.m in Sources */,
-				1A4A230C1CC940F7003A4350 /* PlaylistController.m in Sources */,
 				1A4A22E71CC9324D003A4350 /* main.m in Sources */,
-				1A4A23061CC935A3003A4350 /* Playlist.m in Sources */,
+				9D3B37BF1D6FA05000187CA9 /* DMNPlaylist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
