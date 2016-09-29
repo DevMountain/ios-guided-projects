@@ -12,14 +12,14 @@ class PokemonController {
 	
 	static let baseURL = "http://pokeapi.co/api/v2/pokemon/"
 	
-	static func fetchPokemon(_ searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
+	static func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
 		let searchURL = baseURL + searchTerm.lowercased()
-		let url = URL(string: searchURL)
-		guard let unwrappedURL = url else {
+		guard let url = URL(string: searchURL) else {
 			completion(nil)
 			return
 		}
-		NetworkController.performRequestForURL(unwrappedURL, httpMethod: .Get) { (data, error) in
+		
+		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
 			guard let data = data,
 				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
 					completion(nil)

@@ -12,7 +12,7 @@ class PokemonSearchViewController: UIViewController, UISearchBarDelegate {
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		guard let searchTerm = searchBar.text else { return }
-		PokemonController.fetchPokemon(searchTerm) { (pokemon) in
+		PokemonController.fetchPokemon(for: searchTerm) { (pokemon) in
 			DispatchQueue.main.async {
 				guard let pokemon = pokemon else { return }
 				self.nameLabel.text = pokemon.name.capitalized

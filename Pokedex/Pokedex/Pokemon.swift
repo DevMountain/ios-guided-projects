@@ -22,7 +22,7 @@ extension Pokemon {
 				return nil
 		}
 		
-		let abilities = abilityDictionaries.flatMap { $0["ability"]?["name"] as? String}
+		let abilities = abilityDictionaries.flatMap { $0["ability"]?["name"] as? String }
 		
 		self.init(name: name, id: id, abilities: abilities)
 	}

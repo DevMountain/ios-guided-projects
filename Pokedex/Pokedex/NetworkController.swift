@@ -17,9 +17,13 @@ class NetworkController {
 		case Delete = "DELETE"
 	}
 	
-	static func performRequestForURL(_ url: URL, httpMethod: HTTPMethod, urlParameters: [String:String]? = nil, body: Data? = nil, completion: ((_ data: Data?, _ error: Error?) -> Void)?) {
+	static func performRequest(for url: URL,
+	                           httpMethod: HTTPMethod,
+	                           urlParameters: [String:String]? = nil,
+	                           body: Data? = nil,
+	                           completion: ((Data?, Error?) -> Void)? = nil) {
 		
-		let requestURL = urlFromURLParameters(url, urlParameters: urlParameters)
+		let requestURL = self.url(byAdding: urlParameters, to: url)
 		var request = URLRequest(url: requestURL)
 		request.httpMethod = httpMethod.rawValue
 		request.httpBody = body
@@ -31,14 +35,13 @@ class NetworkController {
 		dataTask.resume()
 	}
 	
-	static func urlFromURLParameters(_ url: URL, urlParameters: [String: String]?) -> URL {
+	static func url(byAdding parameters: [String : String]?, to url: URL) -> URL {
 		var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-		components?.queryItems = urlParameters?.flatMap({URLQueryItem(name: $0.0, value: $0.1)})
+		components?.queryItems = parameters?.flatMap({URLQueryItem(name: $0.0, value: $0.1)})
 		
-		if let url = components?.url {
-			return url
-		} else {
+		guard let url = components?.url else {
 			fatalError("URL optional is nil")
 		}
+		return url
 	}
 }
