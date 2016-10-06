@@ -11,7 +11,7 @@ import CoreData
 
 extension Playlist {
 	@discardableResult convenience init?(name: String,
-	                                     context: NSManagedObjectContext = Stack.context) {
+	                                     context: NSManagedObjectContext = CoreDataStack.context) {
 		self.init(context: context)
 		self.name = name
 	}

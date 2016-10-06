@@ -16,7 +16,7 @@ class PlaylistController {
     var playlists: [Playlist] {
 		
 		let request: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-		return (try? Stack.context.fetch(request)) ?? []
+		return (try? CoreDataStack.context.fetch(request)) ?? []
     }
     
 	func create(playlistWithName name: String) {
@@ -31,7 +31,7 @@ class PlaylistController {
     }
     
     func saveToPersistentStore() {
-        let moc = Stack.context
+        let moc = CoreDataStack.context
         do {
             try moc.save()
         } catch let error {
