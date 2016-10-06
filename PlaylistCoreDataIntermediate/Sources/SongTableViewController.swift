@@ -35,13 +35,12 @@ class SongTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
-		
-		if let playlist = playlist,
-			let song = playlist.songs?.object(at: indexPath.row) as? Song {
-			cell.textLabel?.text = song.name
-			cell.detailTextLabel?.text = song.artist
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as? SongTableViewCell else {
+			return SongTableViewCell()
 		}
+		
+		guard let playlist = playlist else { return cell }
+		cell.song = playlist.songs?.object(at: indexPath.row) as? Song
 		
 		return cell
 	}

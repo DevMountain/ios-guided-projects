@@ -6,12 +6,11 @@
     </entity>
     <entity name="Song" representedClassName="Song" syncable="YES" codeGenerationType="class">
         <attribute name="artist" attributeType="String" syncable="YES"/>
-        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="playlist" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="songs" inverseEntity="Playlist" syncable="YES"/>
     </entity>
     <elements>
         <element name="Playlist" positionX="-81" positionY="-153" width="128" height="75"/>
-        <element name="Song" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="Song" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

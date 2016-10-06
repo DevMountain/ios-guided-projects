@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9DB71ACD1DA6C56400E1353E /* Song+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB71ACC1DA6C56400E1353E /* Song+Convenience.swift */; };
 		9DB71ACF1DA6C56B00E1353E /* Playlist+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB71ACE1DA6C56B00E1353E /* Playlist+Convenience.swift */; };
+		9DC4F5981DA6D46C00CE3DBB /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4F5971DA6D46C00CE3DBB /* SongTableViewCell.swift */; };
 		9DECDEC91D9DA0A5003A9EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DECDEB61D9DA0A5003A9EB8 /* Assets.xcassets */; };
 		9DECDECA1D9DA0A5003A9EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DECDEB71D9DA0A5003A9EB8 /* LaunchScreen.storyboard */; };
 		9DECDECB1D9DA0A5003A9EB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DECDEB91D9DA0A5003A9EB8 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		1AFCF6301CDAB2F6006D2F3D /* PlaylistCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaylistCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB71ACC1DA6C56400E1353E /* Song+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Song+Convenience.swift"; sourceTree = "<group>"; };
 		9DB71ACE1DA6C56B00E1353E /* Playlist+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Playlist+Convenience.swift"; sourceTree = "<group>"; };
+		9DC4F5971DA6D46C00CE3DBB /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		9DECDEB61D9DA0A5003A9EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DECDEB81D9DA0A5003A9EB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DECDEBA1D9DA0A5003A9EB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9DC4F5961DA6D45B00CE3DBB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DC4F5971DA6D46C00CE3DBB /* SongTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		9DECDEB51D9DA0A5003A9EB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 				9DECDED81D9DA0B8003A9EB8 /* Model */,
 				9DECDED91D9DA0C1003A9EB8 /* Model Controllers */,
 				9DECDEDA1D9DA0C8003A9EB8 /* View Controllers */,
+				9DC4F5961DA6D45B00CE3DBB /* Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -192,6 +203,7 @@
 			files = (
 				9DECDED61D9DA0A5003A9EB8 /* SongTableViewController.swift in Sources */,
 				9DB71ACF1DA6C56B00E1353E /* Playlist+Convenience.swift in Sources */,
+				9DC4F5981DA6D46C00CE3DBB /* SongTableViewCell.swift in Sources */,
 				9DECDED51D9DA0A5003A9EB8 /* SongController.swift in Sources */,
 				9DECDED21D9DA0A5003A9EB8 /* PlaylistTableViewController.swift in Sources */,
 				9DECDED71D9DA0A5003A9EB8 /* Stack.swift in Sources */,
