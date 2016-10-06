@@ -19,9 +19,9 @@ class SongTableViewController: UITableViewController {
 	
 	@IBAction func addButtonTapped(_ sender: AnyObject) {
 		guard let playlist = playlist,
-			let song = songTextField.text,
-			let artist = artistTextField.text , song.characters.count > 0 && artist.characters.count > 0 else {return}
-		SongController.createSong(song, artist: artist, playlist: playlist)
+			let name = songTextField.text,
+			let artist = artistTextField.text , name.characters.count > 0 && artist.characters.count > 0 else {return}
+		SongController.create(songWithName: name, artist: artist, playlist: playlist)
 		songTextField.text = ""
 		artistTextField.text = ""
 		tableView.reloadData()
@@ -53,7 +53,7 @@ class SongTableViewController: UITableViewController {
 		if editingStyle == .delete {
 			guard let playlist = playlist,
 				let song = playlist.songs?.object(at: (indexPath as NSIndexPath).row) as? Song else {return}
-			SongController.deleteSong(song)
+			SongController.delete(song: song)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
