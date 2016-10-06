@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
-class SongTableViewController: UITableViewController {
+class SongTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = playlist?.name
+		
+		configureFetchedResultsController()
 	}
 	
 	// Actions
@@ -25,10 +28,13 @@ class SongTableViewController: UITableViewController {
 		SongController.create(songWithName: name, artist: artist, playlist: playlist)
 		songTextField.text = ""
 		artistTextField.text = ""
-		tableView.reloadData()
 	}
 	
 	// MARK: UITableViewDataSource/Delegate
+	
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return fetchedResultsController.sections?.count ?? 0
+	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return playlist?.songs?.count ?? 0
@@ -46,7 +52,11 @@ class SongTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return "Songs"
+		if section == 1 {
+			return "Favorites"
+		} else {
+			return "Songs"
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -58,11 +68,85 @@ class SongTableViewController: UITableViewController {
 		}
 	}
 	
+	// MARK: NSFetchedResultsControllerDelegate
+	
+	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		tableView.beginUpdates()
+	}
+	
+	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		tableView.endUpdates()
+	}
+	
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+	                didChange anObject: Any,
+	                at indexPath: IndexPath?,
+	                for type: NSFetchedResultsChangeType,
+	                newIndexPath: IndexPath?) {
+		switch type {
+		case .delete:
+			guard let indexPath = indexPath else { return }
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		case .insert:
+			guard let newIndexPath = newIndexPath else { return }
+			tableView.insertRows(at: [newIndexPath], with: .automatic)
+		case .move:
+			guard let indexPath = indexPath,
+				let newIndexPath = newIndexPath else { return }
+			tableView.moveRow(at: indexPath, to: newIndexPath)
+		case .update:
+			guard let indexPath = indexPath else { return }
+			tableView.reloadRows(at: [indexPath], with: .automatic)
+		}
+	}
+	
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+	                didChange sectionInfo: NSFetchedResultsSectionInfo,
+	                atSectionIndex sectionIndex: Int,
+	                for type: NSFetchedResultsChangeType) {
+		switch type {
+		case .delete:
+			tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+		case .insert:
+			tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+		default:
+			break
+		}
+	}
+	
+	// MARK: Private
+	
+	private func configureFetchedResultsController() {
+		guard let playlist = playlist else { return }
+		
+		if fetchedResultsController == nil {
+			let fetchRequest: NSFetchRequest<Song> = Song.fetchRequest()
+			fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+			fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+			                                                      managedObjectContext: CoreDataStack.context,
+			                                                      sectionNameKeyPath: "favorite",
+			                                                      cacheName: nil)
+			fetchedResultsController.delegate = self
+		}
+		
+		let fetchRequest: NSFetchRequest<Song> = Song.fetchRequest()
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+		fetchRequest.predicate = NSPredicate(format: "playlist == %@", playlist)
+		
+		do {
+			try fetchedResultsController.performFetch()
+		} catch {
+			NSLog("Error performing fetch request: \(error)")
+		}
+	}
+	
 	// MARK: Properties
+	
+	var fetchedResultsController: NSFetchedResultsController<Song>!
 	
 	var playlist: Playlist? {
 		didSet {
-			tableView.reloadData()
+			configureFetchedResultsController()
 		}
 	}
 	
