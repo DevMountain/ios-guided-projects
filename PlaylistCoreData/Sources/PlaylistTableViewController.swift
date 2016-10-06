@@ -10,17 +10,12 @@ import UIKit
 
 class PlaylistTableViewController: UITableViewController {
 
-    @IBOutlet weak var playlistTextField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+	
+	// MARK: Actions
 
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         guard let playlistName = playlistTextField.text, !playlistName.isEmpty else {return}
@@ -29,7 +24,7 @@ class PlaylistTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+    // MARK: UITableViewDataSource/Delegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return PlaylistController.sharedInstance.playlists.count
@@ -48,8 +43,7 @@ class PlaylistTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Playlists"
     }
-    
-    // Override to support editing the table view.
+	
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let playlist = PlaylistController.sharedInstance.playlists[(indexPath as NSIndexPath).row]
@@ -58,7 +52,7 @@ class PlaylistTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Navigation
+    // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPlaylistDetail",
@@ -68,5 +62,9 @@ class PlaylistTableViewController: UITableViewController {
             songVC?.playlist = playlist
         }
     }
+	
+	// MARK: Properties
+	
+	@IBOutlet weak var playlistTextField: UITextField!
 
 }
