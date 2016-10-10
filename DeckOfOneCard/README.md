@@ -12,8 +12,8 @@ DeckOfOneCard lets students practice using closure syntax, network API documenta
 4. Create your model object, including its failable initializer.
 4. Create your classes with their function signatures.
 5. Turn your attention to the `NetworkController`. This is the first time students have worked with URLs and URL requests, so please take some time to teach how URLs work in general. This is also the first time the students will need to use NSURLSession and NSMutableURLRequests, so consider having students work together to look at documentation and learn about the API.
-6. Fill in the body of your `performRequestForURL` function, explaining what you are doing and why. You will just give them the `urlFromURLParameters` function. Make sure students understand conceptually what is happening. After the students have also done this, make sure you and everyone tests their function by calling it from your first ViewController's `viewDidLoad` to see if it is getting data.
-9. Turn your attention to your CardController and its `drawCards` function. Fill it in and take time to explain how to parse a json. This is hard for people so feel free to spend a good chunk of time practicing this.
-10. From your ViewController call `CardController.drawCards` and print it out to make sure it works.
-11. Fill in the `ImageController.imageForURL` function.
-12. From your ViewController inside the closure for `CardController.drawCard` use your `ImageController.imageForURL` function to get the image for the card, and then display it on the screen. Everyone's app should be working now.
+6. Fill in the body of your `performRequest(for url: ...)` function, explaining what you are doing and why. You will just give them the `url(byAdding parameters: ...)` function. Make sure students understand conceptually what is happening. After the students have also done this, make sure you and everyone tests their function by calling it from your first ViewController's `viewDidLoad` to see if it is getting data.
+9. Turn your attention to your CardController and its `draw(numberOfCards: ...)` function. Fill it in and take time to explain how to parse a json. This is hard for people so feel free to spend a good chunk of time practicing this.
+10. From your ViewController call `CardController.draw(numberOfCards: ...)` and print it out to make sure it works.
+11. Fill in the `ImageController.image(forURL url: ...)` function.
+12. From your ViewController inside the closure for `CardController.draw(numberOfCards: ...)` use your `ImageController.image(forURL url: ...)` function to get the image for the card, and then display it on the screen. Everyone's app should be working now.
