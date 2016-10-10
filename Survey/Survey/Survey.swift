@@ -15,18 +15,18 @@ class Survey {
     
     let name: String
     let response: String
-    let identifier: NSUUID
+    let identifier: UUID
     
     var jsonValue: [String:AnyObject] {
-        return [kName:name, kResponse:response]
+        return [kName:name as AnyObject, kResponse:response as AnyObject]
     }
     
-    var jsonData: NSData? {
-        return try? NSJSONSerialization.dataWithJSONObject(jsonValue, options: .PrettyPrinted)
+    var jsonData: Data? {
+        return try? JSONSerialization.data(withJSONObject: jsonValue, options: .prettyPrinted)
     }
     
-    var endpoint: NSURL? {
-        return SurveyController.baseURL?.URLByAppendingPathComponent("\(identifier.UUIDString)").URLByAppendingPathExtension("json")
+    var endpoint: URL? {
+        return SurveyController.baseURL?.appendingPathComponent("\(identifier.uuidString)").appendingPathExtension("json")
         // component = /  ex: /api/v1/dfgdf-e56-d-56-fg-ert-dfv
         // extension = .  ex: .json
     }
@@ -34,13 +34,13 @@ class Survey {
     init(name: String, response: String) {
         self.name = name
         self.response = response
-        self.identifier = NSUUID()
+        self.identifier = UUID()
     }
     
     init?(dictionary: [String:AnyObject], identifier: String) {
         guard let name = dictionary[kName] as? String,
-        response = dictionary[kResponse] as? String,
-            identifier = NSUUID(UUIDString: identifier) else {
+        let response = dictionary[kResponse] as? String,
+            let identifier = UUID(uuidString: identifier) else {
                 return nil
         }
         self.name = name
