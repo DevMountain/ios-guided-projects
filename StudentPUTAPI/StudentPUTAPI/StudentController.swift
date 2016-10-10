@@ -13,7 +13,7 @@ class StudentController {
     static let baseURL = URL(string: "https://names-e4301.firebaseio.com/students")!
     static let getterEndpoint = baseURL.appendingPathExtension("json")
     
-	static func sendStudent(_ name: String, completion: ((_ success: Bool) -> Void)? = nil) {
+	static func send(studentWithName name: String, completion: ((_ success: Bool) -> Void)? = nil) {
 		
 		let student = Student(name: name)
         let url = baseURL.appendingPathComponent(name).appendingPathExtension("json")
@@ -35,7 +35,7 @@ class StudentController {
         }
     }
     
-    static func fetchStudents(_ completion: @escaping (_ students: [Student]) -> Void) {
+    static func fetchStudents(completion: @escaping ([Student]) -> Void) {
 
 		NetworkController.performRequest(for: getterEndpoint, httpMethod: .Get) { (data, error) in
 			guard let data = data else { completion([]); return }

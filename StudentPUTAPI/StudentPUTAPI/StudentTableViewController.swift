@@ -15,7 +15,7 @@ class StudentTableViewController: UITableViewController {
 		fetchStudents()
 	}
 	
-	fileprivate func fetchStudents() {
+	private func fetchStudents() {
 		StudentController.fetchStudents { (students) in
 			self.students = students
 		}
@@ -25,7 +25,7 @@ class StudentTableViewController: UITableViewController {
 	
 	@IBAction func addButtonTapped(_ sender: AnyObject) {
 		guard let name = nameTextField.text , name.characters.count > 0 else { return }
-		StudentController.sendStudent(name) { (success) in
+		StudentController.send(studentWithName: name) { (success) in
 			guard success else { return }
 			DispatchQueue.main.async {
 				self.nameTextField.text = ""
@@ -35,7 +35,7 @@ class StudentTableViewController: UITableViewController {
 		}
 	}
 	
-	// MARK: Table view data source
+	// MARK: UITableViewDataSource
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return students.count
