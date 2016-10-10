@@ -23,10 +23,10 @@ extension Student {
 	}
 	
 	var dictionaryRepresentation: [String : AnyObject] {
-		return [Student.NameKey: name]
+		return [Student.NameKey: name as AnyObject]
 	}
 	
-	var jsonData: NSData? {
-		return try? NSJSONSerialization.dataWithJSONObject(dictionaryRepresentation, options: .PrettyPrinted)
+	var jsonData: Data? {
+		return try? JSONSerialization.data(withJSONObject: dictionaryRepresentation, options: .prettyPrinted)
 	}
 }
