@@ -63,17 +63,49 @@
 			isa = PBXGroup;
 			children = (
 				1A5A02A61CC53D5D00AC72B9 /* AppDelegate.swift */,
+				9D10FDA41DAB141300CEF3C4 /* Model */,
+				9D10FDA21DAB140400CEF3C4 /* View Controllers */,
+				9D10FDA31DAB140E00CEF3C4 /* Networking */,
+				9D10FDA51DAB141C00CEF3C4 /* Resources */,
+			);
+			path = DeckOfOneCard;
+			sourceTree = "<group>";
+		};
+		9D10FDA21DAB140400CEF3C4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				1A5A02A81CC53D5D00AC72B9 /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9D10FDA31DAB140E00CEF3C4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
 				1A5A02BE1CC55BFD00AC72B9 /* ImageController.swift */,
-				1A5A02B81CC53E4400AC72B9 /* Card.swift */,
 				1A5A02BA1CC53E4900AC72B9 /* CardController.swift */,
 				1A5A02BC1CC53E4F00AC72B9 /* NetworkController.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		9D10FDA41DAB141300CEF3C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A5A02B81CC53E4400AC72B9 /* Card.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9D10FDA51DAB141C00CEF3C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				1A5A02AA1CC53D5D00AC72B9 /* Main.storyboard */,
 				1A5A02AD1CC53D5D00AC72B9 /* Assets.xcassets */,
 				1A5A02AF1CC53D5D00AC72B9 /* LaunchScreen.storyboard */,
 				1A5A02B21CC53D5D00AC72B9 /* Info.plist */,
 			);
-			path = DeckOfOneCard;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
