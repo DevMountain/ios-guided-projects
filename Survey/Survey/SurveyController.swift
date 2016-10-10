@@ -13,7 +13,7 @@ class SurveyController {
 	static let baseURL = URL(string: "https://mykeapidesign-a7954.firebaseio.com/api/v1")
 	static let getterEndpoint = baseURL?.appendingPathExtension("json")
 	
-	static func putSurveyIntoAPI(_ name: String, response: String) {
+	static func putSurveyIntoAPI(name: String, response: String) {
 		let survey = Survey(name: name, response: response)
 		guard let url = survey.endpoint else { return }
 		NetworkController.performRequest(for: url, httpMethod: .Put, body: survey.jsonData) { (data, error) in
@@ -28,7 +28,7 @@ class SurveyController {
 		}
 	}
 	
-	static func fetchResponses(_ completion: @escaping (_ responses: [Survey]) -> Void) {
+	static func fetchResponses(completion: @escaping (_ responses: [Survey]) -> Void) {
 		guard let url = getterEndpoint else {
 			completion([])
 			return

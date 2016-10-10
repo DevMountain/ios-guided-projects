@@ -25,7 +25,7 @@ class ResponsesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "responseCell", for: indexPath)
-        let response = responses[(indexPath as NSIndexPath).row]
+        let response = responses[indexPath.row]
         cell.textLabel?.text = response.response
         cell.detailTextLabel?.text = response.name
         return cell
