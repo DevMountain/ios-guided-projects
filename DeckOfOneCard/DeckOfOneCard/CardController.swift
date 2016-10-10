@@ -10,9 +10,9 @@ import Foundation
 
 class CardController {
     
-    static let baseURL = NSURL(string: "http://deckofcardsapi.com/api/deck/new/draw/")
+    static let baseURL = URL(string: "http://deckofcardsapi.com/api/deck/new/draw/")
     
-    static func drawCards(numberOfCards: Int, completion: ((card: [Card]) -> Void)) {
+    static func drawCards(_ numberOfCards: Int, completion: @escaping ((_ card: [Card]) -> Void)) {
         guard let url = self.baseURL else {fatalError("URL optional is nil")}
         
         let urlParameters = ["count": "\(numberOfCards)"]
@@ -20,18 +20,18 @@ class CardController {
         NetworkController.performRequestForURL(url, httpMethod: .Get, urlParameters: urlParameters) { (data, error) in
             
             if let data = data,
-                responseDataString = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                guard let responseDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)) as? [String: AnyObject],
-                cardDictionaries = responseDictionary["cards"] as? [[String: AnyObject]] else {
+                let responseDataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                guard let responseDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: AnyObject],
+                let cardDictionaries = responseDictionary["cards"] as? [[String: AnyObject]] else {
                     print("Unable to serialize JSON. \nResponse: \(responseDataString)")
-                    completion(card: [])
+                    completion([])
                     return
                 }
                 let cards = cardDictionaries.flatMap {Card(dictionary: $0)}
-                completion(card: cards)
+                completion(cards)
             } else {
                 print("No data returned from network request")
-                completion(card: [])
+                completion([])
             }
         }
         

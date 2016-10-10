@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func drawButtonTapped(sender: AnyObject) {
+    @IBAction func drawButtonTapped(_ sender: AnyObject) {
         CardController.drawCards(1) { (cards) in
             guard let card = cards.first else {return}
             ImageController.imageForURL(card.imageEndpoint, completion: { (image) in
