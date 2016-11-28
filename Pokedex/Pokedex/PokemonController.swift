@@ -12,22 +12,22 @@ class PokemonController {
 	
 	static let baseURL = "http://pokeapi.co/api/v2/pokemon/"
 	
-	static func fetchPokemon(searchTerm: String, completion: (pokemon: Pokemon?) -> Void) {
-		let searchURL = baseURL + searchTerm.lowercaseString
-		let url = NSURL(string: searchURL)
-		guard let unwrappedURL = url else {
-			completion(pokemon: nil)
+	static func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
+		let searchURL = baseURL + searchTerm.lowercased()
+		guard let url = URL(string: searchURL) else {
+			completion(nil)
 			return
 		}
-		NetworkController.performRequestForURL(unwrappedURL, httpMethod: .Get) { (data, error) in
+		
+		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
 			guard let data = data,
-				jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String:AnyObject] else {
-					completion(pokemon: nil)
+				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
+					completion(nil)
 					return
 			}
 			
 			let pokemon = Pokemon(dictionary: jsonDictionary)
-			completion(pokemon: pokemon)
+			completion(pokemon)
 		}
 	}
 }

@@ -11,7 +11,7 @@ Survey lets students practice designing an API and network calls through NSURLSe
 5. Setup your views in storyboard, explaining your constraints.
 6. Create your view controller subclasses, connect your outlets and actions. 
 7. Bring in your NetworkController.
-8. Create you model class, including your failable initializer.  To create the endpoint, we have to have the 'baseURL' from our modelController, so make a modelController with just the 'baseURL' inside. Explain that because we are posting multiple different things to the API, we want the endpoint/key for jsonValue to be a unique identifier. Explain the difference between 'URLByAppendingPathExtension' and 'URLByAppendingPathComponent'.
+8. Create your model class, including your failable initializer.  To create the endpoint, we have to have the 'baseURL' from our modelController, so make a modelController with just the 'baseURL' inside. Explain that because we are posting multiple different things to the API, we want the endpoint/key for jsonValue to be a unique identifier. Explain the difference between 'URLByAppendingPathExtension' and 'URLByAppendingPathComponent'.
 9. Return to the modelController class and implement the 'putSurveyIntoAPI' method. Explain why we don't need to use a singleton in this controller. 
 10. Before writing the 'getResponses' method, focus on your 'IBAction' in your 'SurveyViewController' so that students can see their data posting. Run the app and let the students post to their API, and help with any errors that might have occurred.
 11. Back in the 'SurveyController' implement the 'getResponses' method. 

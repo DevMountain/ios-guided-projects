@@ -14,31 +14,28 @@ class PlaylistController {
     static let sharedInstance = PlaylistController()
     
     var playlists: [Playlist] {
-        
-        let request = NSFetchRequest(entityName: "Playlist")
-        
-        let moc = Stack.sharedStack.managedObjectContext
-        
-        return (try? moc.executeFetchRequest(request)) as? [Playlist] ?? []
+		
+		let request: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+		return (try? CoreDataStack.context.fetch(request)) ?? []
     }
     
-    func addPlaylist(name: String) {
-        let _ = Playlist(name: name)
+	func create(playlistWithName name: String) {
+        Playlist(name: name)
     }
     
-    func deletePlaylist(playlist: Playlist) {
+    func delete(_ playlist: Playlist) {
         if let moc = playlist.managedObjectContext {
-            moc.deleteObject(playlist)
+            moc.delete(playlist)
             saveToPersistentStore()
         }
     }
     
     func saveToPersistentStore() {
-        let moc = Stack.sharedStack.managedObjectContext
+        let moc = CoreDataStack.context
         do {
             try moc.save()
-        } catch {
-            print("There was a problem saving to persistent store")
+        } catch let error {
+            print("There was a problem saving to the persistent store: \(error)")
         }
     }
     

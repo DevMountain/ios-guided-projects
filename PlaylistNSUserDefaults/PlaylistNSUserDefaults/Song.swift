@@ -9,8 +9,8 @@
 import Foundation
 
 class Song: Equatable {
-    private static let NameKey = "name"
-    private static let ArtistKey = "artist"
+    fileprivate static let NameKey = "name"
+    fileprivate static let ArtistKey = "artist"
 	
     init(name: String, artist: String) {
         self.name = name
@@ -21,12 +21,12 @@ class Song: Equatable {
     
     convenience init?(dictionary: [String: AnyObject]) {
         guard let name = dictionary[Song.NameKey] as? String,
-            artist = dictionary[Song.ArtistKey] as? String else { return nil }
+            let artist = dictionary[Song.ArtistKey] as? String else { return nil }
 		self.init(name: name, artist: artist)
     }
 	
 	var dictionaryRepresentation: [String: AnyObject] {
-		return [Song.NameKey: name, Song.ArtistKey: artist]
+		return [Song.NameKey: name as AnyObject, Song.ArtistKey: artist as AnyObject]
 	}
 
 	// MARK: Properties

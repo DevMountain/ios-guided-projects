@@ -10,23 +10,23 @@ import Foundation
 
 class StudentController {
     
-    static let baseURL = NSURL(string: "https://names-e4301.firebaseio.com/students")!
-    static let getterEndpoint = baseURL.URLByAppendingPathExtension("json")
+    static let baseURL = URL(string: "https://names-e4301.firebaseio.com/students")!
+    static let getterEndpoint = baseURL.appendingPathExtension("json")
     
-	static func sendStudent(name: String, completion: ((success: Bool) -> Void)? = nil) {
+	static func send(studentWithName name: String, completion: ((_ success: Bool) -> Void)? = nil) {
 		
 		let student = Student(name: name)
-        let url = baseURL.URLByAppendingPathComponent(name).URLByAppendingPathExtension("json")
-        
-        NetworkController.performRequestForURL(url, httpMethod: .Put, body: student.jsonData) { (data, error) in
+        let url = baseURL.appendingPathComponent(name).appendingPathExtension("json")
+		
+		NetworkController.performRequest(for: url, httpMethod: .Put, body: student.jsonData) { (data, error) in
 			var success = false
-			defer { completion?(success: success) }
+			defer { completion?(success) }
 			
-			guard let responseDataString = NSString(data: data!, encoding: NSUTF8StringEncoding) else { return }
+			guard let responseDataString = String(data: data!, encoding: .utf8) else { return }
 			
             if error != nil {
                 print("Error: \(error!)")
-            } else if responseDataString.containsString("error") {
+            } else if responseDataString.contains("error") {
                 print("Error: \(responseDataString)")
             } else {
                 print("Successfully saved data to endpoint. \nResponse: \(responseDataString)")
@@ -35,16 +35,16 @@ class StudentController {
         }
     }
     
-    static func fetchStudents(completion: (students: [Student]) -> Void) {
+    static func fetchStudents(completion: @escaping ([Student]) -> Void) {
 
-		NetworkController.performRequestForURL(getterEndpoint, httpMethod: .Get) { (data, error) in
-			guard let data = data else { completion(students: []); return }
-			guard let studentsDict = (try? NSJSONSerialization.JSONObjectWithData(data, options: [.AllowFragments])) as? [String: [String : String]] else {
-				completion(students: [])
+		NetworkController.performRequest(for: getterEndpoint, httpMethod: .Get) { (data, error) in
+			guard let data = data else { completion([]); return }
+			guard let studentsDict = (try? JSONSerialization.jsonObject(with: data, options: [.allowFragments])) as? [String: [String : String]] else {
+				completion([])
 				return
 			}
 			let students = studentsDict.flatMap { Student(dictionary: $0.1) }
-			completion(students: students)
+			completion(students)
         }
     }
 }

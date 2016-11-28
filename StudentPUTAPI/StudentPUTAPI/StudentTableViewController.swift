@@ -23,11 +23,11 @@ class StudentTableViewController: UITableViewController {
 	
 	// MARK: Actions
 	
-	@IBAction func addButtonTapped(sender: AnyObject) {
-		guard let name = nameTextField.text where name.characters.count > 0 else { return }
-		StudentController.sendStudent(name) { (success) in
+	@IBAction func addButtonTapped(_ sender: AnyObject) {
+		guard let name = nameTextField.text , name.characters.count > 0 else { return }
+		StudentController.send(studentWithName: name) { (success) in
 			guard success else { return }
-			dispatch_async(dispatch_get_main_queue()) {
+			DispatchQueue.main.async {
 				self.nameTextField.text = ""
 				self.nameTextField.resignFirstResponder()
 				self.fetchStudents()
@@ -35,17 +35,17 @@ class StudentTableViewController: UITableViewController {
 		}
 	}
 	
-	// MARK: Table view data source
+	// MARK: UITableViewDataSource
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return students.count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let student = students[indexPath.row]
+		let student = students[(indexPath as NSIndexPath).row]
 		
-		let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell", forIndexPath: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
 		cell.textLabel?.text = student.name
 		return cell
 	}
@@ -54,7 +54,7 @@ class StudentTableViewController: UITableViewController {
 	
 	var students = [Student]() {
 		didSet {
-			dispatch_async(dispatch_get_main_queue()) {
+			DispatchQueue.main.async {
 				self.tableView.reloadData()
 			}
 		}

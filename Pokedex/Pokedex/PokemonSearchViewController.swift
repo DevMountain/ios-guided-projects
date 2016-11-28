@@ -10,14 +10,14 @@ import UIKit
 
 class PokemonSearchViewController: UIViewController, UISearchBarDelegate {
 	
-	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		guard let searchTerm = searchBar.text else { return }
-		PokemonController.fetchPokemon(searchTerm) { (pokemon) in
-			dispatch_async(dispatch_get_main_queue()) {
+		PokemonController.fetchPokemon(for: searchTerm) { (pokemon) in
+			DispatchQueue.main.async {
 				guard let pokemon = pokemon else { return }
-				self.nameLabel.text = pokemon.name.capitalizedString
+				self.nameLabel.text = pokemon.name.capitalized
 				self.idLabel.text = "ID: \(pokemon.id)"
-				self.abilitiesLabel.text = "Abilities: \(pokemon.abilities.joinWithSeparator(", "))"
+				self.abilitiesLabel.text = "Abilities: \(pokemon.abilities.joined(separator: ", "))"
 			}
 		}
 	}

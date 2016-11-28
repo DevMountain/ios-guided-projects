@@ -10,17 +10,17 @@ import Foundation
 
 class SurveyController {
 	
-	static let baseURL = NSURL(string: "https://mykeapidesign-a7954.firebaseio.com/api/v1")
-	static let getterEndpoint = baseURL?.URLByAppendingPathExtension("json")
+	static let baseURL = URL(string: "https://mykeapidesign-a7954.firebaseio.com/api/v1")
+	static let getterEndpoint = baseURL?.appendingPathExtension("json")
 	
 	static func putSurveyIntoAPI(name: String, response: String) {
 		let survey = Survey(name: name, response: response)
 		guard let url = survey.endpoint else { return }
-		NetworkController.performRequestForURL(url, httpMethod: .Put, body: survey.jsonData) { (data, error) in
-			let responseDataString = NSString(data: data!, encoding: NSUTF8StringEncoding) ?? ""
+		NetworkController.performRequest(for: url, httpMethod: .Put, body: survey.jsonData) { (data, error) in
+			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
 			if error != nil {
 				print("Error: \(error?.localizedDescription)")
-			} else if responseDataString.containsString("error") {
+			} else if responseDataString.contains("error") {
 				print("Error: \(responseDataString)")
 			} else {
 				print("Successfully saved data to endpoint. \nResponse: \(responseDataString)")
@@ -28,30 +28,30 @@ class SurveyController {
 		}
 	}
 	
-	static func fetchResponses(completion: (responses: [Survey]) -> Void) {
+	static func fetchResponses(completion: @escaping (_ responses: [Survey]) -> Void) {
 		guard let url = getterEndpoint else {
-			completion(responses: [])
+			completion([])
 			return
 		}
-		NetworkController.performRequestForURL(url, httpMethod: .Get) { (data, error) in
-			let responseDataString = NSString(data: data!, encoding: NSUTF8StringEncoding) ?? ""
+		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
+			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
 			if error != nil {
 				print("Error: \(error?.localizedDescription)")
-				completion(responses: [])
+				completion([])
 				return
-			} else if responseDataString.containsString("error") {
+			} else if responseDataString.contains("error") {
 				print("Error: \(responseDataString)")
-				completion(responses: [])
+				completion([])
 				return
 			}
 			guard let data = data,
-				jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)) as? [String:[String:AnyObject]] else {
-					completion(responses: [])
+				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:[String:AnyObject]] else {
+					completion([])
 					return
 			}
 			let surveys = jsonDictionary.flatMap { Survey(dictionary: $0.1 ,identifier: $0.0) }
-			completion(responses: surveys)
-			surveys.forEach { print($0.response)}
+			completion(surveys)
+			surveys.forEach { print($0.response) }
 		}
 	}
 	

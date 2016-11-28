@@ -12,23 +12,23 @@ class PlaylistController {
     
     static let sharedController = PlaylistController()
     
-    func addPlaylist(name: String) {
+    func add(playlistWithName name: String) {
         let playlist = Playlist(name: name)
         playlists.append(playlist)
     }
     
-    func deletePlaylist(playlist: Playlist) {
-        guard let index = playlists.indexOf(playlist) else {return}
-        playlists.removeAtIndex(index)
+    func delete(playlist: Playlist) {
+        guard let index = playlists.index(of: playlist) else {return}
+        playlists.remove(at: index)
     }
     
-    func addSongToPlaylist(song: Song, playlist: Playlist) {
+    func add(song: Song, toPlaylist playlist: Playlist) {
         playlist.songs.append(song)
     }
     
-    func removeSongFromPlaylist(song: Song, playlist: Playlist) {
-        guard let index = playlist.songs.indexOf(song) else {return}
-        playlist.songs.removeAtIndex(index)
+    func remove(song: Song, fromPlaylist playlist: Playlist) {
+        guard let index = playlist.songs.index(of: song) else {return}
+        playlist.songs.remove(at: index)
     }
  
 	// MARK: Properties

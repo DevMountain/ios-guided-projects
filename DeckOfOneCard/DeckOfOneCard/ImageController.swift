@@ -11,16 +11,16 @@ import UIKit
 
 class ImageController {
     
-    static func imageForURL(url: String, completion: ((image: UIImage?) -> Void)) {
-        guard let url = NSURL(string: url) else {fatalError("Image URL optional is nil")}
-        NetworkController.performRequestForURL(url, httpMethod: .Get) { (data, error) in
-            guard let data = data else {
-                completion(image: nil)
+    static func image(forURL url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: url) else { fatalError("Image URL optional is nil") }
+		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
+            guard let data = data,
+			let image = UIImage(data: data) else {
+				DispatchQueue.main.async { completion(nil) }
                 return
             }
-            dispatch_async(dispatch_get_main_queue(), {
-                completion(image: UIImage(data: data))
-            })
+
+			DispatchQueue.main.async { completion(image) }
         }
     }
 }

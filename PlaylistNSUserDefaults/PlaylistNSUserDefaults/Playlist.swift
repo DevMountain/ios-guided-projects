@@ -9,8 +9,8 @@
 import Foundation
 
 class Playlist: Equatable {
-    private static let NameKey = "name"
-    private static let SongsKey = "songs"
+    fileprivate static let NameKey = "name"
+    fileprivate static let SongsKey = "songs"
 	
     init(name: String, songs: [Song] = []) {
         self.name = name
@@ -21,7 +21,7 @@ class Playlist: Equatable {
     
     convenience init?(dictionary: [String: AnyObject]) {
         guard let name = dictionary[Playlist.NameKey] as? String,
-            songDictionaries = dictionary[Playlist.SongsKey] as? [[String: AnyObject]] else { return nil }
+            let songDictionaries = dictionary[Playlist.SongsKey] as? [[String: AnyObject]] else { return nil }
 		
 		let songs = songDictionaries.flatMap { Song(dictionary: $0) }
 		
@@ -30,7 +30,7 @@ class Playlist: Equatable {
 	
 	var dictionaryRepresentation: [String: AnyObject] {
 		let songDictionaries = songs.map { $0.dictionaryRepresentation }
-		return [Playlist.NameKey: name, Playlist.SongsKey: songDictionaries]
+		return [Playlist.NameKey: name as AnyObject, Playlist.SongsKey: songDictionaries as AnyObject]
 	}
 	
 	// MARK: Properties

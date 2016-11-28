@@ -17,12 +17,12 @@ struct Pokemon {
 extension Pokemon {
 	init?(dictionary: [String:AnyObject]) {
 		guard let name = dictionary["name"] as? String,
-			id = dictionary["id"] as? Int,
-			abilityDictionaries = dictionary["abilities"] as? [[String:AnyObject]] else {
+			let id = dictionary["id"] as? Int,
+			let abilityDictionaries = dictionary["abilities"] as? [[String:AnyObject]] else {
 				return nil
 		}
 		
-		let abilities = abilityDictionaries.flatMap { $0["ability"]?["name"] as? String}
+		let abilities = abilityDictionaries.flatMap { $0["ability"]?["name"] as? String }
 		
 		self.init(name: name, id: id, abilities: abilities)
 	}
