@@ -10,7 +10,7 @@ import UIKit
 
 class Timer: NSObject {
     
-    var timeRemaining: NSTimeInterval?
+    var timeRemaining: TimeInterval?
     
     weak var delegate: TimerDelegate?
     
@@ -29,11 +29,11 @@ class Timer: NSObject {
         return String(format: "%02d : %02d", arguments: [minutesLeft, secondsLeft])
     }
 
-    @objc private func secondTick() {
+    @objc fileprivate func secondTick() {
         guard let timeRemaining = timeRemaining else {return}
         if timeRemaining > 0 {
             self.timeRemaining = timeRemaining - 1
-            performSelector(#selector(Timer.secondTick), withObject: nil, afterDelay: 1)
+            perform(#selector(Timer.secondTick), with: nil, afterDelay: 1)
             delegate?.timerSecondTick()
         } else {
             self.timeRemaining = nil
@@ -41,10 +41,10 @@ class Timer: NSObject {
         }
     }
     
-    func startTimer(time: NSTimeInterval) {
+    func startTimer(_ time: TimeInterval) {
         if !isOn {
             timeRemaining = time
-            performSelector(#selector(Timer.secondTick), withObject: nil, afterDelay: 1)
+            perform(#selector(Timer.secondTick), with: nil, afterDelay: 1)
         }
     }
     
