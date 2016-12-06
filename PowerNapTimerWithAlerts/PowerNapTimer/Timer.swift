@@ -9,38 +9,9 @@
 import UIKit
 
 class Timer: NSObject {
-    
-    var timeRemaining: TimeInterval?
-    
-    weak var delegate: TimerDelegate?
-    
-    var isOn: Bool {
-        if timeRemaining != nil {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func timeAsString() -> String {
-        let timeRemaining = Int(self.timeRemaining ?? 20*60)
-        let minutesLeft = timeRemaining / 60
-        let secondsLeft = timeRemaining - (minutesLeft*60)
-        return String(format: "%02d : %02d", arguments: [minutesLeft, secondsLeft])
-    }
-
-    @objc fileprivate func secondTick() {
-        guard let timeRemaining = timeRemaining else {return}
-        if timeRemaining > 0 {
-            self.timeRemaining = timeRemaining - 1
-            perform(#selector(Timer.secondTick), with: nil, afterDelay: 1)
-            delegate?.timerSecondTick()
-        } else {
-            self.timeRemaining = nil
-            delegate?.timerCompleted()
-        }
-    }
-    
+	
+	// MARK: Public Methods
+	
     func startTimer(_ time: TimeInterval) {
         if !isOn {
             timeRemaining = time
@@ -51,13 +22,44 @@ class Timer: NSObject {
     func stopTimer() {
         if isOn {
             timeRemaining = nil
-            delegate?.timerStopped()
+            delegate?.timerDidStop()
         }
     }
+	
+	// MARK: Private Methods
+	
+	@objc private func secondTick() {
+		guard let timeRemaining = timeRemaining else { return }
+		if timeRemaining > 0 {
+			self.timeRemaining = timeRemaining - 1
+			perform(#selector(Timer.secondTick), with: nil, afterDelay: 1)
+			delegate?.timerDidTick()
+		} else {
+			self.timeRemaining = nil
+			delegate?.timerDidComplete()
+		}
+	}
+	
+	// MARK: Properties
+	
+	var timeRemaining: TimeInterval?
+	
+	weak var delegate: TimerDelegate?
+	
+	var isOn: Bool {
+		return timeRemaining != nil
+	}
+	
+	var timeAsString: String {
+		let timeRemaining = Int(self.timeRemaining ?? 20*60)
+		let minutesLeft = timeRemaining / 60
+		let secondsLeft = timeRemaining - (minutesLeft*60)
+		return String(format: "%02d:%02d", arguments: [minutesLeft, secondsLeft])
+	}
 }
 
 protocol TimerDelegate: class {
-    func timerSecondTick()
-    func timerCompleted()
-    func timerStopped()
+    func timerDidTick()
+    func timerDidComplete()
+    func timerDidStop()
 }

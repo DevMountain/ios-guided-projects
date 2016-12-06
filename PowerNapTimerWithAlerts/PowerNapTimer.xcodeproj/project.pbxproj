@@ -59,12 +59,28 @@
 				1AFCF6711CDBF3FF006D2F3D /* AppDelegate.swift */,
 				1AFCF6831CDBF425006D2F3D /* ViewController.swift */,
 				1AFCF6841CDBF425006D2F3D /* Timer.swift */,
-				1AFCF6751CDBF3FF006D2F3D /* Main.storyboard */,
-				1AFCF6781CDBF3FF006D2F3D /* Assets.xcassets */,
-				1AFCF67A1CDBF3FF006D2F3D /* LaunchScreen.storyboard */,
-				1AFCF67D1CDBF3FF006D2F3D /* Info.plist */,
+				9DD4DBA31DF7440C00549FAB /* Resources */,
 			);
 			path = PowerNapTimer;
+			sourceTree = "<group>";
+		};
+		9DD4DBA31DF7440C00549FAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DD4DBA41DF7441400549FAB /* Storyboards */,
+				1AFCF6781CDBF3FF006D2F3D /* Assets.xcassets */,
+				1AFCF67D1CDBF3FF006D2F3D /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9DD4DBA41DF7441400549FAB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1AFCF6751CDBF3FF006D2F3D /* Main.storyboard */,
+				1AFCF67A1CDBF3FF006D2F3D /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
