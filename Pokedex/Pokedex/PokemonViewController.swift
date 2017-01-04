@@ -17,6 +17,8 @@ class PokemonViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var pokemonIDLabel: UILabel!
     @IBOutlet weak var abilitiesLabel: UILabel!
     @IBOutlet weak var pokemonSearchBar: UISearchBar!
+    
+    // MARK: - Lifecycle Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +31,15 @@ class PokemonViewController: UIViewController, UISearchBarDelegate {
         searchForPokemon()
     }
     
+    // MARK: - Search functions
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchForPokemon()
     }
     
     func searchForPokemon() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let searchTerm = pokemonSearchBar.text != "" ? pokemonSearchBar.text! : "slowpoke"
+        let searchTerm = pokemonSearchBar.text != "" ? pokemonSearchBar.text! : Keys.slowpokeKey
         PokemonController.fetchPokemon(withSearchTerm: searchTerm) { (pokemon) in
             DispatchQueue.main.async {
                 guard let pokemon = pokemon else { return }

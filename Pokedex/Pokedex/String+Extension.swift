@@ -9,12 +9,15 @@
 import Foundation
 
 extension String {
+    
+    // MARK: - Capitalizes first letter of any String
     func capitalizingFirstLetter() -> String {
         let first = String(characters.prefix(1)).capitalized
         let other = String(characters.dropFirst())
         return first + other
     }
     
+    // MARK: - Capitalize first letter in place
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }

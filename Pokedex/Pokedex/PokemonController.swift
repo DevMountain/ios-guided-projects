@@ -10,24 +10,14 @@ import Foundation
 
 class PokemonController {
     
-    static let baseURL = "http://pokeapi.co/api/v2/pokemon/"
-    
     static func fetchPokemon(withSearchTerm searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
-        let searchURL = baseURL + searchTerm.lowercased()
-        guard let url = URL(string: searchURL) else {
-            completion(nil)
-            return
-        }
+        let searchURL = Keys.baseURL + searchTerm.lowercased()
+        guard let url = URL(string: searchURL) else { completion(nil); return }
         NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
-            if let error = error {
-                fatalError("Error getting data. \(error.localizedDescription)")
-            }
+            if let error = error { fatalError("Error getting data. \(error.localizedDescription)") }
             guard let data = data,
             let jsonDictionary = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
-            else {
-                completion(nil)
-                return
-            }
+            else { completion(nil); return }
             let pokemon = Pokemon(dictionary: jsonDictionary)
             completion(pokemon)
         }
