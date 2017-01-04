@@ -1,33 +1,25 @@
 //
 //  PokemonController.swift
-//  JSONPokedex
+//  Pokedex
 //
-//  Created by Michael Mecham on 7/12/16.
-//  Copyright © 2016 MichaelMecham. All rights reserved.
+//  Created by Nicholas Laughter on 1/3/17.
+//  Copyright © 2017 Nicholas Laughter. All rights reserved.
 //
 
 import Foundation
 
 class PokemonController {
-	
-	static let baseURL = "http://pokeapi.co/api/v2/pokemon/"
-	
-	static func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
-		let searchURL = baseURL + searchTerm.lowercased()
-		guard let url = URL(string: searchURL) else {
-			completion(nil)
-			return
-		}
-		
-		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
-			guard let data = data,
-				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
-					completion(nil)
-					return
-			}
-			
-			let pokemon = Pokemon(dictionary: jsonDictionary)
-			completion(pokemon)
-		}
-	}
+    
+    static func fetchPokemon(withSearchTerm searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
+        let searchURL = Keys.baseURL + searchTerm.lowercased()
+        guard let url = URL(string: searchURL) else { completion(nil); return }
+        NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
+            if let error = error { fatalError("Error getting data. \(error.localizedDescription)") }
+            guard let data = data,
+            let jsonDictionary = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+            else { completion(nil); return }
+            let pokemon = Pokemon(dictionary: jsonDictionary)
+            completion(pokemon)
+        }
+    }
 }
