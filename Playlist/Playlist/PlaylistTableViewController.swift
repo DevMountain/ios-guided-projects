@@ -15,7 +15,7 @@ class PlaylistTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    @IBAction func addButtonTapped(_ sender: AnyObject) {
+    @IBAction func addButtonTapped(_ sender: Any) {
         guard let playlistName = playlistTextField.text, !playlistName.isEmpty else {return}
 		PlaylistController.sharedController.add(playlistWithName: playlistName)
         playlistTextField.text = ""

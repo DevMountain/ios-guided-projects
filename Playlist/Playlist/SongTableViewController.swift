@@ -16,7 +16,7 @@ class SongTableViewController: UITableViewController {
 		title = playlist?.name
 	}
 	
-	@IBAction func addButtonTapped(_ sender: AnyObject) {
+	@IBAction func addButtonTapped(_ sender: Any) {
 		guard let playlist = playlist,
 			let songTitle = songTextField.text,
 			let artist = artistTextField.text,
