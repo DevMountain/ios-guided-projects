@@ -52,7 +52,7 @@ class SongTableViewController: UITableViewController {
 		if editingStyle == .delete {
 			guard let playlist = playlist else {return}
 			let song = playlist.songs[indexPath.row]
-			PlaylistController.sharedController.remove(song: song, fromPlaylist: playlist)
+			PlaylistController.shared.remove(song: song, fromPlaylist: playlist)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}

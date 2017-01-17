@@ -10,7 +10,7 @@ import Foundation
 
 class PlaylistController {
     
-    static let sharedController = PlaylistController()
+    static let shared = PlaylistController()
     
     func add(playlistWithName name: String) {
         let playlist = Playlist(name: name)

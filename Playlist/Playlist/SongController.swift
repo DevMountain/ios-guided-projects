@@ -12,7 +12,7 @@ class SongController {
     
     static func create(songWithName name: String, artist: String, playlist: Playlist) {
         let song = Song(name: name, artist: artist)
-		PlaylistController.sharedController.add(song: song, toPlaylist: playlist)
+		PlaylistController.shared.add(song: song, toPlaylist: playlist)
     }
 
 }

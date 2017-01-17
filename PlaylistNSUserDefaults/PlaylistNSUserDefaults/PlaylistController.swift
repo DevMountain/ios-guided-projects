@@ -11,7 +11,7 @@ import Foundation
 class PlaylistController {
     fileprivate static let PlaylistsKey = "playlists"
     
-    static let sharedController = PlaylistController()
+    static let shared = PlaylistController()
     
     init() {
         loadFromPersistentStore()
@@ -50,7 +50,7 @@ class PlaylistController {
     
     func loadFromPersistentStore() {
 		let userDefaults = UserDefaults.standard
-        guard let playlistDictionaries = userDefaults.object(forKey: PlaylistController.PlaylistsKey) as? [[String: AnyObject]] else { return }
+        guard let playlistDictionaries = userDefaults.object(forKey: PlaylistController.PlaylistsKey) as? [[String: Any]] else { return }
         playlists = playlistDictionaries.flatMap { Playlist(dictionary: $0) }
     }
 	

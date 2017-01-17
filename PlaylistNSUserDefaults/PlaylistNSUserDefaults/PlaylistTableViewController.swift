@@ -17,7 +17,7 @@ class PlaylistTableViewController: UITableViewController {
 	
 	@IBAction func addButtonTapped(_ sender: AnyObject) {
 		guard let playlistName = playlistTextField.text, !playlistName.isEmpty else {return}
-		PlaylistController.sharedController.add(playlistWithName: playlistName)
+		PlaylistController.shared.add(playlistWithName: playlistName)
 		playlistTextField.text = ""
 		tableView.reloadData()
 	}
@@ -25,13 +25,13 @@ class PlaylistTableViewController: UITableViewController {
 	// MARK: UITableViewDataSource/Delegate
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return PlaylistController.sharedController.playlists.count
+		return PlaylistController.shared.playlists.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "playlistCell", for: indexPath)
 		
-		let playlist = PlaylistController.sharedController.playlists[indexPath.row]
+		let playlist = PlaylistController.shared.playlists[indexPath.row]
 		cell.textLabel?.text = playlist.name
 		cell.detailTextLabel?.text = "\(playlist.songs.count) songs"
 		
@@ -44,8 +44,8 @@ class PlaylistTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			let playlist = PlaylistController.sharedController.playlists[indexPath.row]
-			PlaylistController.sharedController.delete(playlist: playlist)
+			let playlist = PlaylistController.shared.playlists[indexPath.row]
+			PlaylistController.shared.delete(playlist: playlist)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
@@ -55,7 +55,7 @@ class PlaylistTableViewController: UITableViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "toPlaylistDetail",
 			let indexPath = tableView.indexPathForSelectedRow {
-			let playlist = PlaylistController.sharedController.playlists[indexPath.row]
+			let playlist = PlaylistController.shared.playlists[indexPath.row]
 			let songVC = segue.destination as? SongTableViewController
 			songVC?.playlist = playlist
 		}

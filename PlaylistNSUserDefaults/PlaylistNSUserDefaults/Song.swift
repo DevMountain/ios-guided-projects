@@ -19,14 +19,14 @@ class Song: Equatable {
 	
 	// MARK: Dictionary Conversion
     
-    convenience init?(dictionary: [String: AnyObject]) {
+    convenience init?(dictionary: [String: Any]) {
         guard let name = dictionary[Song.NameKey] as? String,
             let artist = dictionary[Song.ArtistKey] as? String else { return nil }
 		self.init(name: name, artist: artist)
     }
 	
-	var dictionaryRepresentation: [String: AnyObject] {
-		return [Song.NameKey: name as AnyObject, Song.ArtistKey: artist as AnyObject]
+	var dictionaryRepresentation: [String: Any] {
+		return [Song.NameKey: name as Any, Song.ArtistKey: artist as Any]
 	}
 
 	// MARK: Properties
