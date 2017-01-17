@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsController {
     
-    static let sharedController = SettingsController()
+    static let shared = SettingsController()
     
     init() {
         let music = Setting(name: "Music", isSet: false, image: UIImage(named: "music"))

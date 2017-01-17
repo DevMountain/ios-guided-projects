@@ -14,7 +14,7 @@ protocol SettingTableViewCellDelegate: class {
 
 class SettingTableViewCell: UITableViewCell {
 	
-    @IBAction func settingSwitchValueChanged(_ sender: AnyObject) {
+    @IBAction func settingSwitchValueChanged(_ sender: Any) {
         delegate?.settingValueChanged(self, selected: settingSwitch.isOn)
     }
 	
