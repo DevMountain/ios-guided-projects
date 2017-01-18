@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         timerLabel.text = myTimer.timeAsString()
     }
     
-    @IBAction func startButtonTapped(_ sender: AnyObject) {
+    @IBAction func startButtonTapped(_ sender: Any) {
         if myTimer.isOn {
             myTimer.stopTimer()
         } else {

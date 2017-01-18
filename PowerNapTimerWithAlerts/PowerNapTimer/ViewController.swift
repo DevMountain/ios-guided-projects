@@ -58,7 +58,7 @@ class ViewController: UIViewController, TimerDelegate {
     
     // MARK: Actions
     
-    @IBAction func startButtonTapped(_ sender: AnyObject) {
+    @IBAction func startButtonTapped(_ sender: Any) {
         if myTimer.isOn {
             myTimer.stopTimer()
             cancelLocalNotification()
