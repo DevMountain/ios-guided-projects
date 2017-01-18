@@ -7,61 +7,69 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, TimerDelegate {
-
-    @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
-    let timer = Timer()
-    private let localNotificationTag = "timerNotification"
+    let myTimer = MyTimer()
+    fileprivate let userNotificationIdentifier = "timerNotification"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myTimer.delegate = self
         setView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         resetTimer()
-        timer.delegate = self
     }
     
     func setView() {
         updateTimerLabel()
         // If timer is running, start button title should say "Cancel". If timer is not running, title should say "Start nap"
-        if timer.isOn {
-            startButton.setTitle("Cancel", forState: .Normal)
+        if myTimer.isOn {
+            startButton.setTitle("Cancel", for: UIControlState())
         } else {
-            startButton.setTitle("Start nap", forState: .Normal)
+            startButton.setTitle("Start nap", for: UIControlState())
         }
     }
     
     func updateTimerLabel() {
-        timerLabel.text = timer.timeAsString()
+        timerLabel.text = myTimer.timeAsString()
     }
     
     // Reset timer when view loads using local notification fire date if there is one -
     func resetTimer() {
-        guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return}
-        let timerLocalNotifications = localNotifications.filter({$0.category == localNotificationTag})
-        guard let timerNotification = timerLocalNotifications.last,
-            fireDate = timerNotification.fireDate else {return}
-        for notification in timerLocalNotifications {
-            UIApplication.sharedApplication().cancelLocalNotification(notification)
-        }
-        timer.stopTimer()
-        timer.startTimer(fireDate.timeIntervalSinceNow)
         
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
+            let timerLocalNotifications = requests.filter { $0.identifier == self.userNotificationIdentifier }
+            guard let timerNotificationRequest = timerLocalNotifications.last,
+                let trigger = timerNotificationRequest.trigger as? UNCalendarNotificationTrigger,
+                let fireDate = trigger.nextTriggerDate() else { return }
+            
+            self.myTimer.stopTimer()
+            self.myTimer.startTimer(fireDate.timeIntervalSinceNow)
+        }        
     }
-
-    @IBAction func startButtonTapped(sender: AnyObject) {
-        if timer.isOn {
-            timer.stopTimer()
+    
+    // MARK: Actions
+    
+    @IBAction func startButtonTapped(_ sender: AnyObject) {
+        if myTimer.isOn {
+            myTimer.stopTimer()
             cancelLocalNotification()
         } else {
-            timer.startTimer(0.2*60.0)
+            myTimer.startTimer(5)
             scheduleLocalNotification()
         }
         setView()
     }
+    
+    // MARK: TimerDelegate
     
     func timerSecondTick() {
         updateTimerLabel()
@@ -70,49 +78,61 @@ class ViewController: UIViewController, TimerDelegate {
     func timerStopped() {
         setView()
         cancelLocalNotification()
+        myTimer.timer?.invalidate()
     }
     
     func timerCompleted() {
         setView()
+        setUpAlertController()
+    }
+    
+    // MARK: AlertController
+    
+    func setUpAlertController() {
         var snoozeTextField: UITextField?
-        let alert = UIAlertController(title: "Wake up!", message: "Get up ya lazy bum!", preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler { (textField) in
+        let alert = UIAlertController(title: "Wake up!", message: "Get up ya lazy bum!", preferredStyle: .alert)
+        alert.addTextField { (textField) in
             textField.placeholder = "Sleep a few more minutes..."
-            textField.keyboardType = .NumberPad
+            textField.keyboardType = .numberPad
             snoozeTextField = textField
         }
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .Cancel) { (_) in
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel) { (_) in
             self.setView()
         }
-        let snoozeAction = UIAlertAction(title: "Snooze", style: .Default) { (_) in
+        let snoozeAction = UIAlertAction(title: "Snooze", style: .default) { (_) in
             guard let timeText = snoozeTextField?.text,
-                time = NSTimeInterval(timeText) else {return}
-            self.timer.startTimer(time*60)
+                let time = TimeInterval(timeText) else {return}
+            self.myTimer.startTimer(time*60)
             self.scheduleLocalNotification()
             self.setView()
         }
         alert.addAction(dismissAction)
         alert.addAction(snoozeAction)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
+    // MARK: UserNotifications
+    
     func scheduleLocalNotification() {
-        guard let timerTime = timer.timeRemaining else {return}
-        let localNotification = UILocalNotification()
-        localNotification.category = localNotificationTag
-        localNotification.alertBody = "It's time to wake up"
-        localNotification.alertTitle = "Time's up!"
-        localNotification.fireDate = NSDate(timeIntervalSinceNow:timerTime)
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "Wake up!"
+        notificationContent.body = "Time to get up"
+        
+        guard let timeRemaining = myTimer.timeRemaining else { return }
+        let fireDate = Date(timeInterval: timeRemaining, since: Date())
+        let dateComponents = Calendar.current.dateComponents([.minute, .second], from: fireDate)
+        let dateTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: userNotificationIdentifier, content: notificationContent, trigger: dateTrigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Unable to add notification request. \(error.localizedDescription)")
+            }
+        }
     }
     
     func cancelLocalNotification() {
-        guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {return}
-        let timerLocalNotifications = localNotifications.filter({$0.category == localNotificationTag})
-        for notification in timerLocalNotifications {
-            UIApplication.sharedApplication().cancelLocalNotification(notification)
-        }
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [userNotificationIdentifier])
     }
-
+    
 }
 

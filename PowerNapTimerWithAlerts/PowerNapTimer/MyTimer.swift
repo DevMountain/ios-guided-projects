@@ -8,9 +8,10 @@
 
 import UIKit
 
-class Timer: NSObject {
+class MyTimer: NSObject {
     
-    var timeRemaining: NSTimeInterval?
+    var timeRemaining: TimeInterval?
+    var timer: Timer?
     
     weak var delegate: TimerDelegate?
     
@@ -29,22 +30,25 @@ class Timer: NSObject {
         return String(format: "%02d : %02d", arguments: [minutesLeft, secondsLeft])
     }
 
-    @objc private func secondTick() {
-        guard let timeRemaining = timeRemaining else {return}
+    fileprivate func secondTick() {
+        guard let timeRemaining = timeRemaining else { return }
         if timeRemaining > 0 {
             self.timeRemaining = timeRemaining - 1
-            performSelector(#selector(Timer.secondTick), withObject: nil, afterDelay: 1)
             delegate?.timerSecondTick()
+            print(timeRemaining)
         } else {
+            timer?.invalidate()
             self.timeRemaining = nil
             delegate?.timerCompleted()
         }
     }
     
-    func startTimer(time: NSTimeInterval) {
+    func startTimer(_ time: TimeInterval) {
         if !isOn {
             timeRemaining = time
-            performSelector(#selector(Timer.secondTick), withObject: nil, afterDelay: 1)
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+                self.secondTick()
+            })
         }
     }
     
