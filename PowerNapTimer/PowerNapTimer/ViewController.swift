@@ -11,11 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
-    
     @IBOutlet weak var startButton: UIButton!
     
     let timer = Timer()
-    private let localNotificationTag = "timerNotification"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +24,9 @@ class ViewController: UIViewController {
         updateTimerLabel()
         // If timer is running, start button title should say "Cancel". If timer is not running, title should say "Start nap"
         if timer.isOn {
-            startButton.setTitle("Cancel", forState: .Normal)
+            startButton.setTitle("Cancel", for: UIControlState())
         } else {
-            startButton.setTitle("Start nap", forState: .Normal)
+            startButton.setTitle("Start nap", for: UIControlState())
         }
     }
     
@@ -36,7 +34,7 @@ class ViewController: UIViewController {
         timerLabel.text = timer.timeAsString()
     }
     
-    @IBAction func startButtonTapped(sender: AnyObject) {
+    @IBAction func startButtonTapped(_ sender: AnyObject) {
         if timer.isOn {
             timer.stopTimer()
         } else {
