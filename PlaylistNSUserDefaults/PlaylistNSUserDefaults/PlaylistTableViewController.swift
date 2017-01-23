@@ -16,7 +16,7 @@ class PlaylistTableViewController: UITableViewController {
 	}
 	
 	@IBAction func addButtonTapped(_ sender: Any) {
-		guard let playlistName = playlistTextField.text, !playlistName.isEmpty else {return}
+		guard let playlistName = playlistTextField.text, !playlistName.isEmpty else { return }
 		PlaylistController.shared.add(playlistWithName: playlistName)
 		playlistTextField.text = ""
 		tableView.reloadData()
@@ -33,7 +33,12 @@ class PlaylistTableViewController: UITableViewController {
 		
 		let playlist = PlaylistController.shared.playlists[indexPath.row]
 		cell.textLabel?.text = playlist.name
-		cell.detailTextLabel?.text = "\(playlist.songs.count) songs"
+        
+        if playlist.songs.count == 1 {
+            cell.detailTextLabel?.text = "1 Song"
+        } else {
+            cell.detailTextLabel?.text = "\(playlist.songs.count) Songs"
+        }
 		
 		return cell
 	}
