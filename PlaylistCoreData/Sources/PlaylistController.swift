@@ -11,19 +11,13 @@ import CoreData
 
 class PlaylistController {
     
-    static let sharedInstance = PlaylistController()
-    
-    var playlists: [Playlist] {
-		
-		let request: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-		return (try? CoreDataStack.context.fetch(request)) ?? []
-    }
+    static let shared = PlaylistController()
     
 	func create(playlistWithName name: String) {
-        Playlist(name: name)
+        let _ = Playlist(name: name)
     }
     
-    func delete(_ playlist: Playlist) {
+    func delete(playlist: Playlist) {
         if let moc = playlist.managedObjectContext {
             moc.delete(playlist)
             saveToPersistentStore()
@@ -39,4 +33,11 @@ class PlaylistController {
         }
     }
     
+    // MARK: Properties
+    
+    var playlists: [Playlist] {
+        
+        let request: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+        return (try? CoreDataStack.context.fetch(request)) ?? []
+    }
 }

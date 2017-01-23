@@ -13,13 +13,13 @@ class SongController {
     
     static func create(songWithName name: String, artist: String, playlist: Playlist) {
         let _ = Song(name: name, artist: artist, playlist: playlist)
-        PlaylistController.sharedInstance.saveToPersistentStore()
+        PlaylistController.shared.saveToPersistentStore()
     }
     
     static func delete(song: Song) {
         if let moc = song.managedObjectContext {
             moc.delete(song)
-            PlaylistController.sharedInstance.saveToPersistentStore()
+            PlaylistController.shared.saveToPersistentStore()
         }
     }
 
