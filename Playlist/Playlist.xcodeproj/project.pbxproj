@@ -65,9 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				1AFCF5D91CDA6730006D2F3D /* AppDelegate.swift */,
-				1AFCF5F81CDA72F7006D2F3D /* View Controllers */,
 				1AFCF5F91CDA72FF006D2F3D /* Models */,
 				1AFCF5F71CDA72EF006D2F3D /* Model Controllers */,
+				1AFCF5F81CDA72F7006D2F3D /* View Controllers */,
 				9D27B51F1D75F5EC00D8F988 /* Resources */,
 			);
 			path = Playlist;
