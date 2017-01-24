@@ -25,8 +25,8 @@ class CardController {
 					completion([])
 					return
 			}
-			guard let responseDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: AnyObject],
-				let cardDictionaries = responseDictionary["cards"] as? [[String: AnyObject]] else {
+			guard let responseDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any],
+				let cardDictionaries = responseDictionary["cards"] as? [[String: Any]] else {
 					NSLog("Unable to serialize JSON. \nResponse: \(responseDataString)")
 					completion([])
 					return
