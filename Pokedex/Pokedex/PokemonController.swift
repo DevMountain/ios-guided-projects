@@ -19,7 +19,7 @@ class PokemonController {
 			return
 		}
 		
-		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
+		NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
 			guard let data = data,
 				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
 					completion(nil)
