@@ -23,7 +23,7 @@ class StudentTableViewController: UITableViewController {
 	
 	// MARK: Actions
 	
-	@IBAction func addButtonTapped(_ sender: AnyObject) {
+	@IBAction func addButtonTapped(_ sender: Any) {
 		guard let name = nameTextField.text , name.characters.count > 0 else { return }
 		StudentController.send(studentWithName: name) { (success) in
 			guard success else { return }

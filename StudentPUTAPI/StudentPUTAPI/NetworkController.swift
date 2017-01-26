@@ -11,11 +11,11 @@ import Foundation
 class NetworkController {
 	
 	enum HTTPMethod: String {
-		case Get = "GET"
-		case Put = "PUT"
-		case Post = "POST"
-		case Patch = "PATCH"
-		case Delete = "DELETE"
+		case get = "GET"
+		case put = "PUT"
+		case post = "POST"
+		case patch = "PATCH"
+		case delete = "DELETE"
 	}
 	
 	static func performRequest(for url: URL,

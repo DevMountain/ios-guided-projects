@@ -22,8 +22,8 @@ extension Student {
 		self.init(name: name)
 	}
 	
-	var dictionaryRepresentation: [String : AnyObject] {
-		return [Student.NameKey: name as AnyObject]
+	var dictionaryRepresentation: [String : Any] {
+		return [Student.NameKey: name as Any]
 	}
 	
 	var jsonData: Data? {
