@@ -9,13 +9,6 @@
 import Foundation
 
 class Survey {
-	
-	/* FIXME: Don't have model object "reach" back to model controller directly. -ARM 10OCT16. */
-    var endpoint: URL? {
-        return SurveyController.baseURL?.appendingPathComponent("\(identifier.uuidString)").appendingPathExtension("json")
-        // component = /  ex: /api/v1/dfgdf-e56-d-56-fg-ert-dfv
-        // extension = .  ex: .json
-    }
     
 	init(name: String, response: String, identifier: UUID = UUID()) {
         self.name = name
@@ -37,7 +30,7 @@ extension Survey {
 	private static var NameKey: String { return "nombre" }
 	private static var ResponseKey: String { return "respuesta" }
 	
-	convenience init?(dictionary: [String:AnyObject], identifier: String) {
+	convenience init?(dictionary: [String:Any], identifier: String) {
 		guard let name = dictionary[Survey.NameKey] as? String,
 			let response = dictionary[Survey.ResponseKey] as? String,
 			let identifier = UUID(uuidString: identifier) else {
