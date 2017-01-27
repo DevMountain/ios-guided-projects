@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-    @IBAction func drawButtonTapped(_ sender: AnyObject) {
+    @IBAction func drawButtonTapped(_ sender: Any) {
 		CardController.draw(numberOfCards: 1) { (cards) in
             guard let card = cards.first else { return }
 			ImageController.image(forURL: card.imageEndpoint) { (image) in

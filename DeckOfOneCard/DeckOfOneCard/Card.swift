@@ -20,7 +20,7 @@ class Card {
         self.suit = suit
     }
     
-    init?(dictionary: [String: AnyObject]) {
+    init?(dictionary: [String: Any]) {
         guard let imageEndpoint = dictionary[kImage] as? String,
             let value = dictionary[kValue] as? String,
             let suit = dictionary[kSuit] as? String else { return nil }

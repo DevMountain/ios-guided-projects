@@ -19,18 +19,18 @@ class Playlist: Equatable {
 	
 	// MARK: Dictionary Conversion
     
-    convenience init?(dictionary: [String: AnyObject]) {
+    convenience init?(dictionary: [String: Any]) {
         guard let name = dictionary[Playlist.NameKey] as? String,
-            let songDictionaries = dictionary[Playlist.SongsKey] as? [[String: AnyObject]] else { return nil }
+            let songDictionaries = dictionary[Playlist.SongsKey] as? [[String: Any]] else { return nil }
 		
 		let songs = songDictionaries.flatMap { Song(dictionary: $0) }
 		
 		self.init(name: name, songs: songs)
     }
 	
-	var dictionaryRepresentation: [String: AnyObject] {
+	var dictionaryRepresentation: [String: Any] {
 		let songDictionaries = songs.map { $0.dictionaryRepresentation }
-		return [Playlist.NameKey: name as AnyObject, Playlist.SongsKey: songDictionaries as AnyObject]
+		return [Playlist.NameKey: name as Any, Playlist.SongsKey: songDictionaries as Any]
 	}
 	
 	// MARK: Properties

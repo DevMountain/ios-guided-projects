@@ -13,13 +13,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
 	
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingsController.sharedController.mySettings.count
+        return SettingsController.shared.mySettings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell") as? SettingTableViewCell
 
-        let setting = SettingsController.sharedController.mySettings[(indexPath as NSIndexPath).row]
+        let setting = SettingsController.shared.mySettings[(indexPath as NSIndexPath).row]
 		cell?.setting = setting
         cell?.delegate = self
         return cell ?? UITableViewCell()

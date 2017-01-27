@@ -18,7 +18,7 @@ class StudentController {
 		let student = Student(name: name)
         let url = baseURL.appendingPathComponent(name).appendingPathExtension("json")
 		
-		NetworkController.performRequest(for: url, httpMethod: .Put, body: student.jsonData) { (data, error) in
+		NetworkController.performRequest(for: url, httpMethod: .put, body: student.jsonData) { (data, error) in
 			var success = false
 			defer { completion?(success) }
 			
@@ -37,7 +37,7 @@ class StudentController {
     
     static func fetchStudents(completion: @escaping ([Student]) -> Void) {
 
-		NetworkController.performRequest(for: getterEndpoint, httpMethod: .Get) { (data, error) in
+		NetworkController.performRequest(for: getterEndpoint, httpMethod: .get) { (data, error) in
 			guard let data = data else { completion([]); return }
 			guard let studentsDict = (try? JSONSerialization.jsonObject(with: data, options: [.allowFragments])) as? [String: [String : String]] else {
 				completion([])

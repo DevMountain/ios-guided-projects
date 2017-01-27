@@ -19,11 +19,18 @@
 
 @implementation DMNListViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Actions
 
 - (IBAction)addButtonTapped:(id)sender
 {
 	[[DMNPlaylistController sharedInstance] createPlaylistWithTitle:self.nameTextField.text];
+    self.nameTextField.text = @"";
 	[self.tableView reloadData];
 }
 

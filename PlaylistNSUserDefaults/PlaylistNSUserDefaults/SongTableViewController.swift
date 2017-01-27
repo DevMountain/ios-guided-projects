@@ -16,12 +16,12 @@ class SongTableViewController: UITableViewController {
 		title = playlist?.name
 	}
 	
-	@IBAction func addButtonTapped(_ sender: AnyObject) {
+	@IBAction func addButtonTapped(_ sender: Any) {
 		guard let playlist = playlist,
-			let songTitle = songTextField.text,
+			let name = songTextField.text,
 			let artist = artistTextField.text,
-			!songTitle.isEmpty && !artist.isEmpty else { return }
-		SongController.create(songWithName: songTitle, artist: artist, playlist: playlist)
+			!name.isEmpty && !artist.isEmpty else { return }
+		SongController.create(songWithName: name, artist: artist, playlist: playlist)
 		songTextField.text = ""
 		artistTextField.text = ""
 		tableView.reloadData()
@@ -50,9 +50,9 @@ class SongTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			guard let playlist = playlist else {return}
+			guard let playlist = playlist else { return }
 			let song = playlist.songs[indexPath.row]
-			PlaylistController.sharedController.remove(song: song, fromPlaylist: playlist)
+			PlaylistController.shared.remove(song: song, fromPlaylist: playlist)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}

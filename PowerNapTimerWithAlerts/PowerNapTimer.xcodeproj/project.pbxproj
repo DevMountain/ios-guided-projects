@@ -12,7 +12,7 @@
 		1AFCF6791CDBF3FF006D2F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFCF6781CDBF3FF006D2F3D /* Assets.xcassets */; };
 		1AFCF67C1CDBF3FF006D2F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFCF67A1CDBF3FF006D2F3D /* LaunchScreen.storyboard */; };
 		1AFCF6861CDBF425006D2F3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCF6831CDBF425006D2F3D /* ViewController.swift */; };
-		1AFCF6871CDBF425006D2F3D /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCF6841CDBF425006D2F3D /* Timer.swift */; };
+		1AFCF6871CDBF425006D2F3D /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCF6841CDBF425006D2F3D /* MyTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		1AFCF67B1CDBF3FF006D2F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AFCF67D1CDBF3FF006D2F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AFCF6831CDBF425006D2F3D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1AFCF6841CDBF425006D2F3D /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		1AFCF6841CDBF425006D2F3D /* MyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,29 +58,13 @@
 			children = (
 				1AFCF6711CDBF3FF006D2F3D /* AppDelegate.swift */,
 				1AFCF6831CDBF425006D2F3D /* ViewController.swift */,
-				1AFCF6841CDBF425006D2F3D /* Timer.swift */,
-				9DD4DBA31DF7440C00549FAB /* Resources */,
-			);
-			path = PowerNapTimer;
-			sourceTree = "<group>";
-		};
-		9DD4DBA31DF7440C00549FAB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				9DD4DBA41DF7441400549FAB /* Storyboards */,
+				1AFCF6841CDBF425006D2F3D /* MyTimer.swift */,
+				1AFCF6751CDBF3FF006D2F3D /* Main.storyboard */,
 				1AFCF6781CDBF3FF006D2F3D /* Assets.xcassets */,
+				1AFCF67A1CDBF3FF006D2F3D /* LaunchScreen.storyboard */,
 				1AFCF67D1CDBF3FF006D2F3D /* Info.plist */,
 			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		9DD4DBA41DF7441400549FAB /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				1AFCF6751CDBF3FF006D2F3D /* Main.storyboard */,
-				1AFCF67A1CDBF3FF006D2F3D /* LaunchScreen.storyboard */,
-			);
-			name = Storyboards;
+			path = PowerNapTimer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,12 +94,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = DevMountain;
 				TargetAttributes = {
 					1AFCF66D1CDBF3FF006D2F3D = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						DevelopmentTeam = V9YMV3Q9VL;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -155,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AFCF6871CDBF425006D2F3D /* Timer.swift in Sources */,
+				1AFCF6871CDBF425006D2F3D /* MyTimer.swift in Sources */,
 				1AFCF6861CDBF425006D2F3D /* ViewController.swift in Sources */,
 				1AFCF6721CDBF3FF006D2F3D /* AppDelegate.swift in Sources */,
 			);
@@ -222,7 +207,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -263,7 +248,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -275,7 +260,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V9YMV3Q9VL;
 				INFOPLIST_FILE = PowerNapTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.devmountain.PowerNapTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,7 +274,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V9YMV3Q9VL;
 				INFOPLIST_FILE = PowerNapTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.devmountain.PowerNapTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

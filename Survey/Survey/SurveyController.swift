@@ -15,8 +15,10 @@ class SurveyController {
 	
 	static func putSurveyIntoAPI(name: String, response: String) {
 		let survey = Survey(name: name, response: response)
-		guard let url = survey.endpoint else { return }
-		NetworkController.performRequest(for: url, httpMethod: .Put, body: survey.jsonData) { (data, error) in
+        
+        guard let endpoint = SurveyController.baseURL?.appendingPathComponent(survey.identifier.uuidString).appendingPathExtension("json") else { return }
+        
+		NetworkController.performRequest(for: endpoint, httpMethod: .put, body: survey.jsonData) { (data, error) in
 			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
 			if error != nil {
 				print("Error: \(error?.localizedDescription)")
@@ -33,7 +35,7 @@ class SurveyController {
 			completion([])
 			return
 		}
-		NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
+		NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
 			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
 			if error != nil {
 				print("Error: \(error?.localizedDescription)")
@@ -45,7 +47,7 @@ class SurveyController {
 				return
 			}
 			guard let data = data,
-				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:[String:AnyObject]] else {
+				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:[String:Any]] else {
 					completion([])
 					return
 			}

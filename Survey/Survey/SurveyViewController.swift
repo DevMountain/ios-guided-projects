@@ -10,7 +10,7 @@ import UIKit
 
 class SurveyViewController: UIViewController {
 	
-    @IBAction func submitButtonTapped(_ sender: AnyObject) {
+    @IBAction func submitButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text,
         let response = responseTextField.text,
 			!name.isEmpty && !response.isEmpty else {

@@ -13,6 +13,8 @@ class MyTimer: NSObject {
     var timeRemaining: TimeInterval?
     var timer: Timer?
     
+    weak var delegate: TimerDelegate?
+    
     var isOn: Bool {
         if timeRemaining != nil {
             return true
@@ -29,28 +31,40 @@ class MyTimer: NSObject {
     }
 
     fileprivate func secondTick() {
-        guard let timeRemaining = timeRemaining else {return}
+        guard let timeRemaining = timeRemaining else { return }
         if timeRemaining > 0 {
             self.timeRemaining = timeRemaining - 1
+            delegate?.timerSecondTick()
             print(timeRemaining)
         } else {
             timer?.invalidate()
             self.timeRemaining = nil
+            delegate?.timerCompleted()
         }
     }
     
     func startTimer(_ time: TimeInterval) {
         if !isOn {
             timeRemaining = time
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+            DispatchQueue.main.async {
                 self.secondTick()
-            })
+                self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+                    self.secondTick()
+                })
+            }
         }
     }
     
     func stopTimer() {
         if isOn {
             timeRemaining = nil
+            delegate?.timerStopped()
         }
     }
+}
+
+protocol TimerDelegate: class {
+    func timerSecondTick()
+    func timerCompleted()
+    func timerStopped()
 }
