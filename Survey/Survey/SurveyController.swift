@@ -20,8 +20,8 @@ class SurveyController {
         
 		NetworkController.performRequest(for: endpoint, httpMethod: .put, body: survey.jsonData) { (data, error) in
 			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
-			if error != nil {
-				print("Error: \(error?.localizedDescription)")
+			if let error = error {
+				print("Error: \(error)")
 			} else if responseDataString.contains("error") {
 				print("Error: \(responseDataString)")
 			} else {
@@ -37,8 +37,8 @@ class SurveyController {
 		}
 		NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
 			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
-			if error != nil {
-				print("Error: \(error?.localizedDescription)")
+			if let error = error {
+				print("Error: \(error)")
 				completion([])
 				return
 			} else if responseDataString.contains("error") {
