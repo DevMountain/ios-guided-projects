@@ -27,8 +27,8 @@ class Survey {
 
 extension Survey {
 	
-	private static var NameKey: String { return "nombre" }
-	private static var ResponseKey: String { return "respuesta" }
+	private static var NameKey: String { return "name" }
+	private static var ResponseKey: String { return "response" }
 	
 	convenience init?(dictionary: [String:Any], identifier: String) {
 		guard let name = dictionary[Survey.NameKey] as? String,

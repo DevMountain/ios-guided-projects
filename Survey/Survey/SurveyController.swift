@@ -10,7 +10,7 @@ import Foundation
 
 class SurveyController {
 	
-	static let baseURL = URL(string: "https://mykeapidesign-a7954.firebaseio.com/api/v1")
+	static let baseURL = URL(string: "https://survey-dc853.firebaseio.com/api/v1")
 	static let getterEndpoint = baseURL?.appendingPathExtension("json")
 	
 	static func putSurveyIntoAPI(name: String, response: String) {
