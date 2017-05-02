@@ -17,3 +17,4 @@ DeckOfOneCard lets students practice using closure syntax, network API documenta
 10. From your ViewController call `CardController.draw(numberOfCards: ...)` and print it out to make sure it works.
 11. Fill in the `ImageController.image(forURL url: ...)` function.
 12. From your ViewController inside the closure for `CardController.draw(numberOfCards: ...)` use your `ImageController.image(forURL url: ...)` function to get the image for the card, and then display it on the screen. Everyone's app should be working now.
+
