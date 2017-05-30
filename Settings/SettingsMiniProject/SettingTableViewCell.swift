@@ -17,15 +17,19 @@ class SettingTableViewCell: UITableViewCell {
     @IBAction func settingSwitchValueChanged(_ sender: Any) {
         delegate?.settingValueChanged(self, selected: settingSwitch.isOn)
     }
+    
+    func updateViews() {
+        guard let setting = setting else { return }
+        iconImageView.image = setting.image
+        settingLabel.text = setting.name
+        settingSwitch.isOn = setting.isSet
+        backgroundColor = setting.isSet ? .yellow : .white
+    }
 	
 	var setting: Setting? {
 		didSet {
-			guard let setting = setting else { return }
-			iconImageView.image = setting.image
-			settingLabel.text = setting.name
-			settingSwitch.isOn = setting.isSet
-			backgroundColor = setting.isSet ? .yellow : .white
-		}
+            updateViews()
+        }
 	}
 	
 	weak var delegate: SettingTableViewCellDelegate?
