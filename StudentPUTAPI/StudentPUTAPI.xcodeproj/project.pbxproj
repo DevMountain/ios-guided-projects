@@ -14,7 +14,6 @@
 		B4E4E5741D36A4EC004E77DE /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5731D36A4EC004E77DE /* StudentTableViewController.swift */; };
 		B4E4E5761D36A5C1004E77DE /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5751D36A5C1004E77DE /* Student.swift */; };
 		B4E4E5781D36A994004E77DE /* StudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5771D36A994004E77DE /* StudentController.swift */; };
-		B4E4E57A1D36AF3B004E77DE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4E5791D36AF3B004E77DE /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		B4E4E5731D36A4EC004E77DE /* StudentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		B4E4E5751D36A5C1004E77DE /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		B4E4E5771D36A994004E77DE /* StudentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentController.swift; sourceTree = "<group>"; };
-		B4E4E5791D36AF3B004E77DE /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 				B4E4E5451D36A3DA004E77DE /* AppDelegate.swift */,
 				B4E4E5751D36A5C1004E77DE /* Student.swift */,
 				B4E4E5771D36A994004E77DE /* StudentController.swift */,
-				B4E4E5791D36AF3B004E77DE /* NetworkController.swift */,
 				B4E4E5731D36A4EC004E77DE /* StudentTableViewController.swift */,
 				B4E4E5491D36A3DA004E77DE /* Main.storyboard */,
 				B4E4E54C1D36A3DA004E77DE /* Assets.xcassets */,
@@ -145,7 +142,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4E4E57A1D36AF3B004E77DE /* NetworkController.swift in Sources */,
 				B4E4E5741D36A4EC004E77DE /* StudentTableViewController.swift in Sources */,
 				B4E4E5781D36A994004E77DE /* StudentController.swift in Sources */,
 				B4E4E5761D36A5C1004E77DE /* Student.swift in Sources */,
