@@ -10,9 +10,9 @@ import Foundation
 
 class Card {
     
-    private let kSuit = "suit"
-    private let kValue = "value"
-    private let kImage = "image"
+    private let suitKey = "suit"
+    private let valueKey = "value"
+    private let imageKey = "image"
 	
     init(imageEndpoint: String, value: String, suit: String) {
         self.imageEndpoint = imageEndpoint
@@ -21,9 +21,9 @@ class Card {
     }
     
     init?(dictionary: [String: Any]) {
-        guard let imageEndpoint = dictionary[kImage] as? String,
-            let value = dictionary[kValue] as? String,
-            let suit = dictionary[kSuit] as? String else { return nil }
+        guard let imageEndpoint = dictionary[imageKey] as? String,
+            let value = dictionary[valueKey] as? String,
+            let suit = dictionary[suitKey] as? String else { return nil }
         
         self.imageEndpoint = imageEndpoint
         self.value = value
