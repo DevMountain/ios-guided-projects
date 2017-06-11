@@ -8,23 +8,25 @@
 
 import Foundation
 
-class Student {
+struct Student {
+    
     let name: String
+}
+
+// MARK: - JSON Conversion
+
+extension Student {
     
-    private let nameKey = "name"
-    
-    init(name: String) {
-        self.name = name
-    }
+    private static var nameKey: String { return "name" }
     
     init?(dictionary: [String : String]) {
-        guard let name = dictionary[nameKey] else { return nil }
+        guard let name = dictionary[Student.nameKey] else { return nil }
         
         self.name = name
     }
     
     var dictionaryRepresentation: [String : Any] {
-        return [nameKey: name]
+        return [Student.nameKey: name]
     }
     
     var jsonData: Data? {
