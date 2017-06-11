@@ -6,7 +6,7 @@
 //  Copyright © 2016 James Pacheco. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CardController {
 	
@@ -14,10 +14,20 @@ class CardController {
 	
 	static func draw(numberOfCards: Int, completion: @escaping ((_ card: [Card]) -> Void)) {
 		guard let url = self.baseURL else { fatalError("URL optional is nil") }
-		
-		let urlParameters = ["count": "\(numberOfCards)"]
-		
-		NetworkController.performRequest(for: url, httpMethod: .Get, urlParameters: urlParameters) { (data, error) in
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        let cardCountQueryItem = URLQueryItem(name: "count", value: "\(numberOfCards)")
+        
+        components?.queryItems = [cardCountQueryItem]
+        
+        guard let requestURL = components?.url else { return }
+        
+        var request = URLRequest(url: requestURL)
+        
+        request.httpMethod = "GET"
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
 			
 			guard let data = data,
 				let responseDataString = String(data: data, encoding: .utf8) else {
@@ -25,6 +35,7 @@ class CardController {
 					completion([])
 					return
 			}
+            
 			guard let responseDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any],
 				let cardDictionaries = responseDictionary["cards"] as? [[String: Any]] else {
 					NSLog("Unable to serialize JSON. \nResponse: \(responseDataString)")
@@ -35,6 +46,26 @@ class CardController {
 			let cards = cardDictionaries.flatMap { Card(dictionary: $0) }
 			completion(cards)
 		}
-		
+        
+		dataTask.resume()
 	}
+    
+    static func image(forURL url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: url) else { fatalError("Image URL optional is nil") }
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            
+            guard let data = data,
+                let image = UIImage(data: data) else {
+                    DispatchQueue.main.async { completion(nil) }
+                    return
+            }
+            
+            DispatchQueue.main.async { completion(image) }
+        }
+        
+        dataTask.resume()
+    }
+    
+    
 }
