@@ -8,24 +8,25 @@
 
 import Foundation
 
-class Pokemon {
+struct Pokemon {
     
-    private let nameKey = "name"
-    private let idKey = "id"
-    private let abilitiesKey = "abilities"
-    private let abilityKey = "ability"
-    private let abilityNameKey = "name"
+    let name: String
+    let id: Int
+    let abilities: [String]
+}
+
+extension Pokemon {
     
-    init(name: String, id: Int, abilities: [String]) {
-        self.name = name
-        self.id = id
-        self.abilities = abilities
-    }
+    private static var nameKey: String { return "name" }
+    private static var idKey: String { return "id" }
+    private static var abilitiesKey: String { return "abilities" }
+    private static var abilityKey: String { return "ability" }
+    private static var abilityNameKey: String { return "name" }
     
     init?(dictionary: [String:AnyObject]) {
-        guard let name = dictionary[nameKey] as? String,
-            let id = dictionary[idKey] as? Int,
-            let abilityDictionaries = dictionary[abilitiesKey] as? [[String:AnyObject]] else {
+        guard let name = dictionary[Pokemon.nameKey] as? String,
+            let id = dictionary[Pokemon.idKey] as? Int,
+            let abilityDictionaries = dictionary[Pokemon.abilitiesKey] as? [[String:AnyObject]] else {
                 return nil
         }
         
@@ -33,8 +34,8 @@ class Pokemon {
         
         for abilityDictionary in abilityDictionaries {
             
-            guard let abilityNameDictionary = abilityDictionary[abilityKey] as? [String: String],
-                let ability = abilityNameDictionary[abilityNameKey] else { break }
+            guard let abilityNameDictionary = abilityDictionary[Pokemon.abilityKey] as? [String: String],
+                let ability = abilityNameDictionary[Pokemon.abilityNameKey] else { break }
             
             abilities.append(ability)
         }
@@ -44,9 +45,4 @@ class Pokemon {
         self.abilities = abilities
         
     }
-    
-    let name: String
-    let id: Int
-    let abilities: [String]
 }
-
