@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		465AF58F1E71C54500C65695 /* StateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AF58E1E71C54500C65695 /* StateCollectionViewCell.swift */; };
 		465AF5911E71C65F00C65695 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AF5901E71C65F00C65695 /* State.swift */; };
-		465AF5931E71C76000C65695 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AF5921E71C76000C65695 /* StateController.swift */; };
 		465AF5951E71CA1B00C65695 /* StatesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AF5941E71CA1B00C65695 /* StatesCollectionViewController.swift */; };
 		46E1D4351E62188000DDAF9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E1D4341E62188000DDAF9A /* AppDelegate.swift */; };
 		46E1D43C1E62188000DDAF9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E1D43B1E62188000DDAF9A /* Assets.xcassets */; };
 		46E1D43F1E62188000DDAF9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46E1D43D1E62188000DDAF9A /* LaunchScreen.storyboard */; };
 		46E1D44D1E621E0800DDAF9A /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E1D44C1E621E0800DDAF9A /* StateHelper.swift */; };
 		46E1D5001E65DFE400DDAF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46E1D4FF1E65DFE400DDAF9A /* Main.storyboard */; };
+		9DA952EC1ED61F510085F548 /* StateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA952EB1ED61F510085F548 /* StateController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +30,9 @@
 		46E1D4401E62188000DDAF9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46E1D44C1E621E0800DDAF9A /* StateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		46E1D4FF1E65DFE400DDAF9A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9DA952E91ED61F500085F548 /* CollectionViews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CollectionViews-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DA952EA1ED61F510085F548 /* StateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateController.h; sourceTree = "<group>"; };
+		9DA952EB1ED61F510085F548 /* StateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				465AF5921E71C76000C65695 /* StateController.swift */,
+				9DA952EA1ED61F510085F548 /* StateController.h */,
+				9DA952EB1ED61F510085F548 /* StateController.m */,
+				9DA952E91ED61F500085F548 /* CollectionViews-Bridging-Header.h */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -157,6 +163,7 @@
 					46E1D4301E62188000DDAF9A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = W4BT774F98;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -199,10 +206,10 @@
 			files = (
 				465AF5951E71CA1B00C65695 /* StatesCollectionViewController.swift in Sources */,
 				46E1D44D1E621E0800DDAF9A /* StateHelper.swift in Sources */,
+				9DA952EC1ED61F510085F548 /* StateController.m in Sources */,
 				465AF58F1E71C54500C65695 /* StateCollectionViewCell.swift in Sources */,
 				46E1D4351E62188000DDAF9A /* AppDelegate.swift in Sources */,
 				465AF5911E71C65F00C65695 /* State.swift in Sources */,
-				465AF5931E71C76000C65695 /* StateController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,11 +324,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = W4BT774F98;
 				INFOPLIST_FILE = CollectionViews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpencerCurtis.CollectionViews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CollectionViews/CollectionViews-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -330,11 +340,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = W4BT774F98;
 				INFOPLIST_FILE = CollectionViews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpencerCurtis.CollectionViews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CollectionViews/CollectionViews-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

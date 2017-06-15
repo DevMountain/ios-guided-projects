@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Survey {
+struct Survey {
     
 	init(name: String, response: String, identifier: UUID = UUID()) {
         self.name = name
@@ -30,7 +30,7 @@ extension Survey {
 	private static var NameKey: String { return "name" }
 	private static var ResponseKey: String { return "response" }
 	
-	convenience init?(dictionary: [String:Any], identifier: String) {
+	init?(dictionary: [String:Any], identifier: String) {
 		guard let name = dictionary[Survey.NameKey] as? String,
 			let response = dictionary[Survey.ResponseKey] as? String,
 			let identifier = UUID(uuidString: identifier) else {

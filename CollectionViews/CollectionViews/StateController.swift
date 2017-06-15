@@ -12,13 +12,13 @@ class StateController {
     
     static let shared = StateController()
     
-    var states: [State] = []
+    let states: [State]
     
     init() {
         self.states = createAllStates()
     }
     
-    func createAllStates() -> [State] {
+    private func createAllStates() -> [State] {
         
         var placeholderStates: [State] = []
         
