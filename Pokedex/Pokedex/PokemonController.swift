@@ -9,25 +9,29 @@
 import Foundation
 
 class PokemonController {
-	
-	static let baseURL = "http://pokeapi.co/api/v2/pokemon/"
-	
-	static func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
-		let searchURL = baseURL + searchTerm.lowercased()
-		guard let url = URL(string: searchURL) else {
-			completion(nil)
-			return
-		}
-		
-		NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
-			guard let data = data,
-				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
-					completion(nil)
-					return
-			}
-			
-			let pokemon = Pokemon(dictionary: jsonDictionary)
-			completion(pokemon)
-		}
-	}
+    
+    static let baseURL = URL(string: "http://pokeapi.co/api/v2/pokemon/")
+    
+    static func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
+        
+        guard let searchURL = baseURL?.appendingPathComponent(searchTerm.lowercased()) else {
+            completion(nil)
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: searchURL) { (data, _, error) in
+            
+            guard let data = data,
+                let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
+                    completion(nil)
+                    return
+            }
+            
+            let pokemon = Pokemon(dictionary: jsonDictionary)
+            
+            completion(pokemon)
+        }
+        
+        dataTask.resume()
+    }
 }

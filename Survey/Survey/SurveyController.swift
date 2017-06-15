@@ -9,18 +9,31 @@
 import Foundation
 
 class SurveyController {
+    
+    // NOTE TO MENTOR: Replace this baseURL with your own so you can show the students the Firebase Database as you do network calls
+    
+	static let baseURL = URL(string: "https://survey-6a54e.firebaseio.com/")
+    
+    static var surveys: [Survey] = []
 	
-	static let baseURL = URL(string: "https://survey-dc853.firebaseio.com/api/v1")
-	static let getterEndpoint = baseURL.appendingPathExtension("json")
-	
-	static func putSurveyIntoAPI(name: String, response: String) {
+    static func putSurveyIntoAPI(name: String, response: String) {
 		let survey = Survey(name: name, response: response)
         
-        guard let endpoint = SurveyController.baseURL?.appendingPathComponent(survey.identifier.uuidString).appendingPathExtension("json") else { return }
+        guard let url = SurveyController.baseURL?.appendingPathComponent(survey.identifier).appendingPathExtension("json") else { return }
         
-		NetworkController.performRequest(for: endpoint, httpMethod: .put, body: survey.jsonData) { (data, error) in
-			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
-			if let error = error {
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "PUT"
+        request.httpBody = survey.jsonData
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            guard let data = data, let responseDataString = String(data: data, encoding: .utf8) else {
+                print("No data returned from data task")
+                return
+            }
+            
+            if let error = error {
 				print("Error: \(error)")
 			} else if responseDataString.contains("error") {
 				print("Error: \(responseDataString)")
@@ -28,46 +41,42 @@ class SurveyController {
 				print("Successfully saved data to endpoint. \nResponse: \(responseDataString)")
 			}
 		}
+        
+        dataTask.resume()
 	}
 	
-	static func fetchResponses(completion: @escaping (_ responses: [Survey]) -> Void) {
-		guard let url = getterEndpoint else {
-			completion([])
-			return
-		}
-		NetworkController.performRequest(for: url, httpMethod: .get) { (data, error) in
-			let responseDataString = String(data: data!, encoding: .utf8) ?? ""
-			if let error = error {
-				print("Error: \(error)")
-				completion([])
-				return
-			} else if responseDataString.contains("error") {
-				print("Error: \(responseDataString)")
-				completion([])
-				return
-			}
-			guard let data = data,
-				let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:[String:Any]] else {
-					completion([])
-					return
-			}
+	static func fetchResponses(completion: @escaping () -> Void) {
+        
+        guard let url = baseURL?.appendingPathExtension("json") else { completion(); return }
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion()
+                return
+            }
+            
+            guard let data = data, let responseDataString = String(data: data, encoding: .utf8) else {
+                print("No data returned from data task")
+                completion()
+                return
+            }
+            
+            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: [String: Any]] else {
+                print("Could not serialize json \nResponse: \(responseDataString)")
+                completion()
+                return
+            }
+            
 			let surveys = jsonDictionary.flatMap { Survey(dictionary: $0.1 ,identifier: $0.0) }
-			completion(surveys)
-			surveys.forEach { print($0.response) }
+            
+            self.surveys = surveys
+            
+			completion()
 		}
+        
+        dataTask.resume()
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

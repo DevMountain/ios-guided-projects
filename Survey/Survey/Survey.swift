@@ -10,7 +10,7 @@ import Foundation
 
 struct Survey {
     
-	init(name: String, response: String, identifier: UUID = UUID()) {
+    init(name: String, response: String, identifier: String = UUID().uuidString) {
         self.name = name
         self.response = response
         self.identifier = identifier
@@ -20,20 +20,19 @@ struct Survey {
 	
 	let name: String
 	let response: String
-	let identifier: UUID
+	let identifier: String
 }
 
 // MARK: - JSON Conversion
 
 extension Survey {
 	
-	private static var NameKey: String { return "name" }
-	private static var ResponseKey: String { return "response" }
+	private static var nameKey: String { return "name" }
+	private static var responseKey: String { return "response" }
 	
 	init?(dictionary: [String:Any], identifier: String) {
-		guard let name = dictionary[Survey.NameKey] as? String,
-			let response = dictionary[Survey.ResponseKey] as? String,
-			let identifier = UUID(uuidString: identifier) else {
+		guard let name = dictionary[Survey.nameKey] as? String,
+			let response = dictionary[Survey.responseKey] as? String else {
 				return nil
 		}
 		
@@ -41,7 +40,7 @@ extension Survey {
 	}
 	
 	var jsonValue: [String : Any] {
-		return [Survey.NameKey: name, Survey.ResponseKey: response]
+		return [Survey.nameKey: name, Survey.responseKey: response]
 	}
 	
 	var jsonData: Data? {
