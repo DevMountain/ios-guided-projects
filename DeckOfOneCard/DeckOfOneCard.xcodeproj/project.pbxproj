@@ -14,8 +14,6 @@
 		1A5A02B11CC53D5D00AC72B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A02AF1CC53D5D00AC72B9 /* LaunchScreen.storyboard */; };
 		1A5A02B91CC53E4400AC72B9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A02B81CC53E4400AC72B9 /* Card.swift */; };
 		1A5A02BB1CC53E4900AC72B9 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A02BA1CC53E4900AC72B9 /* CardController.swift */; };
-		1A5A02BD1CC53E4F00AC72B9 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A02BC1CC53E4F00AC72B9 /* NetworkController.swift */; };
-		1A5A02BF1CC55BFD00AC72B9 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A02BE1CC55BFD00AC72B9 /* ImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +26,6 @@
 		1A5A02B21CC53D5D00AC72B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A5A02B81CC53E4400AC72B9 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1A5A02BA1CC53E4900AC72B9 /* CardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
-		1A5A02BC1CC53E4F00AC72B9 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
-		1A5A02BE1CC55BFD00AC72B9 /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +78,7 @@
 		9D10FDA31DAB140E00CEF3C4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1A5A02BE1CC55BFD00AC72B9 /* ImageController.swift */,
 				1A5A02BA1CC53E4900AC72B9 /* CardController.swift */,
-				1A5A02BC1CC53E4F00AC72B9 /* NetworkController.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -180,12 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5A02BD1CC53E4F00AC72B9 /* NetworkController.swift in Sources */,
 				1A5A02A91CC53D5D00AC72B9 /* ViewController.swift in Sources */,
 				1A5A02BB1CC53E4900AC72B9 /* CardController.swift in Sources */,
 				1A5A02B91CC53E4400AC72B9 /* Card.swift in Sources */,
 				1A5A02A71CC53D5D00AC72B9 /* AppDelegate.swift in Sources */,
-				1A5A02BF1CC55BFD00AC72B9 /* ImageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

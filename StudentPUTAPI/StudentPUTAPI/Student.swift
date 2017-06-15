@@ -9,24 +9,27 @@
 import Foundation
 
 struct Student {
+    
     let name: String
 }
 
-// MARK: - JSON
+// MARK: - JSON Conversion
 
 extension Student {
-	static let NameKey = "nombre"
-	
-	init?(dictionary: [String : String]) {
-		guard let name = dictionary["nombre"] else { return nil }
-		self.init(name: name)
-	}
-	
-	var dictionaryRepresentation: [String : Any] {
-		return [Student.NameKey: name as Any]
-	}
-	
-	var jsonData: Data? {
-		return try? JSONSerialization.data(withJSONObject: dictionaryRepresentation, options: .prettyPrinted)
-	}
+    
+    private static var nameKey: String { return "name" }
+    
+    init?(dictionary: [String : String]) {
+        guard let name = dictionary[Student.nameKey] else { return nil }
+        
+        self.name = name
+    }
+    
+    var dictionaryRepresentation: [String : Any] {
+        return [Student.nameKey: name]
+    }
+    
+    var jsonData: Data? {
+        return try? JSONSerialization.data(withJSONObject: dictionaryRepresentation, options: .prettyPrinted)
+    }
 }

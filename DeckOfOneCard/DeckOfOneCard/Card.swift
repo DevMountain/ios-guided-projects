@@ -8,31 +8,27 @@
 
 import Foundation
 
-class Card {
+struct Card {
     
-    private let kSuit = "suit"
-    private let kValue = "value"
-    private let kImage = "image"
-	
-    init(imageEndpoint: String, value: String, suit: String) {
-        self.imageEndpoint = imageEndpoint
-        self.value = value
-        self.suit = suit
-    }
+    let imageEndpoint: String
+    let value: String
+    let suit: String
+}
+
+extension Card {
+    
+    private static var suitKey: String { return "suit" }
+    private static var valueKey: String { return "value" }
+    private static var imageKey: String { return "image" }
     
     init?(dictionary: [String: Any]) {
-        guard let imageEndpoint = dictionary[kImage] as? String,
-            let value = dictionary[kValue] as? String,
-            let suit = dictionary[kSuit] as? String else { return nil }
+        guard let imageEndpoint = dictionary[Card.imageKey] as? String,
+            let value = dictionary[Card.valueKey] as? String,
+            let suit = dictionary[Card.suitKey] as? String else { return nil }
         
         self.imageEndpoint = imageEndpoint
         self.value = value
         self.suit = suit
     }
-	
-	// MARK: Properties
-	
-	let imageEndpoint: String
-	let value: String
-	let suit: String
+    
 }
