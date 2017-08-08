@@ -13,77 +13,97 @@ class UserController {
     
     static let shared = UserController()
     
-    var appleUserRecordID: CKRecordID?
+    let cloudKitManager: CloudKitManager = {
+        return CloudKitManager()
+    }()
     
     let currentUserWasSetNotification = Notification.Name("currentUserWasSet")
     
     var currentUser: User? {
         didSet {
-            NotificationCenter.default.post(name: currentUserWasSetNotification, object: nil)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: self.currentUserWasSetNotification, object: nil)
+            }
         }
     }
-    
-    init() {
-        CKContainer.default().fetchUserRecordID { (recordID, error) in
-            guard let recordID = recordID else { return }
-            
-            self.appleUserRecordID = recordID
-        }
-        
-        CloudKitManager.shared.fetchCurrentUser { (currentUser) in
-            self.currentUser = currentUser
-        }
-    }
-    
-    // CRUD
-    
-   
     
     // This will get called when they tap the save button
-    func createUser(username: String, email: String, age: String, completion: @escaping (User?) -> Void) {
+    
+    func createUserWith(username: String, email: String, completion: @escaping (_ success: Bool) -> Void) {
         
-        guard let appleUserRecordID = appleUserRecordID else { completion(nil); return }
-        
-        let appleUserRef = CKReference(recordID: appleUserRecordID, action: .deleteSelf)
-        
-        let user = User(username: username, email: email, age: age, appleUserRef: appleUserRef)
-        
-        let userRecord = CKRecord(user: user)
-        
-        CKContainer.default().publicCloudDatabase.save(userRecord) { (record, error) in
-            if let error = error { print(error.localizedDescription) }
+        CKContainer.default().fetchUserRecordID { (appleUsersRecordID, error) in
+            guard let appleUsersRecordID = appleUsersRecordID else { return }
             
-            guard let record = record, let currentUser = User(cloudKitRecord: record) else { completion(nil); return }
+            let appleUserRef = CKReference(recordID: appleUsersRecordID, action: .deleteSelf)
             
-            self.currentUser = currentUser
-            completion(currentUser)
+            let user = User(username: username, email: email, appleUserRef: appleUserRef)
+            
+            let userRecord = CKRecord(user: user)
+            
+            CKContainer.default().publicCloudDatabase.save(userRecord) { (record, error) in
+                if let error = error { print(error.localizedDescription) }
+                
+                guard let record = record, let currentUser = User(cloudKitRecord: record) else { completion(false); return }
+                
+                self.currentUser = currentUser
+                completion(true)
+            }
         }
     }
     
-    func updateCurrentUser(username: String, email: String, age: String, completion: @escaping (User?) -> Void) {
+    func fetchCurrentUser(completion: @escaping (_ success: Bool) -> Void = { _ in }) {
         
-        guard let currentUser = currentUser else { return }
+        // Fetch default Apple 'Users' recordID
+        
+        CKContainer.default().fetchUserRecordID { (appleUserRecordID, error) in
+            
+            if let error = error { print(error.localizedDescription) }
+            
+            guard let appleUserRecordID = appleUserRecordID else { completion(false); return }
+            
+            // Create a CKReference with the Apple 'Users' recordID so that we can fetch OUR custom User record
+            
+            let appleUserReference = CKReference(recordID: appleUserRecordID, action: .deleteSelf)
+            
+            // Create a predicate with that reference that will go through all of the Users and filter through them and return us the one that has the matching reference.
+            
+            let predicate = NSPredicate(format: "appleUserRef == %@", appleUserReference)
+            
+            // Fetch our custom User record
+            
+            self.cloudKitManager.fetchRecordsWithType(User.recordTypeKey, predicate: predicate, recordFetchedBlock: nil, completion: { (records, error) in
+                guard let currentUserRecord = records?.first else { completion(false); return }
+                
+                let currentUser = User(cloudKitRecord: currentUserRecord)
+                
+                self.currentUser = currentUser
+                
+                completion(true)
+            })
+        }
+    }
+    
+    // NOTE TO MENTOR: - This function is unused. As of August 2017, the curriculum purposely doesn't go over updating records, though most of it is already in this project. This
+    
+    func updateCurrentUser(username: String, email: String, completion: @escaping (_ success: Bool) -> Void) {
+        
+        guard let currentUser = currentUser else { completion(false); return }
         
         currentUser.username = username
         currentUser.email = email
-        currentUser.age = age
         
         let currentUserRecord = CKRecord(user: currentUser)
         
-        CKContainer.default().publicCloudDatabase.save(currentUserRecord) { (record, error) in
+        let op = CKModifyRecordsOperation(recordsToSave: [currentUserRecord], recordIDsToDelete: nil)
+        
+        op.modifyRecordsCompletionBlock = { (_, _, error) in
+            
             if let error = error { print(error.localizedDescription) }
             
-            self.currentUser = currentUser
-            completion(currentUser)
+            completion(true)
+            
         }
+        
+        CKContainer.default().publicCloudDatabase.add(op)
     }
 }
-
-
-
-
-
-
-
-
-
