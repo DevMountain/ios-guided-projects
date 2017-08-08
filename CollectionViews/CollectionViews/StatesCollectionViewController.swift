@@ -33,7 +33,7 @@ class StatesCollectionViewController: UICollectionViewController {
     
         let state = StateController.shared.states[indexPath.row]
         
-        cell.state = state
+        cell.state = (state as! State)
     
         return cell
     }

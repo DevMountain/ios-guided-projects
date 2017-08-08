@@ -35,6 +35,8 @@ class SurveyController {
             
             if let error = error {
 				print("Error: \(error)")
+			} else if responseDataString.contains("error") {
+				print("Error: \(responseDataString)")
 			} else {
 				print("Successfully saved data to endpoint. \nResponse: \(responseDataString)")
 			}

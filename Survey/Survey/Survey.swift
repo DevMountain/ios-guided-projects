@@ -15,7 +15,9 @@ struct Survey {
         self.response = response
         self.identifier = identifier
     }
-    
+	
+	// MARK: Properties
+	
 	let name: String
 	let response: String
 	let identifier: String
@@ -28,11 +30,13 @@ extension Survey {
 	private static var nameKey: String { return "name" }
 	private static var responseKey: String { return "response" }
 	
-    init?(dictionary: [String: Any], identifier: String) {
+	init?(dictionary: [String:Any], identifier: String) {
 		guard let name = dictionary[Survey.nameKey] as? String,
-			let response = dictionary[Survey.responseKey] as? String else { return nil }
-        
-        self.init(name: name, response: response, identifier: identifier)
+			let response = dictionary[Survey.responseKey] as? String else {
+				return nil
+		}
+		
+		self.init(name: name, response: response, identifier: identifier)
 	}
 	
 	var jsonValue: [String : Any] {
