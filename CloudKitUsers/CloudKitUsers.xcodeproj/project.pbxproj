@@ -15,7 +15,8 @@
 		46253E451E843DC700C2B1A4 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46253E441E843DC700C2B1A4 /* CloudKitManager.swift */; };
 		46253E471E843F3A00C2B1A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46253E461E843F3A00C2B1A4 /* User.swift */; };
 		46253E491E84486600C2B1A4 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46253E481E84486600C2B1A4 /* UserController.swift */; };
-		46253E4B1E84516600C2B1A4 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46253E4A1E84516600C2B1A4 /* UserViewController.swift */; };
+		4639821D1F3A0BE400D33684 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4639821C1F3A0BE400D33684 /* SignupViewController.swift */; };
+		4639821F1F3A0F0F00D33684 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4639821E1F3A0F0F00D33684 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,8 @@
 		46253E441E843DC700C2B1A4 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		46253E461E843F3A00C2B1A4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		46253E481E84486600C2B1A4 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		46253E4A1E84516600C2B1A4 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		4639821C1F3A0BE400D33684 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		4639821E1F3A0F0F00D33684 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,8 @@
 		46E4290D1EEE568B0064C289 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				46253E4A1E84516600C2B1A4 /* UserViewController.swift */,
+				4639821C1F3A0BE400D33684 /* SignupViewController.swift */,
+				4639821E1F3A0F0F00D33684 /* WelcomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -170,6 +173,9 @@
 						DevelopmentTeam = W4BT774F98;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -216,9 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4639821D1F3A0BE400D33684 /* SignupViewController.swift in Sources */,
 				46253E471E843F3A00C2B1A4 /* User.swift in Sources */,
-				46253E4B1E84516600C2B1A4 /* UserViewController.swift in Sources */,
 				46253E491E84486600C2B1A4 /* UserController.swift in Sources */,
+				4639821F1F3A0F0F00D33684 /* WelcomeViewController.swift in Sources */,
 				46253E2F1E843D3700C2B1A4 /* AppDelegate.swift in Sources */,
 				46253E451E843DC700C2B1A4 /* CloudKitManager.swift in Sources */,
 			);

@@ -19,7 +19,6 @@ class User {
     
     var username: String
     var email: String
-    var age: String
     
     // This is the reference to the default Apple 'Users' record ID
     let appleUserRef: CKReference
@@ -27,22 +26,19 @@ class User {
     // This is your CUSTOM user record's record ID
     var cloudKitRecordID: CKRecordID?
     
-    init(username: String, email: String, age: String, appleUserRef: CKReference) {
+    init(username: String, email: String, appleUserRef: CKReference) {
         self.username = username
         self.email = email
-        self.age = age
         self.appleUserRef = appleUserRef
     }
     
     init?(cloudKitRecord: CKRecord) {
         guard let username = cloudKitRecord[User.usernameKey] as? String,
             let email = cloudKitRecord[User.emailKey] as? String,
-            let age = cloudKitRecord[User.ageKey] as? String,
             let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference else { return nil }
         
         self.username = username
         self.email = email
-        self.age = age
         self.appleUserRef = appleUserRef
         self.cloudKitRecordID = cloudKitRecord.recordID
         
@@ -58,7 +54,6 @@ extension CKRecord {
         
         self.init(recordType: User.recordTypeKey, recordID: recordID)
         
-        self.setValue(user.age, forKey: User.ageKey)
         self.setValue(user.username, forKey: User.usernameKey)
         self.setValue(user.email, forKey: User.emailKey)
         self.setValue(user.appleUserRef, forKey: User.appleUserRefKey)
