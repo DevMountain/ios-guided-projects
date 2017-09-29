@@ -20,7 +20,7 @@ class SignupViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(segueToWelcomeVC), name: UserController.shared.currentUserWasSetNotification, object: nil)
     }
     
-    func segueToWelcomeVC() {
+    @objc func segueToWelcomeVC() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
         }

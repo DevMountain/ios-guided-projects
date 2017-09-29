@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     // Method for when buttons are tapped
-    func buttonTapped() {
+    @objc func buttonTapped() {
         // Make a variable for each color
         let topLeftColor = topLeftButton.backgroundColor
         let topRightColor = topRightButton.backgroundColor
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         }) 
     }
     
-    func buttonExited(_ sender: UIButton) {
+    @objc func buttonExited(_ sender: UIButton) {
         view.bringSubview(toFront: sender)
         let animation = CAKeyframeAnimation()
         animation.keyPath = "position.x"
