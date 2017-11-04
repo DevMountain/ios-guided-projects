@@ -9,21 +9,40 @@
 import Foundation
 
 struct Pokemon {
-	let name: String
-	let id: Int
-	let abilities: [String]
+    
+    let name: String
+    let id: Int
+    let abilities: [String]
 }
 
 extension Pokemon {
-	init?(dictionary: [String:AnyObject]) {
-		guard let name = dictionary["name"] as? String,
-			let id = dictionary["id"] as? Int,
-			let abilityDictionaries = dictionary["abilities"] as? [[String:AnyObject]] else {
-				return nil
-		}
-		
-		let abilities = abilityDictionaries.flatMap { $0["ability"]?["name"] as? String }
-		
-		self.init(name: name, id: id, abilities: abilities)
-	}
+    
+    private static var nameKey: String { return "name" }
+    private static var idKey: String { return "id" }
+    private static var abilitiesKey: String { return "abilities" }
+    private static var abilityKey: String { return "ability" }
+    private static var abilityNameKey: String { return "name" }
+    
+    init?(dictionary: [String:AnyObject]) {
+        guard let name = dictionary[Pokemon.nameKey] as? String,
+            let id = dictionary[Pokemon.idKey] as? Int,
+            let abilityDictionaries = dictionary[Pokemon.abilitiesKey] as? [[String:AnyObject]] else {
+                return nil
+        }
+        
+        var abilities: [String] = []
+        
+        for abilityDictionary in abilityDictionaries {
+            
+            guard let abilityNameDictionary = abilityDictionary[Pokemon.abilityKey] as? [String: String],
+                let ability = abilityNameDictionary[Pokemon.abilityNameKey] else { break }
+            
+            abilities.append(ability)
+        }
+        
+        self.name = name
+        self.id = id
+        self.abilities = abilities
+        
+    }
 }

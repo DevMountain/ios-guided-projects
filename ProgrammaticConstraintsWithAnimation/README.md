@@ -12,5 +12,5 @@ ProgrammaticConstraintsWithAnimation lets students practice manually creating co
 6. Create a function that will constrain each button to their respective corners and to the surrounding buttons. e.g. The top left button should be constrained to the top and leading of the view, the leading of the top right button, and the top of the bottom left button.
 7. Make sure that each of the functions are getting called in the viewDidLoad.
 8. For the target action on the buttons, create two functions that will animate the button.
-9. One function should animate using ```UIView.animateWithDuration```.
-10. The last function should animate using ```CAKeyframeAnimation()```.
+9. One function should animate using `UIView.animate(withDuration:animations:)`.
+10. The last function should animate using `CAKeyframeAnimation()`.

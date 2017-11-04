@@ -8,31 +8,18 @@
 
 import Foundation
 
-class Card {
+struct Card: Codable {
+	enum CodingKeys: String, CodingKey {
+		case imageEndpoint = "image"
+		case value = "value"
+		case suit = "suit"
+	}
     
-    private let kSuit = "suit"
-    private let kValue = "value"
-    private let kImage = "image"
-	
-    init(imageEndpoint: String, value: String, suit: String) {
-        self.imageEndpoint = imageEndpoint
-        self.value = value
-        self.suit = suit
-    }
-    
-    init?(dictionary: [String: Any]) {
-        guard let imageEndpoint = dictionary[kImage] as? String,
-            let value = dictionary[kValue] as? String,
-            let suit = dictionary[kSuit] as? String else { return nil }
-        
-        self.imageEndpoint = imageEndpoint
-        self.value = value
-        self.suit = suit
-    }
-	
-	// MARK: Properties
-	
-	let imageEndpoint: String
-	let value: String
-	let suit: String
+    let imageEndpoint: String
+    let value: String
+    let suit: String
+}
+
+struct CardList: Codable {
+	let cards: [Card]
 }

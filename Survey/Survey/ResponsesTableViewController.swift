@@ -12,31 +12,30 @@ class ResponsesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        SurveyController.fetchResponses { (responses) in
-            self.responses = responses
+        
+        SurveyController.fetchResponses {
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return responses.count
+        return SurveyController.surveys.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "responseCell", for: indexPath)
-        let response = responses[indexPath.row]
-        cell.textLabel?.text = response.response
-        cell.detailTextLabel?.text = response.name
+        
+        let survey = SurveyController.surveys[indexPath.row]
+        
+        cell.textLabel?.text = survey.response
+        cell.detailTextLabel?.text = survey.name
+        
         return cell
     }
-	
-	var responses = [Survey]() {
-		didSet {
-			DispatchQueue.main.async {
-				self.tableView.reloadData()
-			}
-		}
-	}
     
 }

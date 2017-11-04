@@ -11,7 +11,6 @@
 		B40FFECD1D3554700088C9A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40FFECB1D3554700088C9A0 /* Main.storyboard */; };
 		B40FFECF1D3554700088C9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40FFECE1D3554700088C9A0 /* Assets.xcassets */; };
 		B40FFED21D3554700088C9A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40FFED01D3554700088C9A0 /* LaunchScreen.storyboard */; };
-		B40FFEF61D3555220088C9A0 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40FFEF51D3555220088C9A0 /* NetworkController.swift */; };
 		B40FFEF81D3555640088C9A0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40FFEF71D3555640088C9A0 /* Pokemon.swift */; };
 		B40FFEFA1D355DF80088C9A0 /* PokemonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40FFEF91D355DF80088C9A0 /* PokemonController.swift */; };
 		B40FFEFC1D355E1D0088C9A0 /* PokemonSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40FFEFB1D355E1D0088C9A0 /* PokemonSearchViewController.swift */; };
@@ -24,7 +23,6 @@
 		B40FFECE1D3554700088C9A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B40FFED11D3554700088C9A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B40FFED31D3554700088C9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B40FFEF51D3555220088C9A0 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		B40FFEF71D3555640088C9A0 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		B40FFEF91D355DF80088C9A0 /* PokemonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonController.swift; sourceTree = "<group>"; };
 		B40FFEFB1D355E1D0088C9A0 /* PokemonSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonSearchViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				B40FFEC71D3554700088C9A0 /* AppDelegate.swift */,
-				B40FFEF51D3555220088C9A0 /* NetworkController.swift */,
 				B40FFEF71D3555640088C9A0 /* Pokemon.swift */,
 				B40FFEF91D355DF80088C9A0 /* PokemonController.swift */,
 				B40FFEFB1D355E1D0088C9A0 /* PokemonSearchViewController.swift */,
@@ -100,12 +97,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = MichaelMecham;
 				TargetAttributes = {
 					B40FFEC31D3554700088C9A0 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -145,7 +142,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40FFEF61D3555220088C9A0 /* NetworkController.swift in Sources */,
 				B40FFEFC1D355E1D0088C9A0 /* PokemonSearchViewController.swift in Sources */,
 				B40FFEC81D3554700088C9A0 /* AppDelegate.swift in Sources */,
 				B40FFEF81D3555640088C9A0 /* Pokemon.swift in Sources */,
@@ -184,14 +180,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -232,14 +234,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -273,7 +281,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevMountain.Pokedex;
 				PRODUCT_NAME = Pokedex;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -285,7 +294,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevMountain.Pokedex;
 				PRODUCT_NAME = Pokedex;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
