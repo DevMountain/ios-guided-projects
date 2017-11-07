@@ -53,11 +53,26 @@ class EntryListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "toShowEntry" {
-            guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            let destinationVC = segue.destinationViewController as? EntryDetailViewController
-            let entry = EntryController.sharedController.entries[indexPath.row]
-            destinationVC?.entry = entry
+            
+            if let detailViewController = segue.destinationViewController as? EntryDetailViewController {
+                
+                // Following line forces the view from Storyboard to load UI elements to make available for testing
+                _ = detailViewController.view
+                
+                let indexPath = tableView.indexPathForSelectedRow
+                
+                if let selectedRow = indexPath?.row {
+                    let entry = EntryController.sharedController.entries[selectedRow]
+                    detailViewController.updateWithEntry(entry)
+                }
+            }
         }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
 
 }
