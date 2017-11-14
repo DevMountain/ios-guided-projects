@@ -17,9 +17,13 @@ class SettingsController {
         let apps = Setting(name: "Apps", isSet: true, image: UIImage(named: "apps"))
         let books = Setting(name: "Books", isSet: false, image: UIImage(named: "books"))
         let updates = Setting(name: "Updates", isSet: false, image: UIImage(named: "apps"))
-		
-		mySettings = [music, apps, books, updates]
+        
+        mySettings = [music, apps, books, updates]
     }
-    	
-	var mySettings: [Setting]
+    
+    func toggleIsSet(setting: Setting) {
+        setting.isSet = !setting.isSet
+    }
+    
+    var mySettings: [Setting]
 }
