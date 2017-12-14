@@ -14,9 +14,13 @@ class CharactersTableViewController: UITableViewController {
         super.viewDidLoad()
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         CharacterController.shared.fetchAllCharacters {
+            
             DispatchQueue.main.async {
+                
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
                 self.tableView.reloadData()
             }
         }
@@ -42,6 +46,7 @@ class CharactersTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "ToDetailVC" {
             guard let destination = segue.destination as? CharacterDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow

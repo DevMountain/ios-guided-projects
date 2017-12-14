@@ -28,35 +28,14 @@ class CharacterController {
             
             guard let data = data else { completion(); return }
             
-            var charactersWithoutImages = [Character]()
-            
             do {
                 let decoder = JSONDecoder()
-                let characters = try decoder.decode([Character].self, from: data)
-                charactersWithoutImages = characters
+                let charactersWithoutImages = try decoder.decode([Character].self, from: data)
+                self.characters = charactersWithoutImages
+                completion()
             } catch let error {
                 print("There was an error decoding the data into characters: \(error.localizedDescription)")
             }
-            
-            var charactersWithImages = [Character]()
-            
-            let group = DispatchGroup()
-            for character in charactersWithoutImages {
-                group.enter()
-                guard let url = URL(string: character.imageURL) else { completion(); return }
-                self.fetchImage(at: url, completion: { (image) in
-                    var character = character
-                    character.image = image
-                    charactersWithImages.append(character)
-                    group.leave()
-                })
-            }
-            
-            group.notify(queue: DispatchQueue.main, execute: {
-                self.characters = charactersWithImages
-                completion()
-            })
-            
             }.resume()
     }
     
@@ -76,3 +55,4 @@ class CharacterController {
             }.resume()
     }
 }
+

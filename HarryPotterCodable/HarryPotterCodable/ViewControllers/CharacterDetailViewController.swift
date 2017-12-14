@@ -16,7 +16,7 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var patronusLabel: UILabel!
     
     var character: Character?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,14 +24,23 @@ class CharacterDetailViewController: UIViewController {
     }
     
     func updateViews() {
-        guard let character = character
-        else { print("The character property in the \(#function) was nil"); return }
+        
+        guard let character = character else { print("The character property in the \(#function) was nil"); return }
+        
+        if let imageURL = URL(string: character.imageURL) {
+            
+            CharacterController.shared.fetchImage(at: imageURL) { (image) in
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
+            }
+        }
         
         DispatchQueue.main.async {
             self.nameLabel.text = character.name
-            self.houseLabel.text = character.house
-            self.patronusLabel.text = character.patronus
-            self.imageView.image = character.image
+            self.houseLabel.text = "House: \(character.house)"
+            self.patronusLabel.text = "Patronus: \(character.patronus)"
         }
     }
 }
+
