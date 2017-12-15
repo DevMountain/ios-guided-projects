@@ -23,7 +23,7 @@ Instructor preparation (students need not do this):
 1. Set up the table view controller in the storyboard.
 2. Create the `Student` model.
 3. Add an extension to `Student` with functionality related to JSON.
-4. Create or copy the `NetworkController` from another project. Note that it is generic.
-5. Create the model controller, `StudentController`. Explain that we use PUT to create/add new data on an API.
-6. Create `StudentTableViewController` including methods to fetch students, add new ones, and display them.
-7. Students should be able to run the app, and add their name to the list. Relaunching the app should show all students that have been submitted to the API.
+4. Create the model controller, `StudentController`. Explain that we use PUT to create/add new data on an API. Tell the students after the app is working we can go back and discuss the difference between `PUT` and `POST`.
+5. Create `StudentTableViewController` including methods to fetch students, add new ones, and display them.
+6. Students should be able to run the app, and add their name to the list. Relaunching the app should show all students that have been submitted to the API.
+7. After you feel like the students have a grasp of how things are working. Go back and talk about what the differences are if we use `POST` instead of `PUT`.
