@@ -1,37 +1,60 @@
 //
 //  PokemonController.swift
 //  JSONPokedex
-//
-//  Created by Michael Mecham on 7/12/16.
-//  Copyright © 2016 MichaelMecham. All rights reserved.
-//
 
-import Foundation
+
+import UIKit
 
 class PokemonController {
     
-    static let baseURL = URL(string: "http://pokeapi.co/api/v2/pokemon/")
+    static let shared = PokemonController()
     
-    static func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
+    static let baseURL = URL(string: "http://pokeapi.co/api/v2/pokemon/")!
+    
+    func fetchPokemon(for searchTerm: String, completion: @escaping (Pokemon?) -> Void) {
         
-        guard let searchURL = baseURL?.appendingPathComponent(searchTerm.lowercased()) else {
-            completion(nil)
-            return
-        }
+        let searchURL = PokemonController.baseURL.appendingPathComponent(searchTerm.lowercased())
         
-        let dataTask = URLSession.shared.dataTask(with: searchURL) { (data, _, error) in
+        URLSession.shared.dataTask(with: searchURL) { (data, _, error) in
             
-            guard let data = data,
-                let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String:AnyObject] else {
-                    completion(nil)
-                    return
+            if let error = error {
+                print("There was an error fetching the pokemon: Error: \(error.localizedDescription)")
+                completion(nil)
+                return
             }
             
-            let pokemon = Pokemon(dictionary: jsonDictionary)
-            
-            completion(pokemon)
-        }
+            guard let data = data else { completion(nil); return }
+            do {
+                let jsonDecoder = JSONDecoder()
+                var pokemon = try jsonDecoder.decode(Pokemon.self, from: data)
+                
+                guard let imageURL = URL(string: pokemon.sprites.frontImageEndpoint) else { completion(nil); return }
+                
+                self.fetchImage(at: imageURL) { (image) in
+                    guard let image = image else { completion(nil); return }
+                    pokemon.image = image
+                    completion(pokemon)
+                }
+            } catch {
+                print("There was an error decoding data: \(error)")
+                completion(nil)
+            }
+        }.resume()
+    }
+    
+    func fetchImage(at url: URL, completion: @escaping(UIImage?) -> Void) {
         
-        dataTask.resume()
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            
+            if let error = error {
+                print("There was an error fetching the pokemon's image: Error: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data, let image = UIImage(data: data) else { completion(nil); return }
+            completion(image)
+            }.resume()
     }
 }
+

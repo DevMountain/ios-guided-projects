@@ -1,48 +1,43 @@
 //
 //  Pokemon.swift
 //  JSONPokedex
-//
-//  Created by Michael Mecham on 7/12/16.
-//  Copyright © 2016 MichaelMecham. All rights reserved.
-//
 
-import Foundation
+import UIKit
 
-struct Pokemon {
+struct Pokemon: Decodable {
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case id
+        case abilities
+        case sprites
+    }
     
     let name: String
     let id: Int
-    let abilities: [String]
-}
-
-extension Pokemon {
+    var image: UIImage? = nil
+    let abilities: [AbilityDictionary]
+    let sprites: Sprites
     
-    private static var nameKey: String { return "name" }
-    private static var idKey: String { return "id" }
-    private static var abilitiesKey: String { return "abilities" }
-    private static var abilityKey: String { return "ability" }
-    private static var abilityNameKey: String { return "name" }
+    var abilitiesNames: [String] {
+        return abilities.flatMap( { $0.ability.name })
+    }
     
-    init?(dictionary: [String:AnyObject]) {
-        guard let name = dictionary[Pokemon.nameKey] as? String,
-            let id = dictionary[Pokemon.idKey] as? Int,
-            let abilityDictionaries = dictionary[Pokemon.abilitiesKey] as? [[String:AnyObject]] else {
-                return nil
+    struct Sprites: Decodable {
+        
+        enum CodingKeys: String, CodingKey {
+            case frontImageEndpoint = "front_default"
         }
         
-        var abilities: [String] = []
+        let frontImageEndpoint: String
+    }
+    
+    struct AbilityDictionary: Decodable {
+        let ability: Ability
         
-        for abilityDictionary in abilityDictionaries {
-            
-            guard let abilityNameDictionary = abilityDictionary[Pokemon.abilityKey] as? [String: String],
-                let ability = abilityNameDictionary[Pokemon.abilityNameKey] else { break }
-            
-            abilities.append(ability)
+        struct Ability: Decodable {
+            let name: String
         }
-        
-        self.name = name
-        self.id = id
-        self.abilities = abilities
-        
     }
 }
+
