@@ -14,14 +14,14 @@ class PokemonSearchViewController: UIViewController, UISearchBarDelegate {
         
         guard let searchTerm = searchBar.text else { return }
         
-        PokemonController.fetchPokemon(for: searchTerm) { (pokemon) in
+        PokemonController.shared.fetchPokemon(for: searchTerm) { (pokemon) in
             
             guard let pokemon = pokemon else { return }
             
             DispatchQueue.main.async {
                 self.nameLabel.text = pokemon.name.capitalized
                 self.idLabel.text = "ID: \(pokemon.id)"
-                self.abilitiesLabel.text = "Abilities: \(pokemon.abilities.joined(separator: ", "))"
+                self.abilitiesLabel.text = "Abilities: \(pokemon.abilitiesNames.joined(separator: ", "))"
             }
         }
     }
