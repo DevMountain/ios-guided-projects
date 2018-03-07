@@ -49,7 +49,8 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return fetchedResultsController.sections?[section].numberOfObjects ?? (fetchedResultsController.fetchedObjects?.count ?? 0)
+		let sectionInfo = fetchedResultsController.sections?[section]
+		return sectionInfo?.numberOfObjects ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
