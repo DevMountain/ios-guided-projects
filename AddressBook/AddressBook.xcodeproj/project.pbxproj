@@ -11,6 +11,11 @@
 		9DF81C95204F490100603884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF81C93204F490100603884 /* Main.storyboard */; };
 		9DF81C97204F490100603884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF81C96204F490100603884 /* Assets.xcassets */; };
 		9DF81C9A204F490100603884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF81C98204F490100603884 /* LaunchScreen.storyboard */; };
+		9DF81CA5204F4A9100603884 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF81CA4204F4A9100603884 /* ContactsTableViewController.swift */; };
+		9DF81CA7204F4B0C00603884 /* ContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF81CA6204F4B0C00603884 /* ContactsController.swift */; };
+		9DF81CAA204F4C0100603884 /* AddressBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DF81CA8204F4C0100603884 /* AddressBook.xcdatamodeld */; };
+		9DF81CAC204F55F000603884 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF81CAB204F55F000603884 /* ContactDetailViewController.swift */; };
+		9DF81CB1204F56E700603884 /* Contact+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF81CB0204F56E700603884 /* Contact+Extras.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		9DF81C96204F490100603884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DF81C99204F490100603884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DF81C9B204F490100603884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF81CA4204F4A9100603884 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		9DF81CA6204F4B0C00603884 /* ContactsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsController.swift; sourceTree = "<group>"; };
+		9DF81CA9204F4C0100603884 /* AddressBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AddressBook.xcdatamodel; sourceTree = "<group>"; };
+		9DF81CAB204F55F000603884 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		9DF81CB0204F56E700603884 /* Contact+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+Extras.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				9DF81C8F204F490100603884 /* AppDelegate.swift */,
+				9DF81CAF204F560A00603884 /* Model */,
+				9DF81CAE204F55FE00603884 /* Model Controllers */,
+				9DF81CAD204F55F700603884 /* View Controllers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -75,6 +88,32 @@
 				9DF81C98204F490100603884 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9DF81CAD204F55F700603884 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DF81CA4204F4A9100603884 /* ContactsTableViewController.swift */,
+				9DF81CAB204F55F000603884 /* ContactDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9DF81CAE204F55FE00603884 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DF81CA6204F4B0C00603884 /* ContactsController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		9DF81CAF204F560A00603884 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DF81CA8204F4C0100603884 /* AddressBook.xcdatamodeld */,
+				9DF81CB0204F56E700603884 /* Contact+Extras.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF81CA5204F4A9100603884 /* ContactsTableViewController.swift in Sources */,
+				9DF81CB1204F56E700603884 /* Contact+Extras.swift in Sources */,
+				9DF81CAC204F55F000603884 /* ContactDetailViewController.swift in Sources */,
+				9DF81CAA204F4C0100603884 /* AddressBook.xcdatamodeld in Sources */,
+				9DF81CA7204F4B0C00603884 /* ContactsController.swift in Sources */,
 				9DF81C90204F490100603884 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +378,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9DF81CA8204F4C0100603884 /* AddressBook.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9DF81CA9204F4C0100603884 /* AddressBook.xcdatamodel */,
+			);
+			currentVersion = 9DF81CA9204F4C0100603884 /* AddressBook.xcdatamodel */;
+			path = AddressBook.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9DF81C84204F490100603884 /* Project object */;
 }
