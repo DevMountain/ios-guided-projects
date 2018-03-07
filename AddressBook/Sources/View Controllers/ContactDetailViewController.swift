@@ -15,7 +15,9 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		navigationItem.rightBarButtonItem = editButtonItem
+		let editButton = editButtonItem
+		editButton.action = #selector(toggleEditing(_:))
+		navigationItem.rightBarButtonItem = editButton
 		updateViews(animated: false)
 	}
 	
@@ -24,7 +26,12 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 	// MARK: Actions
 	
 	@IBAction func cancel(_ sender: Any) {
-		
+		setEditing(false, animated: true)
+	}
+	
+	@IBAction func toggleEditing(_ sender: Any) {
+		if isEditing { saveContact() }
+		setEditing(!isEditing, animated: true)
 	}
 	
 	// MARK: UITextFieldDelegate
@@ -80,9 +87,6 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 	
 	override func setEditing(_ editing: Bool, animated: Bool) {
 		super.setEditing(editing, animated: animated)
-		if !editing {
-			saveContact()
-		}
 		updateViews(animated: animated)
 	}
 	
