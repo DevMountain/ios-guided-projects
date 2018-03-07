@@ -27,6 +27,7 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
 		if segue.identifier == "AddContact" {
 			let detailVC = segue.destination as! ContactDetailViewController
 			detailVC.contact = ContactsController.shared.createNewContact()
+			detailVC.setEditing(true, animated: false) // Start in edit mode
 		}
 		
 		if segue.identifier == "ShowContactDetail" {

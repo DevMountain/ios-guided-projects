@@ -21,6 +21,11 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 		updateViews(animated: false)
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		firstNameField.becomeFirstResponder()
+	}
+	
 	// MARK: Public Methods
 	
 	// MARK: Actions
@@ -32,6 +37,7 @@ class ContactDetailViewController: UIViewController, UITextFieldDelegate {
 	@IBAction func toggleEditing(_ sender: Any) {
 		if isEditing { saveContact() }
 		setEditing(!isEditing, animated: true)
+		if isEditing { firstNameField.becomeFirstResponder() }
 	}
 	
 	// MARK: UITextFieldDelegate
