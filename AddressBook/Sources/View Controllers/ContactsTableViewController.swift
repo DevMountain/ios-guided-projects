@@ -62,6 +62,13 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
 		return cell
 	}
 	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			let contact = fetchedResultsController.object(at: indexPath)
+			contact.managedObjectContext?.delete(contact)
+		}
+	}
+	
 	// MARK: NSFetchedResultsControllerDelegate
 	
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
