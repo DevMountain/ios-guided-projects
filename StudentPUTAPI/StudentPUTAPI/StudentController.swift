@@ -23,7 +23,6 @@ class StudentController {
         guard let url = baseURL?.appendingPathComponent(UUID().uuidString).appendingPathExtension("json") else { completion(false); return }
         
         var request = URLRequest(url: url)
-        
         request.httpMethod = "PUT"
         request.httpBody = student.jsonData
         
