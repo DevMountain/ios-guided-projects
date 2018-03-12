@@ -51,10 +51,8 @@ extension Contact {
 		dictionary[Contact.lastNameKey] = lastName
 		dictionary[Contact.phoneNumberKey] = phoneNumber
 		dictionary[Contact.uniqueIDKey] = uniqueID?.uuidString ?? UUID().uuidString
-		dictionary[Contact.modificationDateKey] = Contact.iso8601Formatter.string(from: Date())
+		dictionary[Contact.modificationDateKey] = Date().timeIntervalSinceReferenceDate
 		return dictionary
 	}
-	
-	private static let iso8601Formatter = ISO8601DateFormatter()
 }
 

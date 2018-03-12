@@ -111,6 +111,8 @@ class ContactsController {
 				} catch {
 					completion(error)
 				}
+				
+				completion(nil)
 			}
 		}
 	}

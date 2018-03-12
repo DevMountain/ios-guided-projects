@@ -26,9 +26,8 @@ class NetworkClient {
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
 		
 		if let date = date {
-			let iso8601 = ISO8601DateFormatter().string(from: date)
-			urlComponents.queryItems = [URLQueryItem(name: "orderBy", value: "modificationDate"),
-							  URLQueryItem(name: "startAt", value: iso8601)]
+			urlComponents.queryItems = [URLQueryItem(name: "orderBy", value: "\"modificationDate\""),
+							  URLQueryItem(name: "startAt", value: String(date.timeIntervalSinceReferenceDate))]
 		}
 		
 		url = urlComponents.url!

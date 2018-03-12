@@ -15,6 +15,11 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let refreshControl = UIRefreshControl()
+		refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+		tableView.refreshControl = refreshControl
+		
 		fetchedResultsController.delegate = self
 		do {
 			try fetchedResultsController.performFetch()
@@ -42,6 +47,23 @@ class ContactsTableViewController: UITableViewController, NSFetchedResultsContro
 	// MARK: Public Methods
 	
 	// MARK: Actions
+	
+	@IBAction func refresh(_ sender: UIRefreshControl) {
+		let controller = ContactsController.shared
+		controller.syncAllContacts { (error) in
+			
+			defer {
+				DispatchQueue.main.async {
+					sender.endRefreshing()
+				}
+			}
+			
+			if let error = error {
+				NSLog("Error syncing contacts: \(error)")
+				return
+			}
+		}
+	}
 	
 	// MARK: UITableViewDelegate/DataSource
 	
