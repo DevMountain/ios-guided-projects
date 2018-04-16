@@ -20,7 +20,7 @@ struct Pokemon: Decodable {
     let sprites: Sprites
     
     var abilitiesNames: [String] {
-        return abilities.flatMap( { $0.ability.name })
+        return abilities.compactMap( { $0.ability.name })
     }
     
     struct Sprites: Decodable {

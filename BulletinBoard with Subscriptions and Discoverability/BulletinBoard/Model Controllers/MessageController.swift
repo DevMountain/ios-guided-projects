@@ -49,7 +49,7 @@ class MessageController {
             
             guard let records = records else { return }
             
-            let messages = records.flatMap({ Message(cloudKitRecord: $0) })
+            let messages = records.compactMap({ Message(cloudKitRecord: $0) })
             
             self.messages = messages
         }
@@ -85,7 +85,7 @@ class MessageController {
                 
                 guard let records = records else { return }
                 
-                let messages = records.flatMap({ Message(cloudKitRecord: $0) })
+                let messages = records.compactMap({ Message(cloudKitRecord: $0) })
                 
                 self.searchedUserMessages = messages
             })

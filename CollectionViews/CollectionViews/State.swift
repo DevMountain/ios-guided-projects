@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class State: NSObject {
+@objc class State: NSObject {
     
     let name: String
     let abbreviation: String

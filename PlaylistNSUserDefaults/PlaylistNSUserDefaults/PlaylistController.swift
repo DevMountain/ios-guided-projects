@@ -51,7 +51,7 @@ class PlaylistController {
     func loadFromPersistentStore() {
 		let userDefaults = UserDefaults.standard
         guard let playlistDictionaries = userDefaults.object(forKey: PlaylistController.PlaylistsKey) as? [[String: Any]] else { return }
-        playlists = playlistDictionaries.flatMap { Playlist(dictionary: $0) }
+        playlists = playlistDictionaries.compactMap { Playlist(dictionary: $0) }
     }
 	
 	// MARK: Properties 

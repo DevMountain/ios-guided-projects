@@ -24,7 +24,7 @@ class SongTableViewController: UITableViewController, NSFetchedResultsController
 		guard let playlist = playlist,
 			let name = songTextField.text,
 			let artist = artistTextField.text,
-			name.characters.count > 0 && artist.characters.count > 0 else { return }
+			name.count > 0 && artist.count > 0 else { return }
 		SongController.create(songWithName: name, artist: artist, playlist: playlist)
 		songTextField.text = ""
 		artistTextField.text = ""

@@ -68,7 +68,7 @@ class StudentController {
 				return
 			}
             
-			let students = studentsDict.flatMap { Student(dictionary: $0.value) }
+			let students = studentsDict.compactMap { Student(dictionary: $0.value) }
             
             self.students = students
             

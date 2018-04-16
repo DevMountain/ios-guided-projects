@@ -69,7 +69,7 @@ class SurveyController {
                 return
             }
             
-			let surveys = jsonDictionary.flatMap { Survey(dictionary: $0.1 ,identifier: $0.0) }
+            let surveys = jsonDictionary.compactMap { Survey(dictionary: $0.1 ,identifier: $0.0) }
             
             self.surveys = surveys
             

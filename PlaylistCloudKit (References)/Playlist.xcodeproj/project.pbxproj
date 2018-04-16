@@ -17,6 +17,8 @@
 		1AFCF5F21CDA69B5006D2F3D /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCF5F11CDA69B5006D2F3D /* Playlist.swift */; };
 		1AFCF5F41CDA6A1C006D2F3D /* PlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCF5F31CDA6A1C006D2F3D /* PlaylistController.swift */; };
 		1AFCF5F61CDA6BAD006D2F3D /* SongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCF5F51CDA6BAD006D2F3D /* SongController.swift */; };
+		46F4CC252032402A00244AC5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F4CC242032402A00244AC5 /* CloudKit.framework */; };
+		46F4CC272032420500244AC5 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4CC262032420500244AC5 /* CloudKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		1AFCF5F11CDA69B5006D2F3D /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		1AFCF5F31CDA6A1C006D2F3D /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
 		1AFCF5F51CDA6BAD006D2F3D /* SongController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongController.swift; sourceTree = "<group>"; };
+		46F4CC222032402700244AC5 /* Playlist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Playlist.entitlements; sourceTree = "<group>"; };
+		46F4CC242032402A00244AC5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		46F4CC262032420500244AC5 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F4CC252032402A00244AC5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +56,7 @@
 			children = (
 				1AFCF5D81CDA6730006D2F3D /* Playlist */,
 				1AFCF5D71CDA6730006D2F3D /* Products */,
+				46F4CC232032402A00244AC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,7 @@
 		1AFCF5D81CDA6730006D2F3D /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
+				46F4CC222032402700244AC5 /* Playlist.entitlements */,
 				1AFCF5D91CDA6730006D2F3D /* AppDelegate.swift */,
 				1AFCF5F91CDA72FF006D2F3D /* Models */,
 				1AFCF5F71CDA72EF006D2F3D /* Model Controllers */,
@@ -78,6 +86,7 @@
 			children = (
 				1AFCF5F51CDA6BAD006D2F3D /* SongController.swift */,
 				1AFCF5F31CDA6A1C006D2F3D /* PlaylistController.swift */,
+				46F4CC262032420500244AC5 /* CloudKitManager.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -98,6 +107,14 @@
 				1AFCF5F11CDA69B5006D2F3D /* Playlist.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		46F4CC232032402A00244AC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46F4CC242032402A00244AC5 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9D27B51F1D75F5EC00D8F988 /* Resources */ = {
@@ -143,7 +160,16 @@
 				TargetAttributes = {
 					1AFCF5D51CDA6730006D2F3D = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = W4BT774F98;
 						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -185,6 +211,7 @@
 			files = (
 				1AFCF5F61CDA6BAD006D2F3D /* SongController.swift in Sources */,
 				1AFCF5F01CDA6969006D2F3D /* Song.swift in Sources */,
+				46F4CC272032420500244AC5 /* CloudKitManager.swift in Sources */,
 				1AFCF5EC1CDA68C1006D2F3D /* PlaylistTableViewController.swift in Sources */,
 				1AFCF5EE1CDA68C7006D2F3D /* SongTableViewController.swift in Sources */,
 				1AFCF5DA1CDA6730006D2F3D /* AppDelegate.swift in Sources */,
@@ -323,9 +350,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Playlist/Playlist.entitlements;
+				DEVELOPMENT_TEAM = W4BT774F98;
 				INFOPLIST_FILE = Playlist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.devmountain.Playlist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SpencerCurtis.PlaylistWithReferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -336,9 +366,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Playlist/Playlist.entitlements;
+				DEVELOPMENT_TEAM = W4BT774F98;
 				INFOPLIST_FILE = Playlist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.devmountain.Playlist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SpencerCurtis.PlaylistWithReferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

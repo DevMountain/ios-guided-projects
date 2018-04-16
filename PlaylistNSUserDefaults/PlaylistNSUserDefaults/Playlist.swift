@@ -23,7 +23,7 @@ class Playlist: Equatable {
         guard let name = dictionary[Playlist.NameKey] as? String,
             let songDictionaries = dictionary[Playlist.SongsKey] as? [[String: Any]] else { return nil }
 		
-		let songs = songDictionaries.flatMap { Song(dictionary: $0) }
+        let songs = songDictionaries.compactMap { Song(dictionary: $0) }
 		
 		self.init(name: name, songs: songs)
     }
