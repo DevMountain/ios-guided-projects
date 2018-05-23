@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JSc-d2-jSD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Survey List View Controller-->
+        <scene sceneID="lhX-fT-C7k">
+            <objects>
+                <viewController id="JnZ-oC-Bfe" customClass="SurveyListViewController" customModule="BestHeroes_Villians" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aiu-ec-xNl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPA-2l-cig">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FPA-2l-cig" firstAttribute="bottom" secondItem="1Nz-9W-DtI" secondAttribute="bottom" id="FLS-ty-5SV"/>
+                            <constraint firstItem="FPA-2l-cig" firstAttribute="trailing" secondItem="1Nz-9W-DtI" secondAttribute="trailing" id="jel-fC-wVY"/>
+                            <constraint firstItem="FPA-2l-cig" firstAttribute="top" secondItem="1Nz-9W-DtI" secondAttribute="top" id="ozF-mi-j8j"/>
+                            <constraint firstItem="FPA-2l-cig" firstAttribute="leading" secondItem="1Nz-9W-DtI" secondAttribute="leading" id="wi5-yh-die"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Nz-9W-DtI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hyz-zn-fhR"/>
+                    <connections>
+                        <outlet property="tableView" destination="FPA-2l-cig" id="IzB-WQ-BIC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJ4-Na-ZwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2151.1999999999998" y="615.74212893553226"/>
+        </scene>
+        <!--Survey View Controller-->
+        <scene sceneID="zk5-yh-PzQ">
+            <objects>
+                <viewController id="bRD-vX-aAK" customClass="SurveyViewController" customModule="BestHeroes_Villians" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pO2-zl-5cT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GTt-DN-LBk">
+                                <rect key="frame" x="40" y="408" width="295" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="Em8-pO-s9Q"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="LkZ-5y-DMv"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Hero"/>
+                                    <segment title="Villian"/>
+                                </segments>
+                                <color key="tintColor" red="0.80784313725490198" green="0.25490196078431371" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="selectedHeroType:" destination="bRD-vX-aAK" eventType="valueChanged" id="0xR-Bx-N1b"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your favorite..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xuh-do-Qra">
+                                <rect key="frame" x="40" y="478" width="295" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MtH-wH-7yO"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbU-95-JPQ">
+                                <rect key="frame" x="40" y="548" width="295" height="50"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.28235294117647058" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9kw-85-8Uk"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Submit"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitHeroPressed:" destination="bRD-vX-aAK" eventType="touchUpInside" id="cTX-Vl-cy4"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heroes-vs-villians" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-G8-P0T">
+                                <rect key="frame" x="40" y="153.5" width="295" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="qTc-2a-mCl"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="R4c-z7-1So" firstAttribute="trailing" secondItem="fbU-95-JPQ" secondAttribute="trailing" constant="40" id="45x-Dt-D3G"/>
+                            <constraint firstItem="Xuh-do-Qra" firstAttribute="leading" secondItem="R4c-z7-1So" secondAttribute="leading" constant="40" id="4te-s7-ISH"/>
+                            <constraint firstItem="gtb-G8-P0T" firstAttribute="centerX" secondItem="pO2-zl-5cT" secondAttribute="centerX" id="DGX-FQ-flj"/>
+                            <constraint firstItem="R4c-z7-1So" firstAttribute="trailing" secondItem="Xuh-do-Qra" secondAttribute="trailing" constant="40" id="Db9-Ne-jM7"/>
+                            <constraint firstItem="fbU-95-JPQ" firstAttribute="top" secondItem="Xuh-do-Qra" secondAttribute="bottom" constant="20" id="FAa-bF-Wic"/>
+                            <constraint firstItem="GTt-DN-LBk" firstAttribute="leading" secondItem="R4c-z7-1So" secondAttribute="leading" constant="40" id="Fgm-tQ-ZDG"/>
+                            <constraint firstItem="fbU-95-JPQ" firstAttribute="leading" secondItem="R4c-z7-1So" secondAttribute="leading" constant="40" id="S3p-Bq-aRn"/>
+                            <constraint firstItem="R4c-z7-1So" firstAttribute="trailing" secondItem="gtb-G8-P0T" secondAttribute="trailing" constant="40" id="TWQ-zD-KRA"/>
+                            <constraint firstItem="R4c-z7-1So" firstAttribute="trailing" secondItem="GTt-DN-LBk" secondAttribute="trailing" constant="40" id="e4U-Yw-iO9"/>
+                            <constraint firstItem="gtb-G8-P0T" firstAttribute="leading" secondItem="R4c-z7-1So" secondAttribute="leading" constant="40" id="k0e-yb-GUB"/>
+                            <constraint firstItem="Xuh-do-Qra" firstAttribute="top" secondItem="GTt-DN-LBk" secondAttribute="bottom" constant="20" id="lAX-Oo-VTN"/>
+                            <constraint firstItem="R4c-z7-1So" firstAttribute="bottom" secondItem="fbU-95-JPQ" secondAttribute="bottom" constant="20" id="uSa-sD-UWp"/>
+                            <constraint firstItem="gtb-G8-P0T" firstAttribute="centerY" secondItem="pO2-zl-5cT" secondAttribute="centerY" constant="-80" id="yHX-Cq-SoC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R4c-z7-1So"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1P0-HO-VmP"/>
+                    <connections>
+                        <outlet property="heroNameTextField" destination="Xuh-do-Qra" id="CW3-CR-4jc"/>
+                        <outlet property="heroSubmitButton" destination="fbU-95-JPQ" id="YKc-96-pQe"/>
+                        <outlet property="heroTypeSelector" destination="GTt-DN-LBk" id="T8H-j5-M9y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="En6-d6-Opk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2151.1999999999998" y="-49.025487256371818"/>
+        </scene>
+        <!--Survey Tab Bar View Controller-->
+        <scene sceneID="xtQ-pq-jBg">
+            <objects>
+                <tabBarController id="JSc-d2-jSD" customClass="SurveyTabBarViewController" customModule="BestHeroes_Villians" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4xc-xj-ISw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.80784313730000001" green="0.25490196079999999" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uVb-vk-xoD" kind="relationship" relationship="viewControllers" id="iXq-PX-e0D"/>
+                        <segue destination="Kl2-oP-CW2" kind="relationship" relationship="viewControllers" id="HR5-OH-Wfu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nr-5A-u1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="283"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aKV-WJ-PG6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uVb-vk-xoD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="T7T-3W-A1Y">
+                        <color key="badgeColor" red="0.80000000000000004" green="0.28235294117647058" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kwe-So-l7m">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bRD-vX-aAK" kind="relationship" relationship="rootViewController" id="YkU-8K-CS6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZf-QM-gxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="-49.025487256371818"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Jr-3E-qvu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kl2-oP-CW2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="9a1-lv-KMM">
+                        <color key="badgeColor" red="0.039215686274509803" green="0.19607843137254902" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0k4-Iv-osc">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JnZ-oC-Bfe" kind="relationship" relationship="rootViewController" id="05m-yf-1yF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8e5-Me-HIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="615.74212893553226"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heroes-vs-villians" width="600" height="281"/>
+    </resources>
+</document>
