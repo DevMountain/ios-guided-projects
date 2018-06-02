@@ -16,6 +16,11 @@ class PlaylistController {
         let playlist = Playlist(name: name)
         playlists.append(playlist)
     }
+
+    // This methods returns a playlist from playlists instead of giving the ViewController direct access to private data
+    func playlist(at indexPath: IndexPath) -> Playlist {
+        return playlists[indexPath.row]
+    }
     
     func delete(playlist: Playlist) {
         guard let index = playlists.index(of: playlist) else { return }
@@ -33,5 +38,9 @@ class PlaylistController {
  
 	// MARK: Properties
 	
-	var playlists = [Playlist]()
+	private var playlists = [Playlist]()
+    // Use a computed property to return the count. We do not want other classes to be able to access playlists directly.
+    var numberOfPlaylists: Int {
+        return playlists.count
+    }
 }
