@@ -14,8 +14,9 @@ Before starting, make sure everyone has the images they need.
 5. Set up your model controller with mock data.
 6. Implement your table view data source functions but leave a comment where you should be updating the cell's subviews.
 7. Create a 'setting' computed property in your custom cell class and set it in your table view data source function. Include in the computed property a change in cell background color based on the setting's isSet property (that way you can tell what the model is storing for isSet even after tapping the switch).
-  * Make sure everyone can run their app and show the four mock settings in the tableview. Explain that although the switch is moving, the background color is not changing which means that we aren't actually changing the model object, which we need to do.
+* Make sure everyone can run their app and show the four mock settings in the tableview. Explain that although the switch is moving, the background color is not changing which means that we aren't actually changing the model object, which we need to do.
 8. Begin to explain the delegate pattern and review how protocols work. It might be useful to update the model in the action and ask why that isn't appropriate (views shouldn't interact with models). A good analogy is an outfielder throwing the ball to home plate - it's possible but the ball will bounce and so it's more effective to throw to an infielder who will throw home.
 9. Make your custom delegate, add a property to the cell of the delegate type, and call your delegate function in your action.
-10. Make your view controller conform to the delegate protocol and implement the body of the delegate function by setting the 'isSet' property on the 'setting' instance.
-  * Run and make sure everyone sees how the background color of the cell now changes because we have created a chain of calls that end in updating the model object. Make sure everyone's project is working.
+10. Make your view controller conform to the delegate protocol and implement the body of the delegate function by calling a function in the Model Controller which will set the 'isSet' property on the 'setting' instance.
+* Run and make sure everyone sees how the background color of the cell now changes because we have created a chain of calls that end in updating the model object. Make sure everyone's project is working.
+
